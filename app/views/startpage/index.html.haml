@@ -7,5 +7,5 @@
 %section
   = form_for $url, url: { action: 'edit', controller: 'edit' } do |f|
     %h2="Ссылка на товар в decathlon:"
-    = f.text_field :url, placeholder: "https://decatholon.ru/..."
+    = f.text_field :url, placeholder: "https://www.decatholon.ru/..."
     = submit_tag '[ получить данные ]'
