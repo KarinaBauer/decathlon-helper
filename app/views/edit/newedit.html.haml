@@ -1,0 +1,27 @@
+= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'edit', media: 'all', 'data-turbolinks-track': 'reload'
+
+= form_for :item, url: { action: 'preview', controller: 'generated' } do |f|
+  %header
+    = image_tag('logo_decathlon.png')
+  = f.text_field :name, value: @item_data[:name]
+
+  %article
+    %aside
+      %figure
+        %div#wrapper
+          = image_tag('varranty2.png', class: 'varranty')
+          = image_tag(@item_data[:image])
+        %figcaption
+          = f.text_field :articulus, value: @item_data[:articulus], class: 'articulus'
+          = f.text_field :price, value: @item_data[:price], class: 'price'
+
+    %section
+      -params[:avantages].each do |avant|
+        %figure
+          = image_tag(avant[:icon])
+          %figcaption
+            %strong= avant[:title]
+            %span= avant[:description]
+
+= console

@@ -1,0 +1,29 @@
+= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'edit', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'form', media: 'all', 'data-turbolinks-track': 'reload'
+
+%header
+  = link_to '<< В начало', controller: 'startpage'
+  %h1="Генератор бализажей"
+
+%section
+  %h2="Данные:"
+  = form_for :item, url: { action: 'preview', controller: 'generated' } do |f|
+    = f.hidden_field :confirmation, value: 'generated'
+    = f.hidden_field :image, value: @item_data[:image]
+    = f.label 'Наименование товара'
+    = f.text_field :name, value: @item_data[:name]
+    = f.label 'Артикул'
+    = f.text_field :articulus, value: @item_data[:articulus]
+    = f.label 'Цена в рублях'
+    = f.text_field :price, value: @item_data[:price]
+
+    %h2="Характеристики:"
+    -@avantages.each do |avantage|
+      %input{:name => "avantages[][icon]", :type => "hidden", :value => avantage[:icon]}
+      = f.label 'заголовок'
+      %input{:name => "avantages[][title]", :type => "text", :value => avantage[:title]}
+      = f.label 'описание'
+      %input{:name => "avantages[][description]", :type => "text", :value => avantage[:description]}
+      %br
+    = submit_tag '[ сформировать шаблон ]'

@@ -1,0 +1,96 @@
+body, article, aside, figure, section
+  display: flex
+
+body
+  flex-flow: column wrap
+  margin: 0
+  article
+    flex-flow: row nowrap
+    margin: 2px
+  section aside
+    justify-content: flex-start
+    text-align: left
+  figure
+    margin-left: 8px
+    margin-right: 8px
+
+header
+  flex: 1 0 auto
+  display: inline-flex
+  img
+    position: absolute
+    width: 60%
+h1
+  flex: 1 0 auto
+  text-align: right
+  font-size: 5vmin
+  margin-right: 10px
+  margin-bottom: 35px
+  padding: 5px
+
+aside
+  flex: 1 0 auto
+  flex-direction: column
+  flex-wrap: wrap
+  justify-content: flex-end
+  img[alt="Varranty2"]
+    position: absolute
+    left: -10px
+    margin-top: 15px
+    height: 70px
+    width: 70px
+  img
+    height: 50vmin
+    margin-left: 20px
+  figure
+    margin-top: 0
+    flex-flow: column wrap
+    #wrapper
+      display: flex
+    figcaption
+      background-image: url(yllw.png)
+      padding: 10px
+      margin-top: 5px
+      .articulus
+        font-size: 3vmin
+        margin-top: 3px
+      .price
+        width: 52vmin
+        display: inline-flex
+        justify-content: center
+        p
+          text-align: center
+          font-size: 18vmin
+          margin-bottom: 0px
+          margin-top: 10px
+          padding: 3px
+        small
+          font-size: 5vmin
+          margin-top: 20px
+
+section
+  flex-flow: row wrap
+  height: 80vh
+  justify-content: flex-end
+  align-items: flex-end
+  figure
+    width: 100%
+    flex: 1 0 auto
+    flex-wrap: nowrap
+    justify-content: flex-start
+    align-items: center
+    margin: 4px
+    img
+      width: 70px
+      height: 70px
+    figcaption
+      display: flex
+      flex-flow: column wrap
+      width: 100%
+      strong
+        font-size: 4vmin
+        color: #0076c0
+        text-align: center
+      span
+        text-align: center
+        font-size: 8vmin

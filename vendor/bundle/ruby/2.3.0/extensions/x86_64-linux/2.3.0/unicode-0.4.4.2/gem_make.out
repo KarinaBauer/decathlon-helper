@@ -1,0 +1,17 @@
+current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/unicode-0.4.4.2/ext/unicode
+/home/cassie/.rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20170105-1586-1lo9iaa.rb extconf.rb
+creating Makefile
+
+current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/unicode-0.4.4.2/ext/unicode
+make "DESTDIR=" clean
+
+current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/unicode-0.4.4.2/ext/unicode
+make "DESTDIR="
+compiling ustring.c
+compiling unicode.c
+compiling wstring.c
+linking shared-object unicode/unicode_native.so
+
+current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/unicode-0.4.4.2/ext/unicode
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unicode_native.so ./.gem.20170105-1586-vgehj8/unicode
