@@ -1,8 +1,9 @@
-var avant = document.createElement('avant');
-avant.innerHTML = '
-%input{:name => "avantages[][icon]", :type => "hidden", :value => avantage[:icon]}
-= f.label 'заголовок'
-%input{:name => "avantages[][title]", :type => "text", :value => avantage[:title]}
-= f.label 'описание'
-%input{:name => "avantages[][description]", :type => "text", :value => avantage[:description]}
-'
+function avant_add() {
+  var avant = document.createElement('avant');
+    avant.innerHTML = "<input name='avantages[][icon]' type='hidden' value='arrow.jpg'><label>заголовок</label><input name='avantages[][title]' type='text' value='ХАРАКТЕРИСТИКА'><label>описание</label><input name='avantages[][description]' type='text' value='описание'>";
+  form.insertBefore(avant, submit);
+};
+
+function avant_del() {
+
+}

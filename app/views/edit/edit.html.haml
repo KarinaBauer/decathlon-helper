@@ -8,22 +8,22 @@
 
 %section
   %h2="Данные:"
-  = form_for :item, url: { action: 'preview', controller: 'generated' } do |f|
+  = form_for :item, url: { action: 'preview', controller: 'generated' }, :html => {:id => 'form'} do |f|
     = f.hidden_field :confirmation, value: 'generated'
     = f.hidden_field :image, value: @item_data[:image]
-    = f.label 'Наименование товара'
+    %label Наименование товара
     = f.text_field :name, value: @item_data[:name]
-    = f.label 'Артикул'
+    %label Артикул
     = f.text_field :articulus, value: @item_data[:articulus]
-    = f.label 'Цена в рублях'
+    %label Цена в рублях
     = f.text_field :price, value: @item_data[:price]
 
     %h2="Характеристики:"
     -@avantages.each do |avantage|
       %avant
-        %input{:name => "avantages[][icon]", :type => "hidden", :value => avantage[:icon]}
-        = f.label 'заголовок'
-        %input{:name => "avantages[][title]", :type => "text", :value => avantage[:title]}
-        = f.label 'описание'
-        %input{:name => "avantages[][description]", :type => "text", :value => avantage[:description]}
-    = submit_tag '[ сформировать шаблон ]'
+        %input{:name => 'avantages[][icon]', :type => 'hidden', :value => avantage[:icon]}
+        %label заголовок
+        %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title]}
+        %label описание
+        %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description]}
+    = submit_tag "[ сформировать шаблон ]", :id => 'submit'
