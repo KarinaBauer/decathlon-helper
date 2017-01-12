@@ -26,4 +26,5 @@
         %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title]}
         %label описание
         %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description]}
-    = submit_tag "[ сформировать шаблон ]", :id => 'submit'
+    = button_tag "Добавить характеристику", :onclick => 'avant_add()'
+    = submit_tag "Сформировать шаблон", :id => 'submit'
