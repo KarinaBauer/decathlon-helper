@@ -15,8 +15,8 @@ class EditController < ApplicationController
         image: 'img.jpg'
       }
       @avantages = [
-        {icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА', description: 'описание характеристики'},
-        {icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА 2', description: 'описание характеристики 2'},
+        {icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА', description: 'описание'},
+        {icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА 2', description: 'описание 2'}
       ]
 
     else
