@@ -1,7 +1,6 @@
 class EditController < ApplicationController
   protect_from_forgery except: :index
   def edit
-    #$url = 'https://www.decathlon.ru/kurtka-sibir-100-muzh-id_8374543.html'
     $url = params[:url]
     $url = '' if $url.nil?
     $rooturl = 'https://www.decathlon.ru'
@@ -40,9 +39,11 @@ class EditController < ApplicationController
       end
 
       avant = {
-        icon: icon, title: (expart.at_css('strong').text.strip.to_s).upcase,
+        icon: icon,
+        title: (expart.at_css('strong').text.strip.to_s).upcase,
         description: (expart.at_css('span').text.to_s).downcase
       }
+
       @avantages.push(avant)
       end
     end

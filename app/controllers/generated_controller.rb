@@ -1,17 +1,26 @@
 class GeneratedController < ApplicationController
   protect_from_forgery except: :index
   def preview
-
-    @item_data = params[:item]
-
     @avantages = []
     params[:avantages].each do |avantage|
-      avant = {
-        icon: params[:icon],
-        title: params[:title],
-        description: params[:description]
-      }
-      @avantages.push(avant)
+
+      unless avantage[:icon_new].nil?
+        uploaded_io = avantage[:icon_new]
+          File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+          file.write(uploaded_io.read)
+          @icon = uploaded_io.original_filename
+        end
+      else
+        @icon = avantage[:icon]
       end
+
+      avant = {
+        icon: @icon,
+        title: avantage[:title],
+        description: avantage[:description]
+      }
+
+    @avantages.push(avant)
+    end
   end
 end

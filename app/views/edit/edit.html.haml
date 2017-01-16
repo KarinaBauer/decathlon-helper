@@ -8,7 +8,7 @@
 
 %section
   %h2="Данные:"
-  = form_for :item, url: { action: 'preview', controller: 'generated' }, :html => {:id => 'form'} do |f|
+  = form_for :item, url: {action: 'preview', controller: 'generated'}, :html => {:id => 'form'} do |f|
     = f.hidden_field :confirmation, value: 'generated'
     = f.hidden_field :image, value: @item_data[:image]
     %label Наименование товара
@@ -26,5 +26,6 @@
         %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title]}
         %label описание
         %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description]}
-    = button_tag "Добавить характеристику", :onclick => 'avant_add()'
+        = f.file_field :icon_new, :name => 'avantages[][icon_new]'
+    %button{:onclick => 'avant_add()'} Добавить характеристику
     = submit_tag "Сформировать шаблон", :id => 'submit'

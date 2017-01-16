@@ -25,10 +25,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
-group :development, :test do
-  gem 'byebug', platform: :mri
-end
-
 group :development do
   gem 'web-console'
 end

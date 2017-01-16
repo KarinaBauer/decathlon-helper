@@ -6,4 +6,4 @@ function avant_add() {
 
 function avant_del() {
 
-}
+};
