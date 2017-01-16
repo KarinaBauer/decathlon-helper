@@ -1,6 +1,7 @@
 function avant_add() {
-  var avant = document.createElement('avant');
-    avant.innerHTML = "<input name='avantages[][icon]' type='hidden' value='arrow.jpg'><label>заголовок</label><input name='avantages[][title]' type='text' value='ХАРАКТЕРИСТИКА'><label>описание</label><input name='avantages[][description]' type='text' value='описание'>";
+  var avant = document.getElementsByTagName('avant');
+    avant = avant[0].cloneNode(true);
+    //avant.querySelector('title').innerHTML = '';
   form.insertBefore(avant, submit);
 };
 

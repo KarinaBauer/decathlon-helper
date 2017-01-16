@@ -23,9 +23,10 @@
       %avant
         %input{:name => 'avantages[][icon]', :type => 'hidden', :value => avantage[:icon]}
         %label заголовок
-        %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title]}
+        %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title], :class => 'title'}
         %label описание
-        %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description]}
+        %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description], :class => 'description'}
         = f.file_field :icon_new, :name => 'avantages[][icon_new]'
-    %button{:onclick => 'avant_add()'} Добавить характеристику
+    %a{:onclick => 'avant_add()', :id => 'avant_add'} Добавить характеристику
+    %ln
     = submit_tag "Сформировать шаблон", :id => 'submit'
