@@ -4,29 +4,38 @@
 
 %header
   = link_to '<< В начало', controller: 'startpage'
-  %h1="Генератор бализажей"
+  %h1 Генератор бализажей
 
 %section
-  %h2="Данные:"
   = form_for :item, url: {action: 'preview', controller: 'generated'}, :html => {:id => 'form'} do |f|
     = f.hidden_field :confirmation, value: 'generated'
     = f.hidden_field :image, value: @item_data[:image]
+    %h2 Данные:
     %label Наименование товара
     = f.text_field :name, value: @item_data[:name]
     %label Артикул
     = f.text_field :articulus, value: @item_data[:articulus]
     %label Цена в рублях
     = f.text_field :price, value: @item_data[:price]
+    %ln
 
-    %h2="Характеристики:"
-    -@avantages.each do |avantage|
-      %avant
-        %input{:name => 'avantages[][icon]', :type => 'hidden', :value => avantage[:icon]}
-        %label заголовок
-        %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title], :class => 'title'}
-        %label описание
-        %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description], :class => 'description'}
-        = f.file_field :icon_new, :name => 'avantages[][icon_new]'
+    %avantages#avants
+      %h2 Характеристики:
+      -@avantages.each do |avantage|
+
+        %figure
+          %aside
+            = image_tag(avantage[:icon])
+            = f.file_field :icon_new, :name => 'avantages[][icon_new]'
+          %figcaption
+            %a{:onclick => 'avant_del()', :id => 'avant_del'} [x] Удалить характеристику
+            %input{:name => 'avantages[][icon]', :type => 'hidden', :value => avantage[:icon]}
+            %label заголовок
+            %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title], :class => 'title'}
+            %label описание
+            %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description], :class => 'description'}
+          %ln
+
     %a{:onclick => 'avant_add()', :id => 'avant_add'} Добавить характеристику
     %ln
     = submit_tag "Сформировать шаблон", :id => 'submit'

@@ -1,10 +1,10 @@
 function avant_add() {
-  var avant = document.getElementsByTagName('avant');
+  var avant = document.getElementsByTagName('figure');
     avant = avant[0].cloneNode(true);
     //avant.querySelector('title').innerHTML = '';
-  form.insertBefore(avant, submit);
+  avants.appendChild(avant);
 };
 
 function avant_del() {
-
+	alert('test')
 };

@@ -1,6 +1,15 @@
-body, section, form, avant
+body, section, form, avantages, aside, figcaption
   display: flex
   flex-flow: column wrap
+
+ln
+  color: #161614
+  height: 10px
+  border-radius: 6px
+  border-bottom: 2px solid
+  margin: -5px
+  margin-bottom: 2px
+  padding-top: 3px
 
 body
   justify-content: flex-start
@@ -30,7 +39,7 @@ header
     height: auto
 
 section
-  width: 70%
+  width: 75%
   background-color: #fff
   padding: 5px
   margin-top: 40px
@@ -41,3 +50,21 @@ section
     margin: 3px
     width: auto
     color: #000
+  avantages figure
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-around
+    align-items: center
+    margin: 3px
+    padding: 3px
+    background-color: #e8e6ea
+    border-radius: 5px
+    border: 1px solid grey
+    figcaption
+      width: 80%
+    aside
+      display: flex
+      width: auto
+      img
+        width: 70px
+        border-radius: 5px
