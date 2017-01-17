@@ -6,6 +6,7 @@
 /log/*
 /tmp/*
 /public/uploads/*
+!/public/uploads
 !/log/.keep
 !/tmp/.keep
 
