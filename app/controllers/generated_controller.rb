@@ -8,7 +8,7 @@ class GeneratedController < ApplicationController
         uploaded_io = avantage[:icon_new]
         File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
           file.write(uploaded_io.read)
-          @icon = uploaded_io.original_filename
+          @icon = '/uploads/'+uploaded_io.original_filename
         end
       else
         @icon = avantage[:icon]

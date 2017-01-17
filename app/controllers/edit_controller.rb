@@ -3,7 +3,7 @@ class EditController < ApplicationController
   def edit
     $url = params[:url]
     $url = '' if $url.nil?
-    $rooturl = 'https://www.decathlon.ru'
+    $rooturl = 'http://www.decathlon.ru'
     @page = Nokogiri::HTML(open($url)) unless $url.length == 0
 
     if $url.length == 0
