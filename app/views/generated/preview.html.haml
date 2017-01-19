@@ -4,18 +4,18 @@
 %body
   %header
     = image_tag('logo_decathlon.png')
-  %h1=params[:item][:name]
+  %h1=params[:item_data][:name]
 
   %article
     %aside
       %figure
         %div#wrapper
           = image_tag('varranty2.png', class: 'varranty')
-          = image_tag(params[:item][:image])
+          = image_tag(params[:item_data][:image])
         %figcaption
-          %p.articulus= params[:item][:articulus]
+          %p.articulus= params[:item_data][:articulus]
           .price
-            %p= params[:item][:price]
+            %p= params[:item_data][:price]
             %small руб.
 
     %section
@@ -25,4 +25,4 @@
           %figcaption
             %strong= avant[:title]
             %span= avant[:description]
-//  -console
+//-console

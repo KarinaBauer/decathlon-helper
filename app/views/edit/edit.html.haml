@@ -7,8 +7,8 @@
   %h1 Генератор бализажей
 
 %section
-  = form_for :item, url: {action: 'preview', controller: 'generated'}, :html => {:id => 'form'} do |f|
-    = f.hidden_field :confirmation, value: 'generated'
+  = form_for :item_data, url: {action: :generate, controller: :edit}, :html => {:id => 'form'} do |f|
+    //= f.hidden_field :confirmation, value: 'generated'
     = f.hidden_field :image, value: @item_data[:image]
     %h2 Данные:
     %label Наименование товара
@@ -26,15 +26,14 @@
         %figure
           %aside
             = image_tag(avantage[:icon])
-            = f.file_field :icon_new, :name => 'avantages[][icon_new]'
+            = f.file_field :icon_new, :name => 'avantages[][new_icon]'
           %figcaption
-            %a{:onclick => 'avant_del()', :id => 'avant_del'} [x] Удалить характеристику
+            %a{:onclick => 'this.parentNode.parentNode.remove()', :id => 'avant_del'} [x] Удалить
             %input{:name => 'avantages[][icon]', :type => 'hidden', :value => avantage[:icon]}
             %label заголовок
             %input{:name => 'avantages[][title]', :type => 'text', :value => avantage[:title], :class => 'title'}
             %label описание
             %input{:name => 'avantages[][description]', :type => 'text', :value => avantage[:description], :class => 'description'}
-          %ln
 
     %a{:onclick => 'avant_add()', :id => 'avant_add'} Добавить характеристику
     %ln

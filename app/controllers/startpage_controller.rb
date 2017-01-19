@@ -1,5 +1,5 @@
 class StartpageController < ApplicationController
   def index
-    $url = ''
+  	$url = ''
   end
 end

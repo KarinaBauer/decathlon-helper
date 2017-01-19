@@ -1,24 +1,13 @@
 class EditController < ApplicationController
   protect_from_forgery except: :index
+
   def edit
     $url = params[:url]
     $url = '' if $url.nil?
     $rooturl = 'http://www.decathlon.ru'
-    @page = Nokogiri::HTML(open($url)) unless $url.length == 0
+    unless $url.length == 0
+      @page = Nokogiri::HTML(open($url))
 
-    if $url.length == 0
-      @item_data = {
-        articulus: 'артикул',
-        name: 'НАИМЕНОВАНИЕ ТОВАРА',
-        price: 'Цена',
-        image: 'img.jpg'
-      }
-      @avantages = [
-        {icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА', description: 'описание'},
-        {icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА 2', description: 'описание 2'}
-      ]
-
-    else
       @item_data = {
         articulus: @page.at_css("meta[itemprop='productID']")['content'].to_s,
         name: (@page.at_css('span#productName').text.to_s).upcase,
@@ -31,12 +20,8 @@ class EditController < ApplicationController
       @page.at_css('.list_avantage').css('.row').each do |row|
       expart = row.at_css("div[class='tablecell explanationpart']")
       picpart = row.at_css("div[class='tablecell pictopart']").at_css('img')
-
-      if picpart.nil?
-        icon = 'arrow.jpg'
-      else
-        icon = $rooturl+picpart['src'].to_s
-      end
+      icon = 'arrow.jpg'
+      icon = $rooturl+picpart['src'].to_s unless picpart.nil?
 
       avant = {
         icon: icon,
@@ -46,6 +31,40 @@ class EditController < ApplicationController
 
       @avantages.push(avant)
       end
+
+    else
+      @item_data = $item_data; @avantages = $avantages
     end
+  end
+
+  def generate
+    @item_data = params[:item_data]
+
+    @icons = []
+    params[:icons].each do |icon|
+      if icon.nil?
+        @icon = avantage[:icon]
+      else
+        uploaded_io = avantage[:icon_new]
+        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
+      @icon = '/uploads/'+uploaded_io.original_filename
+      end; @icons.push(@icon)
+    end
+
+    @avantages = []
+    params[:avantages].each do |avantage|
+
+      avant = {
+        icon: avantage[:icon],
+        title: avantage[:title],
+        description: avantage[:description]
+      }
+
+    @avantages.push(avant)
+    end
+
+  render 'generated/preview'
   end
 end
