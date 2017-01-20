@@ -1,5 +1,5 @@
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
-/home/cassie/.rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20170105-14428-14zadof.rb extconf.rb
+/home/cassie/.rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20170120-2629-6s4v4o.rb extconf.rb
 checking for main() in -lpthread... yes
 creating Makefile
 
@@ -12,36 +12,36 @@ make "DESTDIR=" clean
 
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
 make "DESTDIR="
-compiling function.cc
-compiling array.cc
-compiling accessor.cc
-compiling stack.cc
-compiling value.cc
-compiling object.cc
-compiling v8.cc
-compiling heap.cc
-compiling primitive.cc
-compiling init.cc
-compiling gc.cc
-compiling exception.cc
-compiling handles.cc
-compiling backref.cc
-compiling template.cc
-compiling rr.cc
-compiling string.cc
-compiling context.cc
-compiling script.cc
-compiling trycatch.cc
 compiling constants.cc
-compiling invocation.cc
-compiling date.cc
-compiling message.cc
-compiling constraints.cc
+compiling v8.cc
 compiling locker.cc
-compiling signature.cc
+compiling template.cc
 compiling external.cc
+compiling object.cc
+compiling gc.cc
+compiling invocation.cc
+compiling stack.cc
+compiling primitive.cc
+compiling exception.cc
+compiling accessor.cc
+compiling context.cc
+compiling function.cc
+compiling value.cc
+compiling string.cc
+compiling signature.cc
+compiling backref.cc
+compiling constraints.cc
+compiling script.cc
+compiling array.cc
+compiling heap.cc
+compiling trycatch.cc
+compiling handles.cc
+compiling rr.cc
+compiling date.cc
+compiling init.cc
+compiling message.cc
 linking shared-object v8/init.so
 
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 init.so ./.gem.20170105-14428-tch6en/v8
+/usr/bin/install -c -m 0755 init.so ./.gem.20170120-2629-1xx513o/v8

@@ -1,5 +1,5 @@
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/puma-3.6.2/ext/puma_http11
-/home/cassie/.rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20170105-1586-a1mv4f.rb extconf.rb
+/home/cassie/.rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20170120-2629-ia2yj6.rb extconf.rb
 checking for BIO_read() in -lcrypto... yes
 checking for SSL_CTX_new() in -lssl... yes
 checking for openssl/bio.h... yes
@@ -14,7 +14,6 @@ make "DESTDIR=" clean
 
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/puma-3.6.2/ext/puma_http11
 make "DESTDIR="
-compiling puma_http11.c
 compiling mini_ssl.c
 mini_ssl.c: In function ‘engine_init_server’:
 mini_ssl.c:139:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
@@ -46,6 +45,7 @@ mini_ssl.c:349:11: warning: unused variable ‘err’ [-Wunused-variable]
 mini_ssl.c:349:7: warning: unused variable ‘ok’ [-Wunused-variable]
    int ok, err;
        ^~
+compiling puma_http11.c
 compiling io_buffer.c
 compiling http11_parser.c
 In file included from ext/puma_http11/http11_parser.rl:7:0:
@@ -55,4 +55,4 @@ linking shared-object puma/puma_http11.so
 
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/puma-3.6.2/ext/puma_http11
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20170105-1586-oceijk/puma
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20170120-2629-1a8b1eu/puma

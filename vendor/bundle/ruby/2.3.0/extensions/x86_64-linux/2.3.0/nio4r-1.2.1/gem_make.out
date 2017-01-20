@@ -1,5 +1,5 @@
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/nio4r-1.2.1/ext/nio4r
-/home/cassie/.rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20170105-1586-ma6s6l.rb extconf.rb
+/home/cassie/.rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20170120-2629-9hsfa5.rb extconf.rb
 checking for unistd.h... yes
 checking for rb_thread_blocking_region()... no
 checking for rb_thread_call_without_gvl()... yes
@@ -20,6 +20,20 @@ make "DESTDIR=" clean
 
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/nio4r-1.2.1/ext/nio4r
 make "DESTDIR="
+compiling selector.c
+selector.c: In function ‘NIO_Selector_allocate’:
+selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     ev_init(&selector->timer, NIO_Selector_timeout_callback);
+     ^~~~~~~
+selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+     ev_io_init(&selector->wakeup, NIO_Selector_wakeup_callback, selector->wakeup_reader, EV_READ);
+     ^~~~~~~~~~
+selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
 compiling monitor.c
 monitor.c: In function ‘NIO_Monitor_initialize’:
 monitor.c:103:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
@@ -365,22 +379,8 @@ In file included from nio4r_ext.c:7:0:
 ../libev/ev.c:5180:27: warning: "/*" within comment [-Wcomment]
  /* EV_EMBED    0x00010000 /* embedded event loop needs sweep */
                             
-compiling selector.c
-selector.c: In function ‘NIO_Selector_allocate’:
-selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-     ev_init(&selector->timer, NIO_Selector_timeout_callback);
-     ^~~~~~~
-selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-selector.c:102:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-     ev_io_init(&selector->wakeup, NIO_Selector_wakeup_callback, selector->wakeup_reader, EV_READ);
-     ^~~~~~~~~~
-selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-selector.c:107:5: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
 linking shared-object nio4r_ext.so
 
 current directory: /home/cassie/railsage/vendor/bundle/ruby/2.3.0/gems/nio4r-1.2.1/ext/nio4r
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20170105-1586-7loi8a
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20170120-2629-13u4224

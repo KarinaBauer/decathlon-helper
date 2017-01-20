@@ -123,18 +123,7 @@ module ActionController
       end
 
       def authentication_request(controller, realm, message)
-        message ||= '
-		<title>Вы не авторизованы</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="/assets/error.css"/>
-		<div class="dialog">
-		 <div>
-		  <h1>Ошибка авторизации (401)</h1>
-		  <p>Вы не авторизовались в приложении или ввели неверные данные.</p>
-		 </div>
-		<p>Уточните данные авторизации и повторите попытку.</p>
-		</div>
-	'
+        message ||= "HTTP Basic: Access denied.\n"
         controller.headers["WWW-Authenticate"] = %(Basic realm="#{realm.tr('"'.freeze, "".freeze)}")
         controller.status = 401
         controller.response_body = message

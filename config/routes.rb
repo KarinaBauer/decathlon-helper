@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  post '/edit', to: 'edit#edit'
-  get '/edit', to: 'edit#edit'
+  post '/edit', to: 'edit#index'
+  get '/edit', to: 'edit#index'
   post '/generated', to: 'edit#generate'
   get '/generated', to: 'edit#generate'
   #post '/generated', to: 'generated#preview'
