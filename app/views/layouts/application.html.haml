@@ -1,0 +1,8 @@
+!!! 5
+%title Balisage maker
+= csrf_meta_tags
+= favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
+= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track': 'reload'
+%body
+ = yield
