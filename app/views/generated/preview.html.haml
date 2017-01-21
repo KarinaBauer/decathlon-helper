@@ -19,7 +19,7 @@
             %small руб.
 
     %section
-      -params[:avantages].each do |avantage|
+      -params[:item][:avantages].each do |avantage|
         %figure
           = image_tag(avantage[:icon])
           %figcaption
