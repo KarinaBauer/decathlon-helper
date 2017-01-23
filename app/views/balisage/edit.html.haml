@@ -1,10 +1,9 @@
 = stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag 'edit', media: 'all', 'data-turbolinks-track': 'reload'
-= stylesheet_link_tag 'form', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
   = link_to '<< В начало', controller: 'start'
-  %h1 Генератор бализажей
+  %h1 Генератор бализажей: редактирование шаблона
 
 %section
   = form_for @item, url: {action: :generate}, :html => {:id => 'form'} do |f|
@@ -26,13 +25,13 @@
             = image_tag(avantage[:icon])
             = f.file_field :new_icon, :name => 'item[avantages][][new_icon]'
           %figcaption
-            %a{:onclick => 'this.parentNode.parentNode.remove()', :id => 'avant_del'} [x] Удалить
+            %a{:onclick => 'this.parentNode.parentNode.remove()', :class => 'button-delete'} [x] Удалить
             %input{:name => 'item[avantages][][icon]', :type => 'hidden', :value => avantage[:icon]}
             %label заголовок
             %input{:name => 'item[avantages][][title]', :type => 'text', :value => avantage[:title], :class => 'title'}
             %label описание
             %input{:name => 'item[avantages][][description]', :type => 'text', :value => avantage[:description], :class => 'description'}
 
-    %a{:onclick => 'avant_add()', :id => 'avant_add'} Добавить характеристику
+    %a{:onclick => 'avant_add()', :class => 'button blue_button'} Добавить характеристику
     %ln
-    = submit_tag "Сформировать шаблон", :id => 'submit'
+    = f.submit "Сформировать шаблон", :class => 'button blue_button'

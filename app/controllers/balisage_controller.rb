@@ -43,7 +43,7 @@ class BalisageController < ApplicationController
   def generate
     #@item = Item.new(item_params)
     #@item.save
-    render '/generated/preview'
+    render 'view'
   end
 
   private
