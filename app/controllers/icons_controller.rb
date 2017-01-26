@@ -1,17 +1,11 @@
 class IconsController < ApplicationController
+  protect_from_forgery except: :index
+
   def index
     @icons = Icon.all
     @icon = Icon.new
+    render 'manager'
   end
- 
-  def show
-    @icon = Icon.find(params[:id])
-  end
- 
-  def edit
-    @icon = Icon.find(params[:id])
-  end
- 
 
   def create
     @icon = Icon.new(icon_params)
@@ -21,27 +15,20 @@ class IconsController < ApplicationController
     end
 
     args = {:url => '/uploads/'+uploaded_io.original_filename}
-    @icons = Icon.new(args)
+    @icon = Icon.new(args)
     @icon.save
 
     if @icon.save
-      redirect_to '/icons'
+      redirect_to icons_path
     else
       render 'index'
     end
   end
  
- 
-  def update
+  def show
     @icon = Icon.find(params[:id])
- 
-    if @icon.update(icon_params)
-      redirect_to @icon
-    else
-      render 'edit'
-    end
   end
- 
+
   def destroy
     @icon = Icon.find(params[:id])
     @icon.destroy
@@ -51,6 +38,6 @@ class IconsController < ApplicationController
  
   private
     def icon_params
-      params.require(:icon).permit(:url)
+      params.require(:icon).permit(:url, :id)
     end
 end

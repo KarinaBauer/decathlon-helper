@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	resources :icons
+  resources :icons
   get '/edit', to: 'balisage#edit'
   post '/edit', to: 'balisage#edit'
   get '/edit', to: 'balisage#edit'
