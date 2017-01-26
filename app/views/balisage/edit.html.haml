@@ -1,5 +1,6 @@
 = stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag 'edit', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'dropdown', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
   = link_to '<< В начало', controller: 'start'
@@ -21,15 +22,27 @@
       %h2 Характеристики:
       -@avantages_from_page.each do |avantage|
         %figure
+
           %aside
-            = image_tag(avantage[:icon])
-            = f.file_field :new_icon, :name => 'item[avantages][][new_icon]'
+            %label Иконка
+            #dropdown{class: 'wrapper-dropdown'}
+              %span
+                = image_tag(avantage[:icon])
+              %ul{class: 'dropdown'}
+                %li
+                  %a
+                    = image_tag(avantage[:icon])
+                -@icons.each do |icon|
+                  %li
+                    %a
+                      %img{src: icon[:url]}
+
           %figcaption
             %a{:onclick => 'this.parentNode.parentNode.remove()', :class => 'button-delete'} [x] Удалить
             %input{:name => 'item[avantages][][icon]', :type => 'hidden', :value => avantage[:icon]}
-            %label заголовок
+            %label Заголовок
             %input{:name => 'item[avantages][][title]', :type => 'text', :value => avantage[:title], :class => 'title'}
-            %label описание
+            %label Описание
             %input{:name => 'item[avantages][][description]', :type => 'text', :value => avantage[:description], :class => 'description'}
 
     %a{:onclick => 'avant_add()', :class => 'button blue_button'} Добавить характеристику

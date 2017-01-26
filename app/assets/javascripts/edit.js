@@ -3,7 +3,6 @@ function avant_add() {
   avant.innerHTML = 
     	'<aside>\
     		<img src="assets/arrow.jpg" alt="Arrow" />\
-    		<input name="item[avantages][][new_icon]" type="file" id="item_new_icon" />\
     	</aside>\
     	<figcaption>\
     		<a id="avant_del" onclick="this.parentNode.parentNode.remove()">[x] Удалить</a>\
@@ -15,3 +14,46 @@ function avant_add() {
     	</figcaption>';
   avants.appendChild(avant);
 };
+
+function DropDown(el) {
+    this.dropdown = el;
+    this.placeholder = this.dropdown.children('span');
+    this.opts = this.dropdown.find('ul.dropdown > li');
+    this.val = '';
+    this.index = -1;
+    this.initEvents();
+    }
+
+DropDown.prototype = {
+    initEvents : function() {
+        var object = this;
+
+        object.dropdown.on('click', function(event){
+            $(this).toggleClass('active');
+            return false;
+        });
+
+        object.opts.on('click',function(){
+            var option = $(this);
+            object.val = option.text();
+            object.index = option.index();
+            object.placeholder.text(object.val);
+        });
+    },
+
+    getValue : function() {
+        return this.val;
+    },
+    getIndex : function() {
+        return this.index;
+    }
+}
+
+$(function() {
+    var dropdown = new DropDown( $('#dropdown') );
+
+    $(document).click(function() {
+    // all dropdowns
+        $('.wrapper-dropdown').removeClass('active');
+    });
+});

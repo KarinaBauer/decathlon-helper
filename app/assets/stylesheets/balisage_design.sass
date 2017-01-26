@@ -4,14 +4,16 @@ body, article, aside, figure, section
 @font-face
   font-family: roboto
   src: url(roboto.ttf)
+@page
+  margin: 0
 
 body
   flex-flow: column wrap
   margin: 0
   font-family: roboto
   article
-    flex-flow: row nowrap
     margin: 2px
+    justify-content: space-between
   figure
     margin-left: 8px
     margin-right: 8px
@@ -20,33 +22,29 @@ header
   flex: 1 0 auto
   display: inline-flex
   img
-    position: absolute
-    width: 60%
+    //position: absolute
+    height: 20vmin
 h1
   flex: 1 0 auto
   text-align: right
   font-size: 5vmin
   margin-right: 10px
-  margin-bottom: 35px
   padding: 5px
 
 aside
-  flex: 1 0 auto
   flex-direction: column
-  flex-wrap: wrap
   justify-content: flex-start
-  img[alt="Varranty2"]
+  img.varranty
     position: absolute
     left: -10px
     margin-top: 15px
-    height: 70px
-    width: 70px
+    height: 12.5vmin
   img
     height: 50vmin
     margin-left: 20px
   figure
     margin-top: 0
-    flex-flow: column wrap
+    flex-direction: column
     #wrapper
       display: flex
     figcaption
@@ -72,23 +70,21 @@ aside
           margin-top: 20px
 
 section
-  flex-flow: row wrap
-  height: 80vh
+  flex-direction: column
   justify-content: flex-end
-  //align-items: flex-start
   figure
     width: 100%
     flex: 1 0 auto
     flex-wrap: nowrap
-    justify-content: flex-start
     align-items: center
     margin: 4px
     img
       width: 70px
     figcaption
       display: flex
-      flex-flow: column wrap
+      flex-direction: column
       width: 100%
+      align-items: flex-start
       strong
         font-size: 4vmin
         color: #0076c0

@@ -3,6 +3,7 @@ class BalisageController < ApplicationController
 
   def edit
     @item = Item.new
+    @icons = Icon.all
     $url = params[:url]
     $url = '' if $url.nil?
     $rooturl = 'http://www.decathlon.ru'
