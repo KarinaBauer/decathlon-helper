@@ -7,15 +7,16 @@
   %h1 Генератор бализажей: редактирование шаблона
 
 %section
-  = form_for @item, url: {action: :generate}, :html => {:id => 'form'} do |f|
+  = form_for @item, url: {action: :generate}, html: {id: :'form'} do |f|
     = f.hidden_field :image, value: @data_from_page[:image]
-    %h2 Данные:
-    %label Наименование товара
-    = f.text_field :name, value: @data_from_page[:name]
-    %label Артикул
-    = f.text_field :articulus, value: @data_from_page[:articulus]
-    %label Цена в рублях
-    = f.text_field :price, value: @data_from_page[:price]
+    %h2 Основные данные:
+    = f.label "Наименование товара", class: :'item'
+    = f.text_field :name, value: @data_from_page[:name], class: :'item'
+    = f.label "Артикул", class: :'item'
+    = f.text_field :articulus, value: @data_from_page[:articulus], class: :'item'
+    = f.label "Цена в рублях", class: :'item'
+    = f.text_field :price, value: @data_from_page[:price], class: :'item'
+    %br
     %ln
 
     %avantages#avants
@@ -38,13 +39,26 @@
                       %img{src: icon[:url]}
 
           %figcaption
-            %a{:onclick => 'this.parentNode.parentNode.remove()', :class => 'button-delete'} [x] Удалить
-            %input{:name => 'item[avantages][][icon]', :type => 'hidden', :value => avantage[:icon]}
+            %a{onclick: :'this.parentNode.parentNode.remove()', class: :'button-delete'} [x] Удалить
+            %input{name: :'item[avantages][][icon]', type: :'hidden', value: avantage[:icon]}
             %label Заголовок
-            %input{:name => 'item[avantages][][title]', :type => 'text', :value => avantage[:title], :class => 'title'}
+            %input{name: :'item[avantages][][title]', type: :'text', value: avantage[:title], class: :'title'}
             %label Описание
-            %input{:name => 'item[avantages][][description]', :type => 'text', :value => avantage[:description], :class => 'description'}
+            %input{name: :'item[avantages][][description]', type: :'text', value: avantage[:description], class: :'description'}
 
-    %a{:onclick => 'avant_add()', :class => 'button blue_button'} Добавить характеристику
+    %a{onclick: :'avant_add()', class: :'button blue_button'} Добавить характеристику
     %ln
+
+    
+    %menu
+      %h2 Размер бализажа:
+      = radio_button_tag(:balisage_size, "a3")
+      = label_tag(:balisage_size_a3, "A3")
+      = radio_button_tag(:balisage_size, "a4", html: :checked)
+      = label_tag(:balisage_size_a4, "A4")
+      = radio_button_tag(:balisage_size, "a5")
+      = label_tag(:balisage_size_a5, "A5")
+      = radio_button_tag(:balisage_size, "a6")
+      = label_tag(:balisage_size_a6, "A6")
+
     = f.submit "Сформировать шаблон", :class => 'button blue_button'
