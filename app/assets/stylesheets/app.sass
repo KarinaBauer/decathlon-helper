@@ -7,14 +7,14 @@
 	src: url(robothin.ttf)
 
 .button
-	border-radius: 7px
-	border-width: 2px
-	border-style: outset
-	text-decoration: none
 	display: flex
 	justify-content: center
 	align-items: center
-
+	margin: 10px
+	border-radius: 4px
+	border-style: none
+	text-decoration: none
+	box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.24)
 	color: #000
 	font-size: 17px
 	height: 40px
@@ -22,20 +22,21 @@
 	margin-top: 10px
 	background-color: #fde828
 
-.small_button
+.button-small
 	width: 30%
 
 .button-delete
 	color: #fff
 	width: auto
-	padding: 2px
+	margin: 2px
+	padding: 0px 10px
 	align-self: flex-end
 	background-color: #9c3d5c
 
 ln
 	color: #161614
 	height: 10px
-	border-radius: 6px
+	border-radius: 4px
 	border-bottom: 2px solid
 	margin: -5px
 	margin-bottom: 2px
@@ -50,7 +51,7 @@ icons
 	flex-flow: row wrap
 	justify-content: center
 	.icon
-		padding: 10px
+		padding: 5px
 		margin: 15px
 
 body
@@ -59,6 +60,10 @@ body
 	align-items: center
 	color: #fff
 	background-color: #161614
+	background: url(http://1.nieuwsbladcdn.be/Assets/Images_Upload/2014/09/25/IMG_8547.JPG)
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
 	padding: 0px
 	margin: 0
 	header
@@ -70,6 +75,7 @@ body
 		width: 100%
 		position: relative
 		background-color: #0082C3
+		box-shadow: 0 2px 0 rgba(0,0,0,0.12)
 		h1
 			text-align: center
 			padding: 5px
@@ -83,11 +89,15 @@ section
 	padding: 5px
 	margin-top: 40px
 	margin-bottom: 40px
-	border-radius: 5px
+	border-radius: 2px
+	h1
+		font-size: 2em
+		padding: 5px
+		margin: 3px
+		color: #000
 	h2
 		padding: 5px
 		margin: 3px
-		width: auto
 		color: #000
 	menu
 		display: inline-flex
@@ -113,7 +123,7 @@ form
 		background-color: #0082C3
 		color: #fff
 		font-family: roboto
-		border-radius: 5px
+		border-radius: 4px
 	.item
 		width: 60%
 		margin-left: 50px

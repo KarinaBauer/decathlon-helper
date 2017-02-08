@@ -5,14 +5,12 @@
 
 %section
   %h1 Менеджер иконок
-  = link_to "<< В начало", { controller: :start }, class: 'button blue_button'
-  %ln
+  = link_to "<< В начало", { controller: :start }, class: 'button button-small'
   = form_for @icon, url: { action: :create }, html: { id: :form } do |f|
     %h2 Загрузка новой иконки:
     %label Выбор файла
     = f.file_field :url
-    = f.submit "Отправить", class: 'button small_button blue_button'
-  %ln
+    = f.submit "Отправить", class: 'button button-small'
 
   %h2 Загруженные ранее:
   %icons
@@ -21,4 +19,5 @@
         %aside
           %img{ src: icon.url }
         %figcaption
-          = link_to "[x] Удалить", icons_path(icon), method: :destroy, data: { confirm: "Вы уверены?" }, class: 'button-delete'
+          = link_to "[x] Удалить", icons_path(icon), method: :destroy, data: { confirm: "Вы уверены?" },
+           class: 'button button-delete'
