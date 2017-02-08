@@ -6,6 +6,7 @@
 /log/*
 /tmp/*
 /other/*
+/vendor/bundle/*
 /public/uploads/*
 !/log/.keep
 !/tmp/.keep
