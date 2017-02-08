@@ -1,24 +1,24 @@
 = stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
-= stylesheet_link_tag 'icons', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
-  = link_to '<< В начало', controller: 'start'
-  %h1 Генератор бализажей: менеджер иконок
+  %h1 ГЕНЕРАТОР БАЛИЗАЖЕЙ
 
 %section
-  = form_for @icon, url: {action: :create}, :html => {:id => 'form'} do |f|
+  %h1 Менеджер иконок
+  = link_to "<< В начало", { controller: :start }, class: 'button blue_button'
+  %ln
+  = form_for @icon, url: { action: :create }, html: { id: :form } do |f|
     %h2 Загрузка новой иконки:
     %label Выбор файла
     = f.file_field :url
-    = f.submit "Отправить", :class => 'button small_button blue_button'
+    = f.submit "Отправить", class: 'button small_button blue_button'
   %ln
 
   %h2 Загруженные ранее:
   %icons
     -@icons.each do |icon|
-      %figure{:id => icon.id}
+      %figure{ id: icon.id, class: :icon }
         %aside
-          %img{:src => icon.url}
+          %img{ src: icon.url }
         %figcaption
-          = link_to "[x] Удалить", icons_path(icon), method: :destroy, data: {confirm: "Вы уверены?"}, class: :'button-delete'
-  %ln
+          = link_to "[x] Удалить", icons_path(icon), method: :destroy, data: { confirm: "Вы уверены?" }, class: 'button-delete'

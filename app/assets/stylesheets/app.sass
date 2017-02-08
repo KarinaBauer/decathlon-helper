@@ -2,29 +2,100 @@
 	font-family: roboto
 	src: url(roboto.ttf)
 
-body
+@font-face
+	font-family: roboto_thin
+	src: url(robothin.ttf)
+
+.button
+	border-radius: 7px
+	border-width: 2px
+	border-style: outset
+	text-decoration: none
+	display: flex
+	justify-content: center
+	align-items: center
+
+	color: #000
+	font-size: 17px
+	height: 40px
 	font-family: roboto
+	margin-top: 10px
+	background-color: #fde828
+
+.small_button
+	width: 30%
+
+.button-delete
+	color: #fff
+	width: auto
+	padding: 2px
+	align-self: flex-end
+	background-color: #9c3d5c
+
+ln
+	color: #161614
+	height: 10px
+	border-radius: 6px
+	border-bottom: 2px solid
+	margin: -5px
+	margin-bottom: 2px
+	padding-top: 3px
+
+body, section, form, avantages, aside, figcaption
 	display: flex
 	flex-flow: column wrap
 
-header
+icons
 	display: flex
-	flex-flow: row nowrap
+	flex-flow: row wrap
 	justify-content: center
-	height: auto
-	margin: 0px
-	width: 100%
-	position: relative
-	background-color: #004677
-	a
-		color: #fff
-		align-self: flex-start
-	h1
-		text-align: center
-		padding: 5px
-		margin-top: 0px
-		margin-bottom: 0px
+	.icon
+		padding: 10px
+		margin: 15px
+
+body
+	font-family: roboto
+	justify-content: flex-start
+	align-items: center
+	color: #fff
+	background-color: #161614
+	padding: 0px
+	margin: 0
+	header
+		display: flex
+		flex-flow: row nowrap
+		justify-content: center
 		height: auto
+		margin: 0px
+		width: 100%
+		position: relative
+		background-color: #0082C3
+		h1
+			text-align: center
+			padding: 5px
+			margin-top: 0px
+			margin-bottom: 0px
+			height: auto
+
+section
+	width: 60%
+	background-color: #fff
+	padding: 5px
+	margin-top: 40px
+	margin-bottom: 40px
+	border-radius: 5px
+	h2
+		padding: 5px
+		margin: 3px
+		width: auto
+		color: #000
+	menu
+		display: inline-flex
+		align-items: center
+		input
+			margin-left: 2vw
+		label
+			font-size: 1.5em
 
 form
 	background-color: #fff
@@ -39,53 +110,30 @@ form
 		font-size: 20px
 		padding: 5px
 		height: 30px
-		background-color: #0082c8
+		background-color: #0082C3
 		color: #fff
 		font-family: roboto
 		border-radius: 5px
 	.item
 		width: 60%
 		margin-left: 50px
-	a
+
+figure
+	display: flex
+	flex-flow: row nowrap
+	justify-content: space-around
+	align-items: center
+	padding: 7px 0px 10px 3px
+	background-color: #fee255
+	border-radius: 5px
+	border: 1px solid grey
+	figcaption
+		width: 80%
+		margin: 3px
+	aside
 		display: flex
-		justify-content: center
-		align-items: center
-
-.button
-	color: #fff
-	border-radius: 7px
-	border-width: 2px
-	border-style: outset
-	text-decoration: none
-
-	font-size: 17px
-	height: 40px
-	font-family: roboto
-	margin-top: 10px
-
-.blue_button
-	background-color: #0047A1
-
-.small_button
-	width: 30%
-
-.button-delete
-	color: #fff
-	border-radius: 7px
-	border-width: 2px
-	border-style: outset
-	text-decoration: none
-
-	width: auto
-	padding: 2px
-	align-self: flex-end
-	background-color: #9c3d5c
-
-ln
-	color: #161614
-	height: 10px
-	border-radius: 6px
-	border-bottom: 2px solid
-	margin: -5px
-	margin-bottom: 2px
-	padding-top: 3px
+		width: auto
+		img
+			width: 70px
+			margin: 3px
+			border-radius: 5px

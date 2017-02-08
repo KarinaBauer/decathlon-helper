@@ -1,13 +1,12 @@
-= stylesheet_link_tag 'startpage', media: 'all', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
-	%h1="Генератор бализажей"
+	%h1 ГЕНЕРАТОР БАЛИЗАЖЕЙ
 
 %section
-	= form_for $url, url: { action: 'edit', controller: 'balisage' } do |f|
-		%h2="Ссылка на товар в decathlon:"
+	= form_for $url, url: { action: :edit, controller: :balisage } do |f|
+		%h2 Ссылка на товар в decathlon:
 		= f.text_field :url, placeholder: "https://www.decatholon.ru/..."
-		= f.submit "Получить данные", :class => 'button blue_button'
-		%ln
-		%a{:href => '/icons', :class => 'button blue_button', :target => '_blank'} Открыть менеджер иконок
+		= f.submit "Получить данные", class: 'button blue_button'
+	%ln
+	= link_to "Менеджер иконок", { controller: :icons }, class: 'button blue_button'
