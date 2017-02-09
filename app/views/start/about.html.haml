@@ -8,17 +8,18 @@
 %section
 	%h2 Автор
 
-	%figure{ class: [ :contact, :small ] }
-		%aside
-			= image_tag('email.png')
-		%figcaption
-			%label Электронный адрес
-			= mail_to "marsixsoft@yahoo.com", "marsixsoft@yahoo.com", class: :button
+	%contacts
+		%figure{ class: [ :contact, :small ] }
+			%aside
+				= image_tag('email.png')
+			%figcaption
+				%label Электронный адрес
+				= mail_to "marsixsoft@yahoo.com", "marsixsoft@yahoo.com", class: :button
 
-	%figure{ class: [ :contact, :small ] }
-		%aside
-			= image_tag('vk.png')
-		%figcaption
-			%label vk.com
-			= link_to "Открыть страницу", 'https://vk.com/m2aco', class: :button, target: :_blank
+		%figure{ class: [ :contact, :small ] }
+			%aside
+				= image_tag('vk.png')
+			%figcaption
+				%label vk.com
+				= link_to "Открыть страницу", 'https://vk.com/m2aco', class: :button, target: :_blank
 	
