@@ -6,15 +6,18 @@
 	font-family: roboto_thin
 	src: url(robothin.ttf)
 
+@font-face
+	font-family: texgyreadventor
+	src: url(texgyreadventor.otf)
+
 .button
 	display: flex
 	justify-content: center
 	align-items: center
-	margin: 10px
+	margin: 10px 40px
 	border-radius: 4px
 	border-style: none
 	text-decoration: none
-	box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.24)
 	color: #000
 	font-size: 17px
 	height: 40px
@@ -25,7 +28,7 @@
 .button-small
 	width: 30%
 
-.button-delete
+.button_delete
 	color: #fff
 	width: auto
 	margin: 2px
@@ -45,6 +48,9 @@ ln
 body, section, form, avantages, aside, figcaption
 	display: flex
 	flex-flow: column wrap
+
+figure, section, .button
+	box-shadow: -4px 4px 0 rgba(0,0,0,0.24)
 
 icons
 	display: flex
@@ -67,13 +73,13 @@ body
 	padding: 0px
 	margin: 0
 	header
+		position: fixed
 		display: flex
 		flex-flow: row nowrap
 		justify-content: center
 		height: auto
 		margin: 0px
 		width: 100%
-		position: relative
 		background-color: #0082C3
 		box-shadow: 0 2px 0 rgba(0,0,0,0.12)
 		h1
@@ -86,8 +92,8 @@ body
 section
 	width: 60%
 	background-color: #fff
-	padding: 5px
-	margin-top: 40px
+	padding: 10px 5px 20px
+	margin-top: 80px
 	margin-bottom: 40px
 	border-radius: 2px
 	h1
@@ -95,13 +101,16 @@ section
 		padding: 5px
 		margin: 3px
 		color: #000
+		font-family: roboto_thin
 	h2
 		padding: 5px
 		margin: 3px
 		color: #000
+		font-family: roboto_thin
 	menu
 		display: inline-flex
 		align-items: center
+		margin-bottom: 0
 		input
 			margin-left: 2vw
 		label
@@ -133,10 +142,9 @@ figure
 	flex-flow: row nowrap
 	justify-content: space-around
 	align-items: center
-	padding: 7px 0px 10px 3px
+	padding: 7px 15px 15px
 	background-color: #fee255
-	border-radius: 5px
-	border: 1px solid grey
+	border-radius: 2px
 	figcaption
 		width: 80%
 		margin: 3px
