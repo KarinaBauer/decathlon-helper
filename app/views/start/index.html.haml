@@ -9,4 +9,5 @@
 		= f.text_field :url, placeholder: "https://www.decatholon.ru/..."
 		= f.submit "Получить данные", class: 'button blue_button'
 
-	= link_to "Менеджер иконок", { controller: :icons }, class: 'button blue_button'
+	= link_to "Менеджер иконок", { controller: :icons }, class: :button
+	= link_to "Открыть decathlon.ru", "http://decathlon.ru", class: :button, target: :_blank
