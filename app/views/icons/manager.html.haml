@@ -1,23 +1,23 @@
 = stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
-  %h1 ГЕНЕРАТОР БАЛИЗАЖЕЙ
+	%nav
+		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
+	%h1 Управление иконками
 
 %section
-  %h1 Менеджер иконок
-  = link_to "<< В начало", { controller: :start }, class: [ :button, :button_small ]
-  = form_for @icon, url: { action: :create }, html: { id: :form } do |f|
-    %h2 Загрузка новой иконки:
-    %label Выбор файла
-    = f.file_field :url
-    = f.submit "Отправить", class: [ :button, :button_small ]
+	= form_for @icon, url: { action: :create }, html: { id: :form } do |f|
+		%h2 Загрузка новой иконки:
+		%label Выбор файла
+		= f.file_field :url
+		= f.submit "Отправить", class: [ :button, :small ]
 
-  %h2 Загруженные ранее:
-  %icons
-    -@icons.each do |icon|
-      %figure{ id: icon.id, class: :icon }
-        %aside
-          %img{ src: icon.url }
-        %figcaption
-          = link_to "[x] Удалить", icons_path(icon), method: :destroy, data: { confirm: "Вы уверены?" },
-           class: [ :button, :button_delete ]
+	%h2 Загруженные ранее:
+	%icons
+		-@icons.each do |icon|
+			%figure{ id: icon.id, class: :icon }
+				%aside
+					%img{ src: icon.url }
+				%figcaption
+					= link_to "[x] Удалить", icons_path(icon), method: :destroy, data: { confirm: "Вы уверены?" },
+					 class: [ :button, :button_small ]

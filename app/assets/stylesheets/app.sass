@@ -10,56 +10,28 @@
 	font-family: texgyreadventor
 	src: url(texgyreadventor.otf)
 
-.button
+body, header, nav, section, form, avantages, icons, figure, aside, figcaption, .button
 	display: flex
-	justify-content: center
-	align-items: center
-	margin: 10px 40px
-	border-radius: 2px
-	border-style: none
-	text-decoration: none
-	color: #000
-	font-size: 17px
-	height: 40px
-	font-family: roboto
-	margin-top: 10px
-	background-color: #fde828
-	cursor: pointer
 
-.button-small
-	width: 30%
+body, header, section, form, avantages, aside, figcaption
+	flex-direction: column
 
-.button_delete
-	color: #fff
-	width: auto
-	margin: 2px
-	padding: 0px 10px
-	align-self: flex-end
-	background-color: #9c3d5c
+header, section
+	width: 60%
+	padding: 10px 5px 20px	
 
-ln
-	color: #161614
-	height: 10px
-	border-radius: 2px
-	border-bottom: 2px solid
-	margin: -5px
-	margin-bottom: 2px
-	padding-top: 3px
-
-body, section, form, avantages, aside, figcaption
-	display: flex
-	flex-flow: column wrap
-
-figure, section, input[type="text"], .button
+header, section, figure, input[type="text"], .button
 	box-shadow: -4px 4px 0 rgba(0,0,0,0.24)
+	border-radius: 2px
+
 
 icons
-	display: flex
-	flex-flow: row wrap
 	justify-content: center
+
 	.icon
 		padding: 5px
 		margin: 15px
+
 
 body
 	font-family: roboto
@@ -73,57 +45,61 @@ body
 	background-attachment: fixed
 	padding: 0px
 	margin: 0
-	header
-		position: fixed
-		left: 0
-		display: flex
-		flex-flow: row nowrap
-		justify-content: center
-		height: auto
-		margin: 0px
-		width: 100%
-		background-color: #0082C3
-		box-shadow: 0 2px 0 rgba(0,0,0,0.12)
-		h1
-			text-align: center
-			padding: 5px
-			margin-top: 0px
-			margin-bottom: 0px
-			height: auto
+
+
+header
+	margin-top: 40px
+	background-color: #0082C3
+	border-bottom-left-radius: 0
+	border-bottom-right-radius: 0
+
+	h1
+		font-size: 4em
+		text-align: center
+		margin: 0
+		margin-bottom: 7px
+		color: #fff
+		font-family: roboto_thin
+
+	nav
+		.button
+			background-color: #fde828
+			color: #000
+
 
 section
-	width: 60%
-	background-color: #fff
-	padding: 10px 5px 20px
-	margin-top: 80px
 	margin-bottom: 40px
-	border-radius: 2px
-	h1
-		font-size: 2em
-		padding: 5px
-		margin: 3px
-		color: #000
-		font-family: roboto_thin
+	background-color: #fff
+	border-top-left-radius: 0
+	border-top-right-radius: 0
+	color: #000
+
+	.button
+		background-color: #fee255
+
 	h2
 		padding: 5px
 		margin: 3px
-		color: #000
 		font-family: roboto_thin
+
 	menu
 		display: inline-flex
 		align-items: center
 		margin-bottom: 0
+
 		input
 			margin-left: 2vw
+
 		label
-			font-size: 1.5em
+			font-size: 1.5em	
+
 
 form
 	width: 100%
-	label
-		color: #161614  
+
 	input[type="file"]
-		width: 100px
+		width: 200px
+
 	input[type="text"]
 		height: 30px
 		padding: 5px
@@ -132,28 +108,78 @@ form
 		background-color: #0082C3
 		color: #fff
 		font-family: roboto
-		border-radius: 2px
-	#_url
-		margin: 10px 40px
+
 	.item
 		width: 60%
 		margin-left: 50px
 
+
 figure
-	display: flex
-	flex-flow: row nowrap
+	flex-wrap: nowrap
 	justify-content: space-around
 	align-items: center
-	padding: 7px 15px 15px
+	padding: 15px
 	background-color: #fee255
-	border-radius: 2px
+
 	figcaption
 		width: 80%
 		margin: 3px
+		align-items: stretch
+
+	.button_small
+		align-self: flex-end
+		background-color: #9c3d5c
+
 	aside
 		display: flex
 		width: auto
+
 		img
 			width: 70px
-			margin: 3px
-			border-radius: 5px
+			border-radius: 2px
+
+		.icon
+			padding: 15px
+			border-radius: 2px
+			background-color: #0082C3
+
+
+label
+	color: #161614
+	margin-top: 5px
+	margin-bottom: 3px
+
+
+.button
+	justify-content: center
+	align-items: center
+	margin: 10px 40px
+	border-style: none
+	text-decoration: none
+	font-size: 17px
+	height: 40px
+	font-family: roboto
+	margin-top: 10px
+	color: #000
+	cursor: pointer
+
+.button_small
+	color: #fff
+	width: auto
+	margin: 0 5px
+	padding: 0px 10px
+	background-color: #9c3d5c
+
+.small
+	width: 30%
+
+.contact
+	label
+		align-self: center
+	.button
+		margin: 0
+		padding: 0 7px
+		align-self: center
+
+#_url
+	margin: 10px 40px

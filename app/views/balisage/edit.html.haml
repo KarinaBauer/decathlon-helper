@@ -1,51 +1,51 @@
 = stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
-= stylesheet_link_tag 'dropdown', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
-  %h1 ГЕНЕРАТОР БАЛИЗАЖЕЙ
+	%nav
+		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
+	%h1 Редактирование шаблона
 
 %section
-  %h1 Редактирование шаблона
-  = link_to "<< В начало", { controller: :start }, class: :button
-  = form_for @item, url: { action: :generate }, html: { id: :form } do |f|
-    = f.hidden_field :image, value: @data_from_page[:image]
-    %h2 Основные данные:
-    = f.label "Наименование товара", class: :item
-    = f.text_field :name, value: @data_from_page[:name], class: :item
-    = f.label "Артикул", class: :item
-    = f.text_field :articulus, value: @data_from_page[:articulus], class: :item
-    = f.label "Цена в рублях", class: :item
-    = f.text_field :price, value: @data_from_page[:price], class: :item
-    %br
+	= form_for @item, url: { action: :generate }, html: { id: :form } do |f|
+		= f.hidden_field :image, value: @data_from_page[:image]
+		%h2 Основные данные:
+		= f.label "Наименование товара", class: :item
+		= f.text_field :name, value: @data_from_page[:name], class: :item
+		= f.label "Артикул", class: :item
+		= f.text_field :articulus, value: @data_from_page[:articulus], class: :item
+		= f.label "Цена в рублях", class: :item
+		= f.text_field :price, value: @data_from_page[:price], class: :item
+		%br
 
-    %avantages#avants
-      %h2 Характеристики:
-      -@avantages_from_page.each do |avantage|
-        %figure
+		%avantages#avants
+			%h2 Характеристики:
+			-@avantages_from_page.each do |avantage|
+				%figure
 
-          %aside
-            %label Иконка
-            = image_tag(avantage[:icon])
+					%aside
+						%label Иконка
+						= image_tag(avantage[:icon], class: :icon)
 
-          %figcaption
-            %a{ onclick: 'this.parentNode.parentNode.remove()', class: [ :button, :button_delete ] } [x] Удалить
-            %input{ name: 'item[avantages][][icon]', type: :hidden, value: avantage[:icon] }
-            %label Заголовок
-            %input{ name: 'item[avantages][][title]', type: :text, value: avantage[:title], class: :title }
-            %label Описание
-            %input{ name: 'item[avantages][][description]', type: :text, value: avantage[:description], class: :description }
+					%figcaption
+						%a{ onclick: 'this.parentNode.parentNode.remove()', class: [ :button, :button_small ] } [x] Удалить
+						%input{ name: 'item[avantages][][icon]', type: :hidden, value: avantage[:icon] }
+						%label Заголовок
+						%input{ name: 'item[avantages][][title]', type: :text, value: avantage[:title], class: :title }
+						%label Описание
+						%input{ name: 'item[avantages][][description]', type: :text, value: avantage[:description],
+						 class: :description }
 
-    %a{ onclick: 'avant_add()', class: 'button blue_button' } Добавить характеристику
-    
-    %menu
-      %h2 Размер бализажа:
-      = radio_button_tag(:balisage_size, "a3")
-      = label_tag(:balisage_size_a3, "A3")
-      = radio_button_tag(:balisage_size, "a4", html: :checked)
-      = label_tag(:balisage_size_a4, "A4")
-      = radio_button_tag(:balisage_size, "a5")
-      = label_tag(:balisage_size_a5, "A5")
-      = radio_button_tag(:balisage_size, "a6")
-      = label_tag(:balisage_size_a6, "A6")
+		%a{ onclick: 'avant_add()', class: :button } Добавить характеристику
 
-    = f.submit "Сформировать шаблон", class: :button
+		%menu
+			%h2 Размер бализажа:
+			= radio_button_tag(:balisage_size, "a3")
+			= label_tag(:balisage_size_a3, "A3")
+			= radio_button_tag(:balisage_size, "a4", html: :checked)
+			= label_tag(:balisage_size_a4, "A4")
+			= radio_button_tag(:balisage_size, "a5")
+			= label_tag(:balisage_size_a5, "A5")
+			= radio_button_tag(:balisage_size, "a6")
+			= label_tag(:balisage_size_a6, "A6")
+
+		= f.submit "Сформировать шаблон", class: :button
