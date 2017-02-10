@@ -9,7 +9,7 @@
 %section
 	= form_for $url, url: { action: :edit, controller: :balisage } do |f|
 		%h2 Ссылка на товар в decathlon:
-		= f.text_field :url, placeholder: "https://www.decatholon.ru/..."
+		= f.text_field :url, placeholder: "https://www.decathlon.ru/..."
 		= f.submit "Получить данные", class: :button
 
 	= link_to "Открыть decathlon.ru", 'http://decathlon.ru', class: :button, target: :_blank
