@@ -4,34 +4,38 @@
 	%nav
 		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
 	%h1 Редактирование шаблона
+	%small Decathlon helper v.2.3 Beta
 
 %section
 	= form_for @item, url: { action: :generate }, html: { id: :form } do |f|
-		= f.hidden_field :image, value: @data_from_page[:image]
-		%h2 Основные данные:
-		= f.label "Наименование товара", class: :item
-		= f.text_field :name, value: @data_from_page[:name], class: :item #28 syms
-		= f.label "Артикул", class: :item
-		= f.text_field :articulus, value: @data_from_page[:articulus], class: :item
-		= f.label "Цена в рублях", class: :item
-		= f.text_field :price, value: @data_from_page[:price], class: :item
-		%br
+		%h2 Основные данные товара:
+		%figure{ class: :item_data }
+			%aside{ class: :item_image }
+				= label_tag "Изображение"
+				= image_tag(@data_from_page[:image])
+				= f.hidden_field :image, value: @data_from_page[:image]
+			%figcaption
+				= label_tag "Наименование"
+				= f.text_field :name, value: @data_from_page[:name]# 28 syms
+				= label_tag "Артикул"
+				= f.text_field :articulus, value: @data_from_page[:articulus]
+				= label_tag "Цена в рублях"
+				= f.text_field :price, value: @data_from_page[:price]
 
 		%avantages#avants
 			%h2 Характеристики:
 			-@avantages_from_page.each do |avantage|
 				%figure
-
-					%aside
-						%label Иконка
-						= image_tag(avantage[:icon], class: :icon)
+					%aside{ class: :avant_icon }
+						= label_tag "Иконка"
+						= image_tag(avantage[:icon])
 
 					%figcaption
 						%a{ onclick: 'this.parentNode.parentNode.remove()', class: [ :button, :button_small ] } [x] Удалить
 						%input{ name: 'item[avantages][][icon]', type: :hidden, value: avantage[:icon] }
-						%label Заголовок
+						= label_tag "Заголовок"
 						%input{ name: 'item[avantages][][title]', type: :text, value: avantage[:title], class: :title }
-						%label Описание
+						= label_tag "Описание"
 						%input{ name: 'item[avantages][][description]', type: :text, value: avantage[:description],
 						 class: :description }
 
@@ -39,13 +43,13 @@
 
 		%menu
 			%h2 Размер бализажа:
-			= radio_button_tag(:balisage_size, "a3")
-			= label_tag(:balisage_size_a3, "A3")
-			= radio_button_tag(:balisage_size, "a4", html: :checked)
-			= label_tag(:balisage_size_a4, "A4")
-			= radio_button_tag(:balisage_size, "a5")
-			= label_tag(:balisage_size_a5, "A5")
-			= radio_button_tag(:balisage_size, "a6")
-			= label_tag(:balisage_size_a6, "A6")
+			= radio_button_tag( :balisage_size, "a3" )
+			=				 label_tag( :balisage_size_a3, "A3" )
+			= radio_button_tag( :balisage_size, "a4", html: :checked )
+			=				 label_tag( :balisage_size_a4, "A4" )
+			= radio_button_tag( :balisage_size, "a5" )
+			=				 label_tag( :balisage_size_a5, "A5" )
+			= radio_button_tag( :balisage_size, "a6" )
+			=				 label_tag( :balisage_size_a6, "A6" )
 
 		= f.submit "Сформировать шаблон", class: :button

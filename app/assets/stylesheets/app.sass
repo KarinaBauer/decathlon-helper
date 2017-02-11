@@ -10,41 +10,35 @@
 	font-family: texgyreadventor
 	src: url(texgyreadventor.otf)
 
+@import customization
+
 body, header, nav, section, form, avantages, icons, contacts, figure, aside, figcaption, .button
 	display: flex
+
+header, section, figure, input[type="text"], .button, .avant_icon img, .item_image
+	box-shadow: -4px 4px 0 rgba(0,0,0,0.24)
+	border-radius: 2px
 
 body, header, section, form, avantages, aside, figcaption
 	flex-direction: column
 
 header, section
 	width: 60%
-	padding: 10px 5px 20px	
+	padding: 10px 5px 36px
 
-header, section, figure, input[type="text"], .button
-	box-shadow: -4px 4px 0 rgba(0,0,0,0.24)
-	border-radius: 2px
-
-contacts
-	justify-content: center
-
-icons
-	justify-content: center
-
-	.icon
-		padding: 5px
-		margin: 15px
+figure, icons
+	flex-wrap: wrap
 
 
 body
-	font-family: roboto
-	justify-content: flex-start
-	align-items: center
-	color: #fff
-	background-color: #161614
 	background-image: url(background.jpg)
 	background-repeat: no-repeat
 	background-size: cover
 	background-attachment: fixed
+	font-family: roboto
+	justify-content: flex-start
+	align-items: center
+	color: #fff
 	padding: 0px
 	margin: 0
 
@@ -59,9 +53,12 @@ header
 		font-size: 4em
 		text-align: center
 		margin: 0
-		margin-bottom: 7px
+		margin-top: 10px
 		color: #fff
 		font-family: roboto_thin
+
+	small
+		text-align: center
 
 	nav
 		justify-content: space-between
@@ -88,7 +85,7 @@ section
 	menu
 		display: inline-flex
 		align-items: center
-		margin-bottom: 0
+		padding-left: 0
 
 		input
 			margin-left: 2vw
@@ -100,7 +97,7 @@ section
 form
 	width: 100%
 
-	input[type="file"]
+	.send_file
 		width: 200px
 
 	input[type="text"]
@@ -112,39 +109,25 @@ form
 		color: #fff
 		font-family: roboto
 
-	.item
-		width: 60%
-		margin-left: 50px
-
 
 figure
-	flex-wrap: nowrap
 	justify-content: space-around
 	align-items: center
-	padding: 15px
+	padding: 15px 15px 30px
 	background-color: #fde828
+
+	aside
+		display: flex
+		padding: 5px
 
 	figcaption
 		width: 80%
 		margin: 3px
 		align-items: stretch
 
-	.button_small
-		align-self: flex-end
-		background-color: #9c3d5c
-
-	aside
-		display: flex
-		width: auto
-
-		img
-			width: 70px
-			border-radius: 2px
-
-		.icon
-			padding: 15px
-			border-radius: 2px
-			background-color: #0082C3
+		.button_small
+			background-color: #9c3d5c
+			align-self: flex-end
 
 
 label
@@ -168,26 +151,8 @@ label
 
 .button_small
 	color: #fff
-	width: auto
 	margin: 0 5px
 	padding: 0px 10px
-	background-color: #9c3d5c
 
 .small
 	width: 30%
-
-.version
-	position: fixed
-	right: 3px
-	top: 3px
-
-#_url
-	margin: 10px 40px
-
-.contact
-	label
-		align-self: center
-	.button
-		margin: 0
-		padding: 0 7px
-		align-self: center
