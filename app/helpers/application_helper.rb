@@ -5,7 +5,7 @@ module ApplicationHelper
 	$item_data = {
     	articulus: 12345678,
     	name: 'НЕТ ВХОДНЫХ ДАННЫХ',
-    	price: 0000,
+    	price: 0,
     	image: 'img.jpg'
     }
 
