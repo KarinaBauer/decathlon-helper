@@ -1,17 +1,17 @@
 module ApplicationHelper
 
+    $std_icon = 'arrow.jpg'
+
 	$item_data = {
     	articulus: 12345678,
-    	name: 'НАИМЕНОВАНИЕ ТОВАРА',
-    	price: 999,
+    	name: 'НЕТ ВХОДНЫХ ДАННЫХ',
+    	price: 0000,
     	image: 'img.jpg'
     }
 
-    $avantages = [
-    	{icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА', description: 'описание'},
-    	{icon: 'arrow.jpg', title: 'ХАРАКТЕРИСТИКА 2', description: 'описание 2'}
+    $avantages_null = [
+    	{icon: $std_icon, title: 'НЕТ ДАННЫХ', description: 'данных не обнаружено'},
+    	{icon: $std_icon, title: 'НЕТ ДАННЫХ', description: 'данных не обнаружено'}
     ]
-
-    $std_icon = 'arrow.jpg'
 
 end
