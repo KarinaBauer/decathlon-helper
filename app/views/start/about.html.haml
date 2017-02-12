@@ -1,26 +1,25 @@
 = stylesheet_link_tag 'config', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
+	%h1 О программе
+	%small Decathlon Helper v.2.5.2 Beta
+
 	%nav
 		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
-	%h1 О программе
-	%small Decathlon Helper v.2.5 Beta
 
 %section
 	%h2 Автор
 
 	%contacts
-		%figure{ class: [ :contact, :small ] }
+		%figure.contact.small
 			%aside
 				= image_tag('email.png')
 			%figcaption
-				%label Электронный адрес
-				= mail_to "marsixsoft@yahoo.com", "marsixsoft@yahoo.com", class: :button
+				= mail_to "marsixsoft@yahoo.com", "Написать письмо", class: :button
 
-		%figure{ class: [ :contact, :small ] }
+		%figure.contact.small
 			%aside
 				= image_tag('vk.png')
 			%figcaption
-				%label vk.com
 				= link_to "Открыть страницу", 'https://vk.com/m2aco', class: :button, target: :_blank
 	

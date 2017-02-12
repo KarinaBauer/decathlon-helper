@@ -1,16 +1,17 @@
 = stylesheet_link_tag 'config', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
+	%h1 Параметры бализажа
+	%small Decathlon Helper v.2.5.2 Beta
+
 	%nav
 		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
-	%h1 Редактирование шаблона
-	%small Decathlon Helper v.2.5 Beta
 
 %section
 	= form_for @item, url: { action: :generate }, html: { id: :form } do |f|
 		%h2 Основные данные товара:
-		%figure{ class: :item_data }
-			%aside{ class: :item_image }
+		%figure.item_data
+			%aside.item_image
 				= label_tag "Изображение"
 				= image_tag(@data_from_page[:image])
 				= f.hidden_field :image, value: @data_from_page[:image]
@@ -26,20 +27,19 @@
 			%h2 Характеристики:
 			-@avantages_from_page.each do |avantage|
 				%figure
-					%aside{ class: :avant_icon }
+					%aside.avant_icon
 						= label_tag "Иконка"
 						= image_tag(avantage[:icon])
 
 					%figcaption
-						%a{ onclick: 'this.parentNode.parentNode.remove()', class: [ :button, :button_small ] } [x] Удалить
+						%a.button.button_small{ onclick: 'this.parentNode.parentNode.remove()' } [x] Удалить
 						%input{ name: 'item[avantages][][icon]', type: :hidden, value: avantage[:icon] }
 						= label_tag "Заголовок"
-						%input{ name: 'item[avantages][][title]', type: :text, value: avantage[:title], class: :title }
+						%input.title{ name: 'item[avantages][][title]', type: :text, value: avantage[:title] }
 						= label_tag "Описание"
-						%input{ name: 'item[avantages][][description]', type: :text, value: avantage[:description],
-						 class: :description }
+						%input.description{ name: 'item[avantages][][description]', type: :text, value: avantage[:description] }
 
-		%a{ onclick: 'avant_add()', class: :button } Добавить характеристику
+		%a.button{ onclick: 'avant_add()' } Добавить характеристику
 
 		%menu
 			%h2 Размер бализажа:
