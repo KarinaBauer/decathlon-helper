@@ -1,4 +1,4 @@
-= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'config', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
 	%nav
@@ -9,14 +9,13 @@
 %section
 	= form_for @icon, url: { action: :create }, html: { id: :form } do |f|
 		%h2 Загрузка новой иконки:
-		%label Выбор файла
-		= f.file_field :url, class: :send_file
-		= f.submit "Отправить", class: [ :button, :small ]
+		= f.file_field :url, class: [ :send_file, :send_icon ]
+		= f.submit "Отправить", class: [ :button, :send_icon ]
 
 	%h2 Загруженные ранее:
 	%icons
 		-@icons.each do |icon|
-			%figure{ id: icon.id, class: :icon }
+			%figure{ id: icon.id }
 				%aside
 					%img{ src: icon.url }
 				%figcaption

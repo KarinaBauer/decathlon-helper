@@ -1,4 +1,4 @@
-= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'config', media: 'all', 'data-turbolinks-track': 'reload'
 
 %header
 	%nav
@@ -43,13 +43,13 @@
 
 		%menu
 			%h2 Размер бализажа:
-			= radio_button_tag( :balisage_size, "a3" )
-			=				 label_tag( :balisage_size_a3, "A3" )
-			= radio_button_tag( :balisage_size, "a4", html: :checked )
-			=				 label_tag( :balisage_size_a4, "A4" )
-			= radio_button_tag( :balisage_size, "a5" )
-			=				 label_tag( :balisage_size_a5, "A5" )
-			= radio_button_tag( :balisage_size, "a6" )
-			=				 label_tag( :balisage_size_a6, "A6" )
+			= radio_button_tag( :balisage_size, "A3" )
+			=				 label_tag( :balisage_size_A3, "A3" )
+			= radio_button_tag( :balisage_size, "A4", html: :checked )
+			=				 label_tag( :balisage_size_A4, "A4" )
+			= radio_button_tag( :balisage_size, "A5" )
+			=				 label_tag( :balisage_size_A5, "A5" )
+			= radio_button_tag( :balisage_size, "A6" )
+			=				 label_tag( :balisage_size_A6, "A6" )
 
 		= f.submit "Сформировать шаблон", class: :button
