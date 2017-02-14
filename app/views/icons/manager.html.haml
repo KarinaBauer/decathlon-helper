@@ -1,8 +1,9 @@
-= stylesheet_link_tag 'config', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'customization', media: 'all', 'data-turbolinks-track': 'reload'
+- @activity_name = 'icons'
 
 %header
 	%h1 Управление иконками
-	%small Decathlon Helper v.2.5.2 Beta
+	%small= "Decathlon Helper v." + $version + " Beta"
 
 	%nav
 		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]

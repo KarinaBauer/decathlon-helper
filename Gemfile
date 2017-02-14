@@ -15,8 +15,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'therubyracer', platforms: :ruby
-gem 'therubyrhino', platforms: :jruby
+# gem 'therubyrhino', platforms: :jruby
 gem 'jquery-rails'
+gem 'scrollbar-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'nokogiri'
@@ -26,7 +27,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'redis', '~> 3.0'
 
 group :development do
-  #gem 'syslogger'
-  gem "lograge"
   gem 'web-console'
 end

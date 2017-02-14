@@ -1,8 +1,9 @@
-= stylesheet_link_tag 'config', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'customization', media: 'all', 'data-turbolinks-track': 'reload'
+- @activity_name = 'main'
 
 %header
 	%h1 Главный экран
-	%small Decathlon Helper v.2.5.2 Beta
+	%small= "Decathlon Helper v." + $version + " Beta"
 
 	%nav
 		= link_to "О программе", { action: :about }, class: [ :button, :button_small ]
