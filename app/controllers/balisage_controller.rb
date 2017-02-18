@@ -65,6 +65,15 @@ class BalisageController < ApplicationController
   def generate
     #@item = Item.new(item_params)
     #@item.save
+
+    unless params[ :new_price_is_added ].nil?
+      @old_price = params[ :item ][ :price ].to_f
+      @price = params[ :item ][ :new_price ].to_f
+      @discount = (((( @price - @old_price ) / @old_price ) * 100 ) * 1 ).to_i
+    else
+      @price = params[ :item ][ :price ]
+    end
+
     render 'view'
   end
 

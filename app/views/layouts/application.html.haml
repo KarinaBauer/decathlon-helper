@@ -3,5 +3,22 @@
 = csrf_meta_tags
 = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
 = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+- unless @activity_name == 'balisage_preview'
+	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+- else
+	= stylesheet_link_tag 'print/preview', media: 'all', 'data-turbolinks-track': 'reload'
+	-case params[:balisage_size]
+		-when 'A3'
+			= stylesheet_link_tag 'print/A3', media: 'all', 'data-turbolinks-track': 'reload'
+		-when 'A4'
+			= stylesheet_link_tag 'print/A4', media: 'all', 'data-turbolinks-track': 'reload'
+		-when 'A5'
+			= stylesheet_link_tag 'print/A5', media: 'all', 'data-turbolinks-track': 'reload'
+		-when 'A6'
+			= stylesheet_link_tag 'print/A6', media: 'all', 'data-turbolinks-track': 'reload'
+
 %body
- = yield
+	- #unless @activity_name == 'balisage_preview'
+
+	= yield

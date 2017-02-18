@@ -1,37 +1,48 @@
-= stylesheet_link_tag 'print/preview', media: 'all', 'data-turbolinks-track': 'reload'
+- @activity_name = 'balisage_preview'
 
--case params[:balisage_size]
-  -when 'A3'
-    = stylesheet_link_tag 'print/A3', media: 'all', 'data-turbolinks-track': 'reload'
-  -when 'A4'
-    = stylesheet_link_tag 'print/A4', media: 'all', 'data-turbolinks-track': 'reload'
-  -when 'A5'
-    = stylesheet_link_tag 'print/A5', media: 'all', 'data-turbolinks-track': 'reload'
-  -when 'A6'
-    = stylesheet_link_tag 'print/A6', media: 'all', 'data-turbolinks-track': 'reload'
+%body{ onload: 'print()' }
 
-%body
   %header
-    = image_tag('logo_decathlon.png', class: 'logo')
-    %h1= params[:item][:name]
+    = image_tag( 'logo_decathlon.png', class: 'logo' )
+    %h1= params[ :item ][ :name ]
+
 
   %article
+
     %aside
       %figure
+
         %div#wrapper
-          = image_tag('varranty2.png', class: 'varranty')
-          = image_tag(params[:item][:image], class: 'item')
-        = image_tag('yllw.png', class: 'velosyped_iz_costyley')
+          = image_tag( 'varranty2.png', class: 'warranty' )
+          = image_tag( params[ :item ][ :image ], class: 'item' )
+
+        = image_tag( 'yllw.png', class: :velo )
+
         %figcaption
-          %p.articulus= params[:item][:articulus]
-          .price
-            %p= params[:item][:price]
-            %small руб.
+
+          #topline
+            %p.articulus= params[ :item ][ :articulus ]
+            - unless @discount.nil?
+              %p.discount= @discount.to_s + '%'
+
+          #price
+            - unless @old_price.nil?
+              %p.old_price= @old_price.to_i.to_s
+            -else
+              %p.old_price
+
+            #new_price
+              %p.price= @price.to_i.to_s
+              %small= "руб."
+
 
     %section
-      -params[:item][:avantages].each do |avantage|
-        %figure
-          = image_tag(avantage[:icon])
-          %figcaption
-            %strong= avantage[:title]
-            %span= avantage[:description]
+      -unless params[ :item ][ :avantages ].nil?
+        -params[ :item ][ :avantages ].each do |avantage|
+
+          %figure
+            = image_tag( avantage[ :icon ] )
+
+            %figcaption
+              %strong= avantage[ :title ]
+              %span= avantage[ :description ]

@@ -1,26 +1,34 @@
-= stylesheet_link_tag 'customization', media: 'all', 'data-turbolinks-track': 'reload'
 - @activity_name = 'about'
 
-%header
-	%h1 О программе
-	%small= "Decathlon Helper v." + $version + " Beta"
+#wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+	= render 'layouts/header'
 
-	%nav
-		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
+	%header.mdl-layout__header
+		.mdl-layout__header-row
+			%span.mdl-layout-title О программе
+			.mdl-layout-spacer
+			%nav.mdl-navigation.mdl-layout--large-screen-only
+				= link_to "< В начало", { controller: :start }, data: { turbolinks: false },
+				 class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
-%section
-	%h2 Автор
+	%main.mdl-color--grey-50
+		%p Web-приложение Decathlon Helper - генератор бализажей и таблиц сравнения.
+		%p В данный момент ведётся активная разработка и наращивание функцонала.
+		%h3 Контакты разработчика:
+		#contacts
+			%figure.mdl-color--teal-500.contact
+				%h4 Электронная почта
+				%aside
+					= image_tag('email.png')
+				%figcaption
+					= mail_to "marsixsoft@yahoo.com", "Написать письмо",
+					 class: 'btn_nav mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'
 
-	%contacts
-		%figure.contact.small
-			%aside
-				= image_tag('email.png')
-			%figcaption
-				= mail_to "marsixsoft@yahoo.com", "Написать письмо", class: :button
-
-		%figure.contact.small
-			%aside
-				= image_tag('vk.png')
-			%figcaption
-				= link_to "Открыть страницу", 'https://vk.com/m2aco', class: :button, target: :_blank
+			%figure.mdl-color--teal-500.contact
+				%h4 Профиль на weblancer
+				%aside
+					= image_tag('wl.png')
+				%figcaption
+					= link_to "открыть", 'http://www.weblancer.net/users/rubyonrails', target: :_blank,
+					 class: 'btn_nav mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'
 	

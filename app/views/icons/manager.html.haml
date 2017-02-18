@@ -1,25 +1,32 @@
-= stylesheet_link_tag 'customization', media: 'all', 'data-turbolinks-track': 'reload'
 - @activity_name = 'icons'
 
-%header
-	%h1 Управление иконками
-	%small= "Decathlon Helper v." + $version + " Beta"
+#wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+	= render 'layouts/header'
 
-	%nav
-		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
+	%header.mdl-layout__header
+		.mdl-layout__header-row
+			%span.mdl-layout-title Управление иконками
+			.mdl-layout-spacer
+			%nav.mdl-navigation.mdl-layout--large-screen-only
+				= link_to "< В начало", { controller: :start }, data: { turbolinks: false },
+				 class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
-%section
-	= form_for @icon, url: { action: :create }, html: { id: :form } do |f|
+	%main.mdl-color--grey-50
+
 		%h2 Загрузка новой иконки:
-		= f.file_field :url, class: [ :send_file, :send_icon ]
-		= f.submit "Отправить", class: [ :button, :send_icon ]
+		= form_for @icon, url: { action: :create } do |f|
+			#icon_new
+				= f.file_field :url
+				= f.submit "Отправить",
+				 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'
 
-	%h2 Загруженные ранее:
-	%icons
-		-@icons.each do |icon|
-			%figure{ id: icon.id }
-				%aside
-					%img{ src: icon.url }
-				%figcaption
-					= link_to "[x] Удалить", icons_path(icon), method: :destroy, data: { confirm: "Вы уверены?" },
-					 class: [ :button, :button_small ]
+
+		%h2 Загруженные ранее:
+		#icons
+			-@icons.each do |icon|
+				%figure.mdl-color--light-blue-500{ id: icon.id }
+					%aside
+						%img{ src: icon.url }
+					%figcaption
+						= link_to "удалить", '/icons/'+icon.id.to_s, method: :delete, data: { confirm: "Вы уверены?" },
+						 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'

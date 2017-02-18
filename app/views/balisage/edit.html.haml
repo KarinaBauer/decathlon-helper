@@ -1,57 +1,89 @@
-= stylesheet_link_tag 'customization', media: 'all', 'data-turbolinks-track': 'reload'
 - @activity_name = 'params'
 
-%header
-	%h1 Параметры бализажа
-	%small= "Decathlon Helper v." + $version + " Beta"
+#wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+	= render 'layouts/header'
 
-	%nav
-		= link_to "< В начало", { controller: :start }, class: [ :button, :button_small ]
+	%header.mdl-layout__header
+		.mdl-layout__header-row
+			%span.mdl-layout-title Параметры бализажа
+			.mdl-layout-spacer
+			%nav.mdl-navigation.mdl-layout--large-screen-only
+				= link_to "< В начало", { controller: :start }, data: { turbolinks: false }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
-%section
-	= form_for @item, url: { action: :generate }, html: { id: :form } do |f|
-		%h2 Основные данные товара:
-		%figure.item_data
-			%aside.item_image
-				= label_tag "Изображение"
-				= image_tag(@data_from_page[:image])
-				= f.hidden_field :image, value: @data_from_page[:image]
-			%figcaption
-				= label_tag "Наименование"
-				= f.text_field :name, value: @data_from_page[:name]# 28 syms
-				= label_tag "Артикул"
-				= f.text_field :articulus, value: @data_from_page[:articulus]
-				= label_tag "Цена в рублях"
-				= f.text_field :price, value: @data_from_page[:price]
+	%main.mdl-color--grey-50
+	
+		= form_for @item, url: { action: :generate }, html: { id: :form } do |f|
+			%h2 Основные данные товара:
+			%figure#item_data.mdl-color--blue-200
 
-		%avantages#avants
-			%h2 Характеристики:
-			-@avantages_from_page.each do |avantage|
-				%figure
-					%aside.avant_icon
-						= label_tag "Иконка"
-						= image_tag(avantage[:icon])
+				%aside.item_image
+					= f.hidden_field :image, value: @data_from_page[ :image ]
+					= label_tag :image, "Изображение"
+					= image_tag( @data_from_page[ :image ] )
+					=# label_tag :image, "Загрузить новое изображение:"
+					=# f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
+				
+				%figcaption
+					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+						= f.text_field :name, value: @data_from_page[ :name ], class: 'mdl-textfield__input' # 28 syms
+						= label_tag :name, "Наименование (не более 26 символов)", class: 'mdl-textfield__label'
 
-					%figcaption
-						%a.btn_rm.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent{ onclick: 'this.parentNode.parentNode.remove()' }
-							[x] удалить
-						%input{ name: 'item[avantages][][icon]', type: :hidden, value: avantage[:icon] }
-						= label_tag "Заголовок"
-						%input.title{ name: 'item[avantages][][title]', type: :text, value: avantage[:title] }
-						= label_tag "Описание"
-						%input.description{ name: 'item[avantages][][description]', type: :text, value: avantage[:description] }
+					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+						= f.text_field :articulus, value: @data_from_page[ :articulus ], class: 'mdl-textfield__input', pattern: '[0-9]*'
+						= label_tag :articulus, "Артикул", class: 'mdl-textfield__label price'
+						%span.mdl-textfield__error= "Допускаются только цифры!"
 
-		%a.button{ onclick: 'avant_add()' } Добавить характеристику
+					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+						= f.text_field :price, value: @data_from_page[ :price ], class: 'mdl-textfield__input price', pattern: '[0-9]*'
+						= label_tag :price, "Цена в рублях", class: 'mdl-textfield__label'
+						%span.mdl-textfield__error= "Допускаются только цифры!"
 
-		%menu
-			%h2 Размер бализажа:
-			= radio_button_tag( :balisage_size, "A3" )
-			=				 label_tag( :balisage_size_A3, "A3" )
-			= radio_button_tag( :balisage_size, "A4", html: :checked )
-			=				 label_tag( :balisage_size_A4, "A4" )
-			= radio_button_tag( :balisage_size, "A5" )
-			=				 label_tag( :balisage_size_A5, "A5" )
-			= radio_button_tag( :balisage_size, "A6" )
-			=				 label_tag( :balisage_size_A6, "A6" )
+					%label#NewPriceToggler.mdl-switch.mdl-js-switch{ onchange: 'ToggleNewPrice()' }
+						= check_box_tag 'new_price_is_added', 'true', false, class: 'mdl-switch__input'
+						%span.mdl-switch__label
+						%small Указать изменение цены
 
-		= f.submit "Сформировать шаблон", class: :button
+					#NewPrice.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.hidden
+						= text_field_tag 'item[new_price]', nil, class: 'mdl-textfield__input price', pattern: '[0-9]*'
+						= label_tag :new_price, "Новая цена в рублях", class: 'mdl-textfield__label'
+						%span.mdl-textfield__error= "Допускаются только цифры!"
+
+			#avantages
+				%h2 Характеристики:
+				%small (рекомендуется не более трёх)
+				-@avantages_from_page.each do |avantage|
+					%figure.mdl-color--blue-200
+
+						%aside
+							= label_tag :icon, "Иконка"
+							= image_tag( avantage[ :icon ] )
+
+						%figcaption
+							%input{ name: 'item[avantages][][icon]', type: :hidden, value: avantage[ :icon ] }
+							%button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--raised.mdl-button--accent{ onclick: 'this.parentNode.parentNode.remove()' }
+								[x] удалить
+
+							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+								= text_field_tag 'item[avantages][][title]', avantage[ :title ], class: 'mdl-textfield__input title'
+								= label_tag :title, "Заголовок (не более 20 символов)", class: 'mdl-textfield__label'
+
+							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+								= text_field_tag 'item[avantages][][description]', avantage[ :description ], class: 'mdl-textfield__input description'
+								= label_tag :description, "Описание (не более 25 символов)", class: 'mdl-textfield__label'
+
+			%a{ onclick: 'avant_add()',
+			 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored' }= "добавить характеристику"
+
+			%menu
+				%h2 Размер бализажа:
+				= radio_button_tag( :balisage_size, "A3" )
+				=				 label_tag  :balisage_size_A3, "A3"
+				= radio_button_tag( :balisage_size, "A4", html: :checked )
+				=				 label_tag  :balisage_size_A4, "A4"
+				= radio_button_tag( :balisage_size, "A5" )
+				=				 label_tag  :balisage_size_A5, "A5"
+				= radio_button_tag( :balisage_size, "A6" )
+				=				 label_tag  :balisage_size_A6, "A6"
+
+			= button_tag "сформировать шаблон", value: 'generate()',
+			 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'

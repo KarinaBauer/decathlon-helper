@@ -9,12 +9,12 @@ class IconsController < ApplicationController
 
   def create
     @icon = Icon.new(icon_params)
-    uploaded_io = params[:icon][:url]
+    uploaded_io = params[ :icon ][ :url ]
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
       file.write(uploaded_io.read)
     end
 
-    args = {:url => '/uploads/'+uploaded_io.original_filename}
+    args = { :url => '/uploads/'+uploaded_io.original_filename }
     @icon = Icon.new(args)
     @icon.save
 
@@ -26,11 +26,11 @@ class IconsController < ApplicationController
   end
  
   def show
-    @icon = Icon.find(params[:id])
+    @icon = Icon.find( params[ :id ] )
   end
 
   def destroy
-    @icon = Icon.find(params[:id])
+    @icon = Icon.find( params[ :id ] )
     @icon.destroy
  
     redirect_to icons_path
@@ -38,6 +38,6 @@ class IconsController < ApplicationController
  
   private
     def icon_params
-      params.require(:icon).permit(:url, :id)
+      params.require( :icon ).permit( :url, :id )
     end
 end
