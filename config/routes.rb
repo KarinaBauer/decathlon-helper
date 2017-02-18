@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 	get '/view', to: 'balisage#generate'
 	post '/compare', to: 'comparsion#index'
 	get '/compare', to: 'comparsion#index'
+	post '/table', to: 'comparsion#table'
+	get '/table', to: 'comparsion#table'
 	root 'start#index'
 end
