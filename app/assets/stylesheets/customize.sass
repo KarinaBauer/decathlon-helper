@@ -1,67 +1,48 @@
-#header, main, figure, .avant_icon img, .item_image
+figure, .avant_icon img, .item_image
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important
 	border-radius: 2px
 
-body, #header, main, form, figure, figcaption, aside, #avantages, #icons, #contacts, #enter_url
-	display: flex !important
+form, figure, figcaption, aside, #avantages, #icons, #contacts, #items, #add_item
+	display: flex
 
-#header, main, menu, form, #avantages, #icons, #contacts, #enter_url, #icons figure, #contacts figure
+menu, form, #avantages, #icons, #contacts, #enter_url, #icons figure, #contacts figure
 	flex-wrap: wrap
 
-body, main, form, aside, figcaption, #avantages, #icons figure, #contacts figure
+form, aside, figcaption, #enter_url, #avantages, #icons figure, #contacts figure, #items, #add_item
 	flex-direction: column
 
-#header, #icons, #contacts
+#enter_url, #icons, #contacts
 	justify-content: center
 
-#enter_url, figcaption .mdl-textfield
-	width: 100% !important
 
+.mdl-button
+	display: inline-flex !important
+	align-items: center
+	.material-icons
+		font-size: large
+	.material-icons.right
+		margin-left: 10px
+	.material-icons.left
+		margin-right: 10px
+
+.mdl-textfield__label
+	color: #3f51b5 !important
+
+.mdl-textfield__input
+	border-bottom: 1px solid rgba(0, 0, 0, 0.6) !important
+
+.mdl-switch
+	display: flex !important
+	flex-wrap: wrap
+	align-items: center
+	small
+		margin-left: 15px
+
+.hidden
+	display: none !important
 
 .price
 	width: 50% !important
 
-#item_data
-	figcaption
-		width: 65%
-	.item_image
-		margin-right: 10px
-		background-color: #fff
-		label
-			font-family: roboto_thin
-			font-weight: 600
-			margin-left: 5px
-		img
-			align-self: center
-			width: 140px
-			padding: 5px
-
-#avantages
-	figcaption
-		width: 65%
-	.mdl-button
-		align-self: flex-end
-	aside
-		margin-right: 10px
-	img
-		width: 70px
-		border-radius: 10%
-		padding: 5px
-
-#new_icon
-	margin-left: 50px
-
-#icons
-	figure
-		margin: 15px
-		width: 150px
-	img
-		width: 70px
-
-#contacts
-	figure
-		width: 200px
-	.contact img
-		width: 100px
-	.button
-		align-self: center
+.widebtn
+	margin: 8px 40px !important

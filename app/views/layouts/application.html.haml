@@ -4,7 +4,7 @@
 = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
 = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-- unless @activity_name == 'balisage_preview'
+- unless @activity_name == 'print_balisage'
 	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 - else
 	= stylesheet_link_tag 'print/preview', media: 'all', 'data-turbolinks-track': 'reload'

@@ -1,0 +1,2 @@
+class ItemMin < ApplicationRecord
+end

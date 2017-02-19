@@ -1,15 +1,16 @@
 class BalisageController < ApplicationController
   protect_from_forgery except: :index
 
-  def edit
+  def create
     @item = Item.new
     @icons = Icon.all
-    $url = params[:url]
-    $url = '' if $url.nil?
-    $rooturl = 'http://www.decathlon.ru'
+    @url = params[:url]
+    @url = '' if @url.nil?
+    @url = '' unless @url.include?('decathlon.ru')
+    @@rooturl = 'http://www.decathlon.ru'
 
-    unless $url.length == 0
-      @page = Nokogiri::HTML(open($url))
+    unless @url.empty?
+      @page = Nokogiri::HTML(open(@url))
 
       price_block = @page.at_css('span#real_price_value')
       unless price_block.nil?
@@ -23,7 +24,7 @@ class BalisageController < ApplicationController
         name: (@page.at_css('span#productName').text.to_s).upcase,
         shortname: (@page.at_css('title').text.strip[0..-29].to_s).upcase,
         price: @item_price,
-        image: $rooturl+@page.at_css('div#viewerImage img')['src'].to_s
+        image: @@rooturl+@page.at_css('div#viewerImage img')['src'].to_s
       }
 
       avants_block = @page.at_css('.list_avantage')
@@ -35,7 +36,7 @@ class BalisageController < ApplicationController
           picpart = row.at_css("div[class='tablecell pictopart']").at_css('img')
           expart = row.at_css("div[class='tablecell explanationpart']")
           unless picpart.nil?
-            @icon = $rooturl+picpart['src'].to_s
+            @icon = @@rooturl+picpart['src'].to_s
           else
             @icon = $std_icon
           end
@@ -47,11 +48,9 @@ class BalisageController < ApplicationController
           }
 
           @avantages_from_page.push(avant)
-
         end
 
-      else
-        @avantages_from_page = $avantages_null
+      else; @avantages_from_page = $avantages_null
       end
 
     else
@@ -62,7 +61,7 @@ class BalisageController < ApplicationController
   end
 
 
-  def generate
+  def print
     #@item = Item.new(item_params)
     #@item.save
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121050729) do
+ActiveRecord::Schema.define(version: 20170218092558) do
 
   create_table "avantages", force: :cascade do |t|
     t.string   "icon"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170121050729) do
     t.string   "name"
     t.integer  "articulus"
     t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items_min", force: :cascade do |t|
+    t.integer  "articulus"
+    t.string   "name"
+    t.integer  "price"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

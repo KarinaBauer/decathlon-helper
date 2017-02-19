@@ -1,0 +1,17 @@
+- @activity_name = 'create_comparsion'
+
+#wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+	= render 'layouts/header'
+
+	%header.mdl-layout__header
+		.mdl-layout__header-row
+			%span.mdl-layout-title Редактирование таблицы сравнения
+			.mdl-layout-spacer
+			%nav.mdl-navigation
+				//.mdl-layout--large-screen-only
+				= link_to "< В начало", { controller: :start }, data: { turbolinks: false }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
+
+	%main
+		- console
+		= form_for :table, url: { action: :print }, html: { id: :form } do |f|
+			%table.mdl-data-table.mdl-js-data-table
