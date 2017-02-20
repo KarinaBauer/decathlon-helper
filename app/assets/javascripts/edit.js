@@ -1,13 +1,20 @@
-function show_modal() {
-	var dialog = document.querySelector('dialog')
-	var showmodal = document.querySelector('#modal')
-	if (! dialog.showModal) { dialogPolyfill.registerDialog(dialog) }
-	showmodal.addEventListener('click', function() { dialog.showModal() })
-	dialog.querySelector('.close').addEventListener('click', function() { dialog.close() })
-}
+  function showmodal() { ( function() {
+    'use strict';
+    var dialogButton = document.querySelector('.dialog-button');
+    var dialog = document.querySelector('#dialog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    dialogButton.addEventListener('click', function() {
+       dialog.showModal();
+    });
+    dialog.querySelector('.close')
+    .addEventListener('click', function() {
+      dialog.close();
+    });
+  }());};
 
-window.onload = show_modal()
-
+window.onload = showmodal
 
 function ToggleNewPrice() {
 	if ( NewPriceToggler.classList.contains('is-checked') ) { NewPrice.classList.remove('hidden') }

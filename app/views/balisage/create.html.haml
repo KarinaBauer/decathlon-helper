@@ -53,23 +53,42 @@
 			#avantages
 				%h2 Характеристики:
 				%small (рекомендуется не более трёх)
-				-@avantages_from_page.each do |avantage|
+				- @avantages_from_page.each do |avantage|
 					%figure.mdl-color--light-blue-300
 
 						%aside
 							= label_tag :icon, "Иконка"
 							= image_tag( avantage[ :icon ] )
-							%a#modal.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-color--blue-600.mdl-js-ripple-effect Заменить
+							%a.dialog-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-color--blue-600.mdl-js-ripple-effect Заменить
 
-							%dialog.mdl-dialog
-								%h4.mdl-dialog__title Allow data collection?
+							%dialog#dialog.mdl-dialog
+								%h4.mdl-dialog__title Иконки:
 								.mdl-dialog__content
-									%p Текст
+									.mdl-list
+
+										%li.mdl-list__item
+											%span.mdl-list__item-primary-content
+												%img{ src: '/assets/' + avantage[ :icon ] }
+											%span.mdl-list__item-secondary-action
+												%label.mdl-radio
+													Выбрать
+													= radio_button_tag 'item[avantages][][icon]', avantage[ :icon ], true, class: 'mdl-radio__button'
+
+										- @icons.each do |icon|
+
+											%li.mdl-list__item
+												%span.mdl-list__item-primary-content
+													%img{ src: icon.url }
+												%span.mdl-list__item-secondary-action
+													%label.mdl-radio
+														Выбрать
+														= radio_button_tag 'item[avantages][][icon]', icon.url, false, class: 'mdl-radio__button'
+
 								.mdl-dialog__actions
-									= button_tag "Ok", class: 'mdl-button'
+									%a.mdl-button.mdl-button--raised.mdl-button--colored.close ок
 
 						%figcaption
-							%input{ name: 'item[avantages][][icon]', type: :hidden, value: avantage[ :icon ] }
+
 							%button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--raised.mdl-button--accent{ onclick: 'this.parentNode.parentNode.remove()' }
 								%i.material-icons.left delete
 								удалить
@@ -86,14 +105,14 @@
 
 			%menu
 				%h2 Размер бализажа:
-				= radio_button_tag( :balisage_size, "A3" )
-				=				 label_tag  :balisage_size_A3, "A3"
-				= radio_button_tag( :balisage_size, "A4", html: :checked )
-				=				 label_tag  :balisage_size_A4, "A4"
-				= radio_button_tag( :balisage_size, "A5" )
-				=				 label_tag  :balisage_size_A5, "A5"
-				= radio_button_tag( :balisage_size, "A6" )
-				=				 label_tag  :balisage_size_A6, "A6"
+				= radio_button_tag :balisage_size, "A3" 
+				=				 label_tag :balisage_size_A3, "A3"
+				= radio_button_tag :balisage_size, "A4", true
+				=				 label_tag :balisage_size_A4, "A4"
+				= radio_button_tag :balisage_size, "A5" 
+				=				 label_tag :balisage_size_A5, "A5"
+				= radio_button_tag :balisage_size, "A6" 
+				=				 label_tag :balisage_size_A6, "A6"
 
 			= button_tag "сформировать шаблон", value: 'generate()',
 			 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored widebtn'
