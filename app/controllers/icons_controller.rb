@@ -35,7 +35,12 @@ class IconsController < ApplicationController
  
     redirect_to icons_path
   end
- 
+
+  def select
+    @icons = Icon.all
+    render 'select'
+  end
+
   private
     def icon_params
       params.require( :icon ).permit( :url, :id )

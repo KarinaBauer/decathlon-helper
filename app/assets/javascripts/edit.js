@@ -1,25 +1,38 @@
-  function showmodal() { ( function() {
-    'use strict';
-    var dialogButton = document.querySelector('.dialog-button');
-    var dialog = document.querySelector('#dialog');
-    if (! dialog.showModal) {
+function showmodal() { ( function() {
+  'use strict';
+  var dialogButton = document.querySelector('.dialog-button');
+  var dialog = document.querySelector('#dialog');
+  if (! dialog.showModal) {
       dialogPolyfill.registerDialog(dialog);
-    }
-    dialogButton.addEventListener('click', function() {
-       dialog.showModal();
-    });
-    dialog.querySelector('.close')
-    .addEventListener('click', function() {
-      dialog.close();
-    });
-  }());};
+  }
+  dialogButton.addEventListener('click', function() {
+     dialog.showModal();
+  });
 
-window.onload = showmodal
+  dialog.querySelector('.close')
+  .addEventListener('click', function() {
+    dialog.close();
+  })
+
+ }()
+)}
+
+
+function get_icons() {
+  return $.ajax( { url: '/api/icons/select'} ).done( function(html) { return $(NewIcon).append(html) } )
+}
 
 function ToggleNewPrice() {
 	if ( NewPriceToggler.classList.contains('is-checked') ) { NewPrice.classList.remove('hidden') }
 	else { NewPrice.classList.add('hidden') }
 }
+
+function ToggleNewIcon() {
+	if ( NewIconToggler.classList.contains('is-checked') ) { NewIcon.classList.remove('hidden') }
+	else { NewIcon.classList.add('hidden') }
+	if (! NewIcon.classList.contains('is-updated') ) { get_icons(); NewIcon.classList.add('is-updated') }
+}
+
 
 function add_item() {
 	var item = document.createElement("figure")

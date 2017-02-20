@@ -1,0 +1,10 @@
+- @icons.each do |icon|
+
+	%li.mdl-list__item
+		%figure.mdl-color--light-blue-500{ id: icon.id }
+			%aside
+				%img{ src: icon.url }
+			%figcaption
+				%label.mdl-radio
+					Выбрать
+					= radio_button_tag 'item[avantages][][new_icon]', icon.url, false, class: 'mdl-radio__button', id: :NewIconSelector

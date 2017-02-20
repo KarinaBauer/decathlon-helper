@@ -58,34 +58,7 @@
 
 						%aside
 							= label_tag :icon, "Иконка"
-							= image_tag( avantage[ :icon ] )
-							%a.dialog-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-color--blue-600.mdl-js-ripple-effect Заменить
-
-							%dialog#dialog.mdl-dialog
-								%h4.mdl-dialog__title Иконки:
-								.mdl-dialog__content
-									.mdl-list
-
-										%li.mdl-list__item
-											%span.mdl-list__item-primary-content
-												%img{ src: '/assets/' + avantage[ :icon ] }
-											%span.mdl-list__item-secondary-action
-												%label.mdl-radio
-													Выбрать
-													= radio_button_tag 'item[avantages][][icon]', avantage[ :icon ], true, class: 'mdl-radio__button'
-
-										- @icons.each do |icon|
-
-											%li.mdl-list__item
-												%span.mdl-list__item-primary-content
-													%img{ src: icon.url }
-												%span.mdl-list__item-secondary-action
-													%label.mdl-radio
-														Выбрать
-														= radio_button_tag 'item[avantages][][icon]', icon.url, false, class: 'mdl-radio__button'
-
-								.mdl-dialog__actions
-									%a.mdl-button.mdl-button--raised.mdl-button--colored.close ок
+							= image_tag( avantage[ :icon ], id: :CurrentIconShower )
 
 						%figcaption
 
@@ -100,6 +73,21 @@
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
 								= text_field_tag 'item[avantages][][description]', avantage[ :description ], class: 'mdl-textfield__input description'
 								= label_tag :description, "Описание (не более 25 символов):", class: 'mdl-textfield__label'
+
+							%label#NewIconToggler.mdl-switch.mdl-js-switch{ onchange: 'ToggleNewIcon()' }
+								= check_box_tag 'new_price_is_added', 'true', false, class: 'mdl-switch__input'
+								%span.mdl-switch__label
+								%small Заменить иконку
+
+							#NewIcon.mdl-list.hidden
+								%li.mdl-list__item
+									%figure.mdl-color--light-blue-500
+										%aside
+											%img{ src: '/assets/' + avantage[ :icon ] }
+										%figcaption
+											%label.mdl-radio
+												Выбрать
+												= radio_button_tag 'item[avantages][][new_icon]', avantage[ :icon ], true, class: 'mdl-radio__button'
 
 			%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored.widebtn{ onclick: 'add_avant()' }= "добавить характеристику"
 

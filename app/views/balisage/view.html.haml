@@ -41,7 +41,10 @@
         -params[ :item ][ :avantages ].each do |avantage|
 
           %figure
-            = image_tag( avantage[ :icon ] )
+            - if avantage[ :new_icon ].nil?
+              = image_tag( avantage[ :icon ] )
+            - else
+              = image_tag( avantage[ :new_icon ] )
 
             %figcaption
               %strong= avantage[ :title ]

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	resources :icons
+	get '/api/icons/select', to: 'icons#select'
 
 	get '/about', to: 'start#about'
 
