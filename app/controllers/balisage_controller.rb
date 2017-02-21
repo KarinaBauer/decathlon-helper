@@ -68,7 +68,7 @@ class BalisageController < ApplicationController
     unless params[ :new_price_is_added ].nil?
       @old_price = params[ :item ][ :price ].to_f
       @price = params[ :item ][ :new_price ].to_f
-      @discount = (((( @price - @old_price ) / @old_price ) * 100 ) * 1 ).to_i
+      @discount = (((( @price - @old_price ) / @old_price ) * 100 ) * 1 ).to_i unless @price == 0
     else
       @price = params[ :item ][ :price ]
     end

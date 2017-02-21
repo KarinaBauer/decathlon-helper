@@ -1,10 +1,7 @@
+- @activity_name = 'api--icon-select'
+
 - @icons.each do |icon|
 
 	%li.mdl-list__item
-		%figure.mdl-color--light-blue-500{ id: icon.id }
-			%aside
-				%img{ src: icon.url }
-			%figcaption
-				%label.mdl-radio
-					Выбрать
-					= radio_button_tag 'item[avantages][][new_icon]', icon.url, false, class: 'mdl-radio__button', id: :NewIconSelector
+		%figure.mdl-color--light-blue-500.selectIcon{ id: icon.id, onclick: 'selectIcon(event)' }
+			%img.selectIcon{ src: icon.url }
