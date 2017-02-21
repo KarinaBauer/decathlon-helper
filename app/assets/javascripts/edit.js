@@ -63,23 +63,37 @@ function add_avant() {
   var avant = document.createElement("figure")
   avant.innerHTML = '\
 		<aside>\
-		  <label for="icon">Иконка</label>\
-		  <img src="/assets/arrow.jpg" alt="Arrow" />\
+			<label for="icon">Иконка</label>\
+			<input type="hidden" name="item[avantages][][icon]" id="item_avantages__icon" value="/assets/arrow.jpg" />\
+			<img id="CurrentIconShower" src="/assets/arrow.jpg" alt="Arrow" />\
+			\
+			<label class="mdl-switch mdl-js-switch" id="newIconToggler" onchange="toggleNewIcon(event)">\
+				<input type="checkbox" name="new_price_is_added" id="new_price_is_added" value="true" class="mdl-switch__input" />\
+				<span class="mdl-switch__label"></span>\
+				<small>Заменить иконку</small>\
+			</label>\
+			<div class="mdl-list hidden" id="newIcon">\
+				<li class="mdl-list__item">\
+					<figure class="mdl-color--light-blue-500 selectIcon" onclick="selectIcon(event)">\
+						<img src="/assets/arrow.jpg">\
+					</figure>\
+				</li>\
+			</div>\
 		</aside>\
 		<figcaption>\
-		  <input name="item[avantages][][icon]" type="hidden" value="arrow.jpg">\
-		  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="this.parentNode.parentNode.remove()">\
-		    <i class="material-icons left">delete</i>удалить\
-		  </button>\
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused" id="url">\
-		    <input type="text" name="item[avantages][][title]" id="item_avantages__title" class="mdl-textfield__input title" />\
-		    <label class="mdl-textfield__label" for="title">Заголовок (не более 20 символов):</label>\
-		  </div>\
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused" id="url">\
-		  	<label class="mdl-textfield__label" for="description">Описание (не более 25 символов):</label>\
-		    <input type="text" name="item[avantages][][description]" id="item_avantages__description" class="mdl-textfield__input description" />\
-		  </div>\
+			<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="this.parentNode.parentNode.remove()">\
+				<i class="material-icons left">delete</i>\
+				удалить\
+			</button>\
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused">\
+				<input type="text" name="item[avantages][][title]" id="item_avantages__title" class="mdl-textfield__input title" />\
+				<label class="mdl-textfield__label" for="title">Заголовок (не более 20 символов):</label>\
+			</div>\
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused">\
+				<input type="text" name="item[avantages][][description]" id="item_avantages__description" class="mdl-textfield__input description" />\
+				<label class="mdl-textfield__label" for="description">Описание (не более 25 символов):</label>\
+			</div>\
 		</figcaption>';
-	avant.classList.add('mdl-color--blue-200')
+	avant.classList.add('mdl-color--light-blue-300')
 	avantages.appendChild(avant)
 }
