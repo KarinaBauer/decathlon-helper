@@ -17,7 +17,6 @@ function on_ready(ev)
 
 
 function toggleNewIcon() {
-	alert('test')
 	var newIconToggler = event.currentTarget
 	var newIconSelector = event.currentTarget.parentNode.querySelector('#newIcon')
 
