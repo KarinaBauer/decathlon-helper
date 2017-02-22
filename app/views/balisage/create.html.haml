@@ -10,7 +10,8 @@
 			.mdl-layout-spacer
 			%nav.mdl-navigation
 				//.mdl-layout--large-screen-only
-				= link_to "< В начало", { controller: :start }, data: { turbolinks: false }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
+				= link_to "< В начало", { controller: :start }, data: { turbolinks: false },
+				 class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
 	%main
 	
@@ -18,7 +19,7 @@
 			%h2 Основные данные товара:
 			%figure#item_data.mdl-color--light-blue-300
 
-				%aside.item_image
+				%aside#item_image.item_image
 					= f.hidden_field :image, value: @data_from_page[ :image ]
 					= label_tag :image, "Изображение"
 					= image_tag( @data_from_page[ :image ] )
@@ -36,12 +37,13 @@
 						%span.mdl-textfield__error= "Допускаются только цифры!"
 
 					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-						= f.text_field :price, value: @data_from_page[ :price ], class: 'mdl-textfield__input price', pattern: '[0-9]*'
-						= label_tag :price, "Цена в рублях:", class: 'mdl-textfield__label'
+						= f.text_field :old_price, value: @data_from_page[ :price ], class: 'mdl-textfield__input price', pattern: '[0-9]*'
+						= label_tag :old_price, "Цена в рублях:", class: 'mdl-textfield__label'
 						%span.mdl-textfield__error= "Допускаются только цифры!"
 
-					%label#newPriceToggler.mdl-switch.mdl-js-switch{ onchange: 'toggleNewPrice()' }
-						= check_box_tag 'new_price_is_added', 'true', false, class: 'mdl-switch__input'
+					%label#newPriceToggler.mdl-switch.mdl-js-switch
+						//{ onchange: 'toggleNewPrice()' }
+						= check_box_tag 'addedNewPrice', 'true', false, class: 'mdl-switch__input'
 						%span.mdl-switch__label
 						%small Указать изменение цены
 

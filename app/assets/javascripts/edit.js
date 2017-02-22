@@ -1,35 +1,27 @@
-function showmodal() { ( function() {
-  'use strict';
-  var dialogButton = document.querySelector('.dialog-button');
-  var dialog = document.querySelector('#dialog');
-  if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-  }
-  dialogButton.addEventListener('click', function() {
-     dialog.showModal();
-  });
-
-  dialog.querySelector('.close')
-  .addEventListener('click', function() {
-    dialog.close();
-  })
-
- }()
-)}
-
-function toggleNewPrice() {
-	if ( newPriceToggler.classList.contains('is-checked') ) { newPrice.classList.remove('hidden') }
-	else { newPrice.classList.add('hidden') }
+function toggleNewPrice(ev) {
+	var newPriceToggler = document.getElementById('newPriceToggler')
+	if (newPriceToggler.classList.contains('is-checked')) {
+			newPrice.classList.remove('hidden')
+	} else {
+			newPrice.classList.add('hidden')
+	}
 }
 
+function on_ready(ev)
+{
+    var newPriceToggler = document.getElementById('newPriceToggler')
+    if (newPriceToggler) {
+        newPriceToggler.addEventListener('change', toggleNewPrice, false)
+    }
+}
+
+
 function toggleNewIcon() {
+	alert('test')
 	var newIconToggler = event.currentTarget
 	var newIconSelector = event.currentTarget.parentNode.querySelector('#newIcon')
 
-	function get_icons() {
-	return $.ajax( { url: '/api/icons/select'} ).done( function(html) { return $(newIconSelector).append(html) } )
-	}
-
+	function get_icons() { return $.ajax( { url: '/api/icons/select'} ).done( function(html) { return $(newIconSelector).append(html) } ) }
 	if ( newIconToggler.classList.contains('is-checked') ) { newIconSelector.classList.remove('hidden') }
 	else { newIconSelector.classList.add('hidden') }
 	if (! newIconSelector.classList.contains('is-updated') ) { get_icons(); newIconSelector.classList.add('is-updated') }
@@ -41,6 +33,21 @@ function selectIcon() {
 	aside.querySelector('img').setAttribute('src', newIconSource)
 	aside.querySelector('input').setAttribute('value', newIconSource)
 }
+
+
+document.addEventListener('DOMContentLoaded', on_ready, false);
+
+
+
+function showmodal() { ( function() {
+  'use strict'
+  var dialogButton = document.querySelector('.dialog-button')
+  var dialog = document.querySelector('#dialog')
+  if (! dialog.showModal) { dialogPolyfill.registerDialog(dialog) }
+  dialogButton.addEventListener( 'click', function() { dialog.showModal() } )
+  dialog.querySelector('.close').addEventListener( 'click', function() { dialog.close(); } )
+	}()
+)}
 
 function add_item() {
 	var item = document.createElement("figure")

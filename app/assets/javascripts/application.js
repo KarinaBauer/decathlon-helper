@@ -4,7 +4,7 @@
 *= require jquery.turbolinks
 *= require turbolinks
 *= require turbolinks-compatibility
-*= require jquery.mCustomScrollbar.concat.min
+*= require jquery.mCustomScrollbar
 *= require mdlComponentHandler
 *
 *= require_tree ./mdl
