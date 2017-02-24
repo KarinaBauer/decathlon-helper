@@ -1,4 +1,4 @@
-- @activity_name = 'about'
+- @activityName = 'about'
 
 #wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
 	= render 'layouts/header'
@@ -15,10 +15,10 @@
 	%main
 		%p Web-приложение Decathlon Helper - генератор бализажей и таблиц сравнения.
 		%p В данный момент ведётся активная разработка и наращивание функцонала.
-		%h3 Контакты разработчика:
+		%h2 Контакты разработчика:
 		#contacts
 			%figure.mdl-color--teal-500.contact
-				%h4 Электронная почта
+				%h2 e-mail
 				%aside
 					= image_tag('email.png')
 				%figcaption
@@ -26,7 +26,7 @@
 					 class: 'btn_nav mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'
 
 			%figure.mdl-color--teal-500.contact
-				%h4 Профиль на weblancer
+				%h2 Профиль на weblancer
 				%aside
 					= image_tag('wl.png')
 				%figcaption

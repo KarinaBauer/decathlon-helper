@@ -1,17 +1,62 @@
-- @activity_name = 'create_comparsion'
+- @activityName = 'createComparsion'
 
 #wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-	= render 'layouts/header'
 
 	%header.mdl-layout__header
 		.mdl-layout__header-row
-			%span.mdl-layout-title Редактирование таблицы сравнения
+			%span.mdl-layout-title Параметры таблицы сравнения
 			.mdl-layout-spacer
 			%nav.mdl-navigation
-				//.mdl-layout--large-screen-only
-				= link_to "< В начало", { controller: :start }, data: { turbolinks: false }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
+				= link_to "< В начало", { controller: :start }, data: { turbolinks: false },
+				 class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
 	%main
-		- console
-		= form_for :table, url: { action: :print }, html: { id: :form } do |f|
-			%table.mdl-data-table.mdl-js-data-table
+		= form_for :table, url: { action: :print }, html: { id: :comparsionTableParams } do |f|
+
+			- unless params[ :title ].nil?
+				%h1= params[ :title ]
+
+			#main.tableRow
+				#nullCell.bordered
+					=image_tag '/assets/nullCell.png'
+				- @items.each do |item|
+
+					%figure.bordered.mainInfoCell
+						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+							= f.text_field 'items[][name]', value: item[ :name ], class: 'mdl-textfield__input'
+							= label_tag :price, "Наименование", class: 'mdl-textfield__label'
+
+						= f.hidden_field :image, value: item[ :image ]
+						= image_tag( item[ :image ] )
+						=# label_tag :image, "Загрузить новое изображение:"
+						=# f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
+
+						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+							= f.text_field 'items[][articulus]', value: item[ :articulus ], class: 'mdl-textfield__input', pattern: '[0-9]*'
+							= label_tag :articulus, "Артикул", class: 'mdl-textfield__label'
+							%span.mdl-textfield__error= "Допускаются только цифры!"
+						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+							= f.text_field 'items[][price]', value: item[ :price ], class: 'mdl-textfield__input', pattern: '[0-9]*'
+							= label_tag :price, "Цена", class: 'mdl-textfield__label'
+							%span.mdl-textfield__error= "Допускаются только цифры!"
+
+			#avantages
+
+				#avantagePattern.avantage.tableRow.hidden
+					.keyCell.bordered.tableRow
+						%button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored{ onclick: 'this.parentNode.parentNode.remove()' }
+							%i.material-icons delete
+						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.avantageTitleWrapper
+							= text_field_tag nil, nil, class: 'mdl-textfield__input avantageTitle'
+							= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+					- @items.each do |item|
+						.valueCell.bordered.tableRow
+							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.avantageValueWrapper
+								= text_field_tag nil, nil, class: 'mdl-textfield__input avantageValue'
+								= label_tag :value, "Текст", class: 'mdl-textfield__label'
+
+
+			%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored.widebtn{ onclick: 'addTableAvantage()' }= "добавить текстовую характеристику"
+
+			= button_tag "сформировать таблицу", value: 'generateTable',
+			 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored widebtn'

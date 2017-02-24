@@ -1,16 +1,19 @@
 !!! 5
 
-- unless @activity_name.include?('api--')
+- unless @activityName.include?('api--')
 	%title Decathlon Helper
 	= csrf_meta_tags
 	= favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
 
-- unless @activity_name == 'print_balisage' or @activity_name == 'api--icon-select'
+- if @activityName == 'createComparsion'
+	= javascript_include_tag 'createComparsion', 'data-turbolinks-track': 'reload'
+
+- unless @activityName == 'print_balisage' or @activityName == 'api--icon-select'
 	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 - else
 
-	- if @activity_name == 'print_balisage'
+	- if @activityName == 'print_balisage'
 		= stylesheet_link_tag 'print/preview', media: 'all', 'data-turbolinks-track': 'reload'
 		-case params[:balisage_size]
 			-when 'A3'
@@ -23,6 +26,6 @@
 				= stylesheet_link_tag 'print/A6', media: 'all', 'data-turbolinks-track': 'reload'
 
 %body
-	- #unless @activity_name == 'balisage_preview'
+	- #unless @activityName == 'balisage_preview'
 
 	= yield

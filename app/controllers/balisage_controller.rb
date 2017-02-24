@@ -15,8 +15,7 @@ class BalisageController < ApplicationController
       price_block = @page.at_css('span#real_price_value')
       unless price_block.nil?
         @item_price = price_block.text.to_s[0..-7].scan(/\d+/).join.to_s
-      else
-        @item_price = "Цена на сайте отсутствует"
+      else @item_price = "Цена на сайте отсутствует"
       end
 
       @data_from_page = {
@@ -37,8 +36,7 @@ class BalisageController < ApplicationController
           expart = row.at_css("div[class='tablecell explanationpart']")
           unless picpart.nil?
             @icon = @@rooturl+picpart['src'].to_s
-          else
-            @icon = $std_icon
+          else @icon = $std_icon
           end
 
           avant = {
@@ -50,7 +48,7 @@ class BalisageController < ApplicationController
           @avantages_from_page.push(avant)
         end
 
-      else; @avantages_from_page = $avantages_null
+      else @avantages_from_page = $avantages_null
       end
 
     else
@@ -69,8 +67,7 @@ class BalisageController < ApplicationController
       @old_price = params[ :item ][ :old_price ].to_f
       @new_price = params[ :item ][ :new_price ].to_f
       @discount = (((( @new_price - @old_price ) / @old_price ) * 100 ) * 1 ).to_i unless @old_price == 0.0
-    else
-      @new_price = params[ :item ][ :old_price ]
+    else @new_price = params[ :item ][ :old_price ]
     end
 
     render 'view'

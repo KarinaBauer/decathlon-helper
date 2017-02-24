@@ -2,7 +2,7 @@
 *= require_self
 *= require fonts
 *= require customize
-*= require elems
+*= require_tree ./elems
 *= require material_icons
 *= require jquery.mCustomScrollbar
 *

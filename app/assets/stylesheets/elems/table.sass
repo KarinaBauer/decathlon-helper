@@ -1,0 +1,62 @@
+$mainInfoCell-height: 0
+$mainInfoCell-width: 160px
+$mainInfoCellImage-hw: 150px
+$nullCell-width: 180px
+$buttonFab-width: 28px
+
+$textField-width: 140px
+.mdl-textfield
+	width: $textField-width !important
+
+#comparsionTableParams *
+	border-radius: 0
+
+#comparsionTableParams
+	overflow-x: scroll
+
+	.bordered
+		border: 1px solid #000
+
+	.tableRow
+		display: flex
+		align-items: center
+
+	.mainInfoCell
+		flex-direction: column
+		width: $mainInfoCell-width
+		min-width: $mainInfoCell-width
+		align-self: center
+		padding: 0
+		margin: 0
+		img
+			width: $mainInfoCellImage-hw
+			height: $mainInfoCellImage-hw
+
+	#avantages
+		display: flex
+		flex-direction: column
+		//align-self: center
+		.avantage
+			.keyCell
+				width: $nullCell-width
+				min-width: $nullCell-width
+				.mdl-button--fab
+					min-width: $buttonFab-width
+					width: $buttonFab-width
+					margin-left: 0px
+					margin-right: 5px
+			.valueCell
+				width: $mainInfoCell-width
+				min-width: $mainInfoCell-width
+				display: flex
+				justify-content: center
+
+	#nullCell
+		justify-content: center
+		align-items: center
+		display: flex
+		height: 351px
+		width: $nullCell-width
+		min-width: $nullCell-width
+		img
+			width: $mainInfoCell-width
