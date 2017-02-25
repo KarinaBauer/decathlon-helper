@@ -15,7 +15,7 @@ function on_ready(ev)
     }
 }
 
-function toggleNewIcon() {
+function toggleNewIcon(event) {
 	var newIconToggler = event.currentTarget
 	var newIconSelector = event.currentTarget.parentNode.querySelector('#newIcon')
 

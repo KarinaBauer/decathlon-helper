@@ -1,1 +1,28 @@
 - @activityName = 'printTable'
+
+#wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+	%main#printComparsion
+		#comparsionTableView
+			- unless params[ :title ].nil?
+				%h1= params[ :title ]
+
+			#main.tableRow
+				#nullCell.bordered
+					=image_tag '/assets/nullCell.png'
+
+				- @items.each do |item|
+					%figure.bordered.mainInfoCell
+						%p.itemName=			item[ :name ]
+						= image_tag			( item[ :image ] )
+						%p.itemArticulus=	item[ :articulus ]
+						%p.itemPrice=			item[ :price ]
+
+				#avantages
+					- @avantages.each do |avantage|
+						#avantagePattern.avantage.tableRow.hidden
+							.keyCell.bordered.tableRow
+								%p= avantage[ :key ]
+
+							.valueCell.bordered.tableRow
+								- avantage[ :values ].each do |value|
+									%p= value
