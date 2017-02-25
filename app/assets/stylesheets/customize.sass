@@ -11,7 +11,7 @@ menu, form, #avantages, #icons, #contacts, #enter_url, #icons figure, #contacts 
 form, aside, figcaption, #enter_url, #avantages, #icons figure, #contacts figure, #items, #add_item
 	flex-direction: column
 
-#enter_url, #icons, #contacts
+#enter_url, #icons
 	justify-content: center
 
 
@@ -31,10 +31,8 @@ form, aside, figcaption, #enter_url, #avantages, #icons figure, #contacts figure
 .mdl-textfield__input
 	border-bottom: 1px solid rgba(0, 0, 0, 0.6) !important
 
-.mdl-dialog__content
-	overflow-y: scroll
-	height: 400%
-	width: auto
+.mdl-dialog
+	width: 700px !important
 
 .mdl-switch
 	display: flex !important
@@ -42,6 +40,9 @@ form, aside, figcaption, #enter_url, #avantages, #icons figure, #contacts figure
 	align-items: center
 	small
 		margin-left: 15px
+
+dialog::backdrop
+	background: rgba(0, 0, 0, 0.58)
 
 .hidden
 	display: none !important

@@ -15,7 +15,7 @@
 
 	- if @activityName == 'print_balisage'
 		= stylesheet_link_tag 'print/preview', media: 'all', 'data-turbolinks-track': 'reload'
-		-case params[:balisage_size]
+		-case params[:balisageFormat]
 			-when 'A3'
 				= stylesheet_link_tag 'print/A3', media: 'all', 'data-turbolinks-track': 'reload'
 			-when 'A4'

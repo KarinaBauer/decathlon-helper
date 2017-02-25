@@ -13,12 +13,15 @@
 				 class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
 	%main
-		%p Web-приложение Decathlon Helper - генератор бализажей и таблиц сравнения.
-		%p В данный момент ведётся активная разработка и наращивание функцонала.
+		%h2 Web-приложение Decathlon Helper - генератор бализажей и таблиц сравнения.
+		%p Целевая клиентская программа - браузер Chromium и его производные - Google Chrome, Opera, Yandex.Browser.
+		%p На текущем этапе корректное отображение web-интерфейса на других браузерах не гарантируется.
+		%p В данный момент ведётся активная разработка и наращивание функцонала приложения.
+
 		%h2 Контакты разработчика:
 		#contacts
 			%figure.mdl-color--teal-500.contact
-				%h2 e-mail
+				%small Электронная почта
 				%aside
 					= image_tag('email.png')
 				%figcaption
@@ -26,7 +29,7 @@
 					 class: 'btn_nav mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'
 
 			%figure.mdl-color--teal-500.contact
-				%h2 Профиль на weblancer
+				%small Профиль на weblancer
 				%aside
 					= image_tag('wl.png')
 				%figcaption

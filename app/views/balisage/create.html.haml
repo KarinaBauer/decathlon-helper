@@ -63,10 +63,8 @@
 							= hidden_field_tag 'item[avantages][][icon]', avantage[ :icon ]
 							= image_tag( avantage[ :icon ], id: :CurrentIconShower )
 
-							%label#newIconToggler.mdl-switch.mdl-js-switch{ onchange: 'toggleNewIcon(event)' }
-								= check_box_tag 'new_price_is_added', 'true', false, class: 'mdl-switch__input'
-								%span.mdl-switch__label
-								%small Заменить иконку
+							%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect{ onclick: 'toggleNewIcon(event)' }
+								%small Заменить
 
 							#newIcon.mdl-list.hidden
 								%li.mdl-list__item
@@ -91,14 +89,43 @@
 
 			%menu
 				%h2 Размер бализажа:
-				= radio_button_tag :balisage_size, "A3" 
-				=				 label_tag :balisage_size_A3, "A3"
-				= radio_button_tag :balisage_size, "A4", true
-				=				 label_tag :balisage_size_A4, "A4"
-				= radio_button_tag :balisage_size, "A5" 
-				=				 label_tag :balisage_size_A5, "A5"
-				= radio_button_tag :balisage_size, "A6" 
-				=				 label_tag :balisage_size_A6, "A6"
+				= radio_button_tag :balisageFormat, "A3"
+				=				 label_tag :balisageFormat_A3, "A3"
+				= radio_button_tag :balisageFormat, "A4", true
+				=				 label_tag :balisageFormat_A4, "A4"
+				= radio_button_tag :balisageFormat, "A5" 
+				=				 label_tag :balisageFormat_A5, "A5"
+				= radio_button_tag :balisageFormat, "A6" 
+				=				 label_tag :balisageFormat_A6, "A6"
 
-			= button_tag "сформировать шаблон", value: 'generate()',
-			 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored widebtn'
+			%dialog.mdl-dialog
+				%h4.mdl-dialog__title Предупреждение
+				%div.mdl-dialog__content
+					%p= "После нажатия кнопки подтверждения Вы попадёте на страницу предосмотра и печати бализажа."
+					%p
+						Следует учесть, что масштаб элементов в основном окне браузера приблизителен,
+						для точной сверки Вы можете манипулировать настройками в браузерном окне печати,
+						которое по умолчанию открывается автоматически при открытии страницы предосмотра и печати."
+					%p
+						Некоторые браузеры могут некорректно отобразить бализаж в окне печати с первого раза,
+						поэтому если Вы не увидели в нём текст - закройте окно печати и откройте вручную
+						( сочетанием клавиш CTRL + P либо через меню браузера )"
+					%p
+						Чтобы перейти от предосмотра к печати, Вам необходимо открыть системный диалог
+						( сочетанием клавиш SHIFT + CTRL + P, либо отыщите ссылку 'Печать с помощью системного диалогового окна' или с текстом подобного содержания )
+					%b
+						%p
+							Вы выбрали формат бализажа
+							%span#balisageFormat= "A4, "
+							поэтому в системном диалоге печати установите формат бумаги
+							%span#paperFormat= "A4"
+							и
+							%span#paperOrientation= "альбомную"
+							ориентацию.
+
+				%div.mdl-dialog__actions
+					= button_tag "ок, продолжить", value: 'printBalisage',
+					 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'
+					%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.close= "отменить"
+
+			%a#dialogButton.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored.widebtn= "сформировать шаблон"

@@ -15,15 +15,24 @@ function on_ready(ev)
     }
 }
 
-
 function toggleNewIcon() {
 	var newIconToggler = event.currentTarget
 	var newIconSelector = event.currentTarget.parentNode.querySelector('#newIcon')
 
 	function get_icons() { return $.ajax( { url: '/api/icons/select'} ).done( function(html) { return $(newIconSelector).append(html) } ) }
-	if ( newIconToggler.classList.contains('is-checked') ) { newIconSelector.classList.remove('hidden') }
-	else { newIconSelector.classList.add('hidden') }
-	if (! newIconSelector.classList.contains('is-updated') ) { get_icons(); newIconSelector.classList.add('is-updated') }
+
+	if (!	newIconToggler.classList.contains('is-enabled')) {
+				newIconToggler.classList.add('is-enabled')
+				newIconSelector.classList.remove('hidden')
+	} else {
+				newIconToggler.classList.remove('is-enabled')
+				newIconSelector.classList.add('hidden')
+	}
+
+	if (! newIconSelector.classList.contains('is-updated') ) {
+				get_icons()
+				newIconSelector.classList.add('is-updated')
+	}
 }
 
 function selectIcon() {
@@ -33,20 +42,44 @@ function selectIcon() {
 	aside.querySelector('input').setAttribute('value', newIconSource)
 }
 
-
 document.addEventListener('DOMContentLoaded', on_ready, false);
 
 
-
-function showmodal() { ( function() {
+function modalWindow() { ( function() {
   'use strict'
-  var dialogButton = document.querySelector('.dialog-button')
-  var dialog = document.querySelector('#dialog')
-  if (! dialog.showModal) { dialogPolyfill.registerDialog(dialog) }
-  dialogButton.addEventListener( 'click', function() { dialog.showModal() } )
-  dialog.querySelector('.close').addEventListener( 'click', function() { dialog.close(); } )
+
+	balisageFormat_A3.addEventListener( 'click', function() { 
+		balisageFormat.innerHTML = "A3, "
+		paperFormat.innerHTML = "A3"
+		paperOrientation.innerHTML = "альбомную"
+	})
+
+	balisageFormat_A4.addEventListener( 'click', function() { 
+		balisageFormat.innerHTML = "A4, "
+		paperFormat.innerHTML = "A4"
+		paperOrientation.innerHTML = "альбомную"
+	})
+
+	balisageFormat_A5.addEventListener( 'click', function() { 
+		balisageFormat.innerHTML = "A5, "
+		paperFormat.innerHTML = "A4"
+		paperOrientation.innerHTML = "книжную"
+	})
+
+	balisageFormat_A6.addEventListener( 'click', function() { 
+		balisageFormat.innerHTML = "A6, "
+		paperFormat.innerHTML = "A4"
+		paperOrientation.innerHTML = "альбомную"
+	})
+
+	var dialog = document.querySelector('dialog')
+	if (! dialog.showModal) { dialogPolyfill.registerDialog(dialog) }
+	dialogButton.addEventListener( 'click', function() { dialog.showModal() } )
+	dialog.querySelector('.close').addEventListener( 'click', function() { dialog.close(); } )
 	}()
 )}
+
+window.onload = modalWindow
 
 function add_item() {
 	var item = document.createElement("figure")
@@ -72,12 +105,9 @@ function add_avant() {
 			<label for="icon">Иконка</label>\
 			<input type="hidden" name="item[avantages][][icon]" id="item_avantages__icon" value="/assets/arrow.jpg" />\
 			<img id="CurrentIconShower" src="/assets/arrow.jpg" alt="Arrow" />\
-			\
-			<label class="mdl-switch mdl-js-switch" id="newIconToggler" onchange="toggleNewIcon(event)">\
-				<input type="checkbox" name="new_price_is_added" id="new_price_is_added" value="true" class="mdl-switch__input" />\
-				<span class="mdl-switch__label"></span>\
-				<small>Заменить иконку</small>\
-			</label>\
+			<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="toggleNewIcon(event)">\
+        <small>Заменить</small>\
+			</a>\
 			<div class="mdl-list hidden" id="newIcon">\
 				<li class="mdl-list__item">\
 					<figure class="mdl-color--light-blue-500 selectIcon" onclick="selectIcon(event)">\

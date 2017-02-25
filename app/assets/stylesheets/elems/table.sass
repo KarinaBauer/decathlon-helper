@@ -1,26 +1,30 @@
+$commonMargin: -2px
 $mainInfoCell-height: 0
 $mainInfoCell-width: 160px
 $mainInfoCellImage-hw: 150px
 $nullCell-width: 180px
 $buttonFab-width: 28px
-
 $textField-width: 140px
-.mdl-textfield
-	width: $textField-width !important
+
+main#comparsion
+	display: flex !important
+	padding: 5px !important
+	justify-content: center
 
 #comparsionTableParams *
 	border-radius: 0
+	box-shadow: none !important
 
 #comparsionTableParams
 	overflow-x: scroll
-
+	align-self: center
+	.mdl-textfield
+		width: $textField-width !important
 	.bordered
-		border: 1px solid #000
-
+		border: 2px solid #000
 	.tableRow
 		display: flex
 		align-items: center
-
 	.mainInfoCell
 		flex-direction: column
 		width: $mainInfoCell-width
@@ -28,6 +32,7 @@ $textField-width: 140px
 		align-self: center
 		padding: 0
 		margin: 0
+		margin-left: $commonMargin
 		img
 			width: $mainInfoCellImage-hw
 			height: $mainInfoCellImage-hw
@@ -38,6 +43,7 @@ $textField-width: 140px
 		//align-self: center
 		.avantage
 			.keyCell
+				margin-top: $commonMargin
 				width: $nullCell-width
 				min-width: $nullCell-width
 				.mdl-button--fab
@@ -46,6 +52,8 @@ $textField-width: 140px
 					margin-left: 0px
 					margin-right: 5px
 			.valueCell
+				margin-top: $commonMargin
+				margin-left: $commonMargin
 				width: $mainInfoCell-width
 				min-width: $mainInfoCell-width
 				display: flex
