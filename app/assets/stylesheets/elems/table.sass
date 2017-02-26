@@ -2,9 +2,8 @@ $commonMargin: -2px
 $mainInfoCell-height: 0
 $mainInfoCell-width: 160px
 $mainInfoCellImage-hw: 150px
-$nullCell-width: 180px
+$nullCell-width: 210px
 $buttonFab-width: 28px
-$textField-width: 140px
 
 main#createComparsion
 	display: flex !important
@@ -18,8 +17,15 @@ main#createComparsion
 	#comparsionTableParams
 		overflow-x: scroll
 		align-self: center
-		.mdl-textfield
-			width: $textField-width !important
+		h1
+			color: #fff
+			background-color: #2076bf
+			font-size: 3rem
+			letter-spacing: 6px
+			width: 1500px
+			text-align: center
+			margin: 0
+			margin-bottom: 5px
 		.bordered
 			border: 2px solid #000
 		.tableRow
@@ -33,6 +39,8 @@ main#createComparsion
 			padding: 0
 			margin: 0
 			margin-left: $commonMargin
+			.mdl-textfield
+				width: 150px !important
 			img
 				width: $mainInfoCellImage-hw
 				height: $mainInfoCellImage-hw
@@ -46,6 +54,8 @@ main#createComparsion
 					margin-top: $commonMargin
 					width: $nullCell-width
 					min-width: $nullCell-width
+					.mdl-textfield
+						width: 170px !important
 					.mdl-button--fab
 						min-width: $buttonFab-width
 						width: $buttonFab-width
@@ -58,6 +68,8 @@ main#createComparsion
 					min-width: $mainInfoCell-width
 					display: flex
 					justify-content: center
+					.mdl-textfield
+						width: 150px !important
 
 		#nullCell
 			justify-content: center
@@ -66,5 +78,3 @@ main#createComparsion
 			height: 351px
 			width: $nullCell-width
 			min-width: $nullCell-width
-			img
-				width: $mainInfoCell-width

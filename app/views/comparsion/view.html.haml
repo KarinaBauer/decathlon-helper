@@ -3,8 +3,9 @@
 #wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
 	%main#printComparsion
 		#comparsionTableView
-			- unless params[ :title ].nil?
-				%h1= params[ :title ]
+			- unless params[ :table ][ :title ].nil?
+				= image_tag( '/assets/2076bf.png', class: :velo )
+				%h1= params[ :table ][ :title ]
 
 			#main.tableRow
 				#nullCell.bordered
@@ -12,17 +13,22 @@
 
 				- @items.each do |item|
 					%figure.bordered.mainInfoCell
-						%p.itemName=			item[ :name ]
-						= image_tag			( item[ :image ] )
-						%p.itemArticulus=	item[ :articulus ]
-						%p.itemPrice=			item[ :price ]
+						%p.itemName= item[ :name ]
+						= image_tag( item[ :image ] )
 
-				#avantages
-					- @avantages.each do |avantage|
-						#avantagePattern.avantage.tableRow.hidden
-							.keyCell.bordered.tableRow
-								%p= avantage[ :key ]
+						= image_tag( 'yllw.png', class: :velo )
+						%figcaption
+							%small.itemArticulus=	item[ :articulus ]
+							.priceDiv
+								%p.itemPrice=	item[ :price ]
+								%small РУБ.
 
+			#avantages
+				- @avantages.each do |avantage|
+					#avantage.avantage.tableRow
+						.keyCell.bordered.tableRow
+							%p= avantage[ :key ]
+
+						- avantage[ :values ].each do |value|
 							.valueCell.bordered.tableRow
-								- avantage[ :values ].each do |value|
-									%p= value
+								%p= value

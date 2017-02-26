@@ -1,10 +1,19 @@
+@page
+	margin: 0
+
 $commonMargin: -2px
 $mainInfoCell-height: 0
 $mainInfoCell-width: 160px
 $mainInfoCellImage-hw: 150px
-$nullCell-width: 180px
+$nullCell-width: 210px
 $buttonFab-width: 28px
 $textField-width: 140px
+$avantageCell-height: 58px
+$mainCellHeight: 260px
+$itemPrice-height: 65px
+
+#wrapper
+	overflow-x: scroll
 
 #printComparsion
 	display: flex !important
@@ -17,8 +26,23 @@ $textField-width: 140px
 
 	#comparsionTableView
 		align-self: center
-		.mdl-textfield
-			width: $textField-width !important
+		margin-top: 5px
+		align-items: center
+		display: flex
+		flex-direction: column
+		.velo
+			height: 67px
+			width: 1500px
+			margin: 0
+		h1
+			color: #ffffff
+			font-size: 3rem
+			letter-spacing: 6px
+			width: 1500px
+			text-align: center
+			margin: 0
+			margin-bottom: 5px
+			margin-top: -67px
 		.bordered
 			border: 2px solid #000
 		.tableRow
@@ -32,24 +56,49 @@ $textField-width: 140px
 			padding: 0
 			margin: 0
 			margin-left: $commonMargin
+			height: $mainCellHeight
+			.itemName
+				margin: 0
+				margin-bottom: 15px
 			img
 				width: $mainInfoCellImage-hw
 				height: $mainInfoCellImage-hw
+				margin-bottom: 5px
+			.velo
+				height: $itemPrice-height
+				width: 150px
+				margin: 0
+			figcaption
+				margin-top: -$itemPrice-height
+				height: $itemPrice-height
+				font-family: sans-serif
+				.itemArticulus
+					margin-left: 2px
+				.priceDiv
+					line-height: 1
+					display: inline-flex
+					width: 150px
+					margin-bottom: 0px
+					margin-top: 3px
+					justify-content: center
+					.itemPrice
+						margin: 0
+						font-size: 2.2rem
 
 		#avantages
 			display: flex
 			flex-direction: column
-			//align-self: center
 			.avantage
+				p
+					margin: 0
 				.keyCell
 					margin-top: $commonMargin
 					width: $nullCell-width
 					min-width: $nullCell-width
-					.mdl-button--fab
-						min-width: $buttonFab-width
-						width: $buttonFab-width
-						margin-left: 0px
-						margin-right: 5px
+					justify-content: center
+					text-align: center
+					height: $avantageCell-height
+					font-size: 0.8rem
 				.valueCell
 					margin-top: $commonMargin
 					margin-left: $commonMargin
@@ -57,13 +106,13 @@ $textField-width: 140px
 					min-width: $mainInfoCell-width
 					display: flex
 					justify-content: center
+					height: $avantageCell-height
+					font-size: 1.1rem
 
 		#nullCell
 			justify-content: center
 			align-items: center
 			display: flex
-			height: 351px
+			height: $mainCellHeight
 			width: $nullCell-width
 			min-width: $nullCell-width
-			img
-				width: $mainInfoCell-width
