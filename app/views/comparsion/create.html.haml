@@ -16,6 +16,9 @@
 			- unless params[ :title ].nil?
 				= f.hidden_field :title, value: params[ :title ]
 				%h1= params[ :title ]
+			- else
+				= f.hidden_field :title, value: "Заголовок таблицы не установлен!"
+				%h1= "Заголовок таблицы не установлен!"
 
 			#main.tableRow
 				#nullCell.bordered
