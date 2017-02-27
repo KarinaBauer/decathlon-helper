@@ -12,13 +12,11 @@ $avantageCell-height: 58px
 $mainCellHeight: 260px
 $itemPrice-height: 65px
 
-#wrapper
-	overflow-x: scroll
-
 #printComparsion
 	display: flex !important
 	padding: 5px !important
 	justify-content: center
+	overflow: auto
 
 	#comparsionTableView *
 		border-radius: 0
@@ -30,6 +28,8 @@ $itemPrice-height: 65px
 		align-items: center
 		display: flex
 		flex-direction: column
+		#main
+			align-self: center
 		.velo
 			height: 67px
 			width: 1500px
@@ -38,7 +38,7 @@ $itemPrice-height: 65px
 			color: #FFF
 			font-size: 3rem
 			letter-spacing: 6px
-			width: 1500px
+			width: 1400px
 			text-align: center
 			margin: 0
 			margin-bottom: 5px
@@ -85,10 +85,11 @@ $itemPrice-height: 65px
 						margin: 0
 						font-size: 2.2rem
 
-		#avantages
+		#tableAvantages
 			display: flex
 			flex-direction: column
 			.avantage
+				align-self: center
 				p
 					margin: 0
 				.keyCell
@@ -108,6 +109,12 @@ $itemPrice-height: 65px
 					justify-content: center
 					height: $avantageCell-height
 					font-size: 1.1rem
+					.comparingStars
+						display: inline-flex
+						img
+							width: 32px
+							height: 32px
+							padding: 0px !important
 
 		#nullCell
 			justify-content: center

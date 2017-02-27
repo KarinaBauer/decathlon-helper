@@ -11,7 +11,7 @@
 - if @activityName == 'printTable'
 	= stylesheet_link_tag 'print/table', media: 'all', 'data-turbolinks-track': 'reload'
 
-- unless @activityName == 'print_balisage' or @activityName == 'api--icon-select'
+- unless @activityName == 'print_balisage' or @activityName.include?('api--')
 	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 - else
@@ -28,5 +28,10 @@
 			-when 'A6'
 				= stylesheet_link_tag 'print/A6', media: 'all', 'data-turbolinks-track': 'reload'
 
-%body
-	= yield
+
+- unless @activityName.include?('print')
+	%body
+		= yield
+- else
+	%body{ onload: 'print()' }
+		= yield

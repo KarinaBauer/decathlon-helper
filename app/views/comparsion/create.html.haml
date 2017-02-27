@@ -11,56 +11,71 @@
 				 class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
 	%main#createComparsion
-		= form_for :table, url: { action: :print }, html: { id: :comparsionTableParams } do |f|
+		= form_for :table, url: { action: :print }, html: { id: :comparsionTableParamsform } do |f|
 
-			- unless params[ :title ].nil?
-				= f.hidden_field :title, value: params[ :title ]
-				%h1= params[ :title ]
-			- else
-				= f.hidden_field :title, value: "Заголовок таблицы не установлен!"
-				%h1= "Заголовок таблицы не установлен!"
+			#comparsionTableParams
+				- unless params[ :title ].nil?
+					= f.hidden_field :title, value: params[ :title ]
+					%h1= params[ :title ]
+				- else
+					= f.hidden_field :title, value: "Заголовок таблицы не установлен!"
+					%h1= "Заголовок таблицы не установлен!"
 
-			#main.tableRow
-				#nullCell.bordered
-					=image_tag '/assets/nullCell.png'
-				- @items.each do |item|
-
-					%figure.bordered.mainInfoCell
-						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-							= f.text_field 'items[][name]', value: item[ :name ], class: 'mdl-textfield__input'
-							= label_tag :price, "Наименование", class: 'mdl-textfield__label'
-
-						= f.hidden_field 'items[][image]', value: item[ :image ]
-						= image_tag( item[ :image ] )
-						=# label_tag :image, "Загрузить новое изображение:"
-						=# f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
-
-						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-							= f.text_field 'items[][articulus]', value: item[ :articulus ], class: 'mdl-textfield__input', pattern: '[0-9]*'
-							= label_tag :articulus, "Артикул", class: 'mdl-textfield__label'
-							%span.mdl-textfield__error= "Допускаются только цифры!"
-						.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-							= f.text_field 'items[][price]', value: item[ :price ], class: 'mdl-textfield__input', pattern: '[0-9]*'
-							= label_tag :price, "Цена", class: 'mdl-textfield__label'
-							%span.mdl-textfield__error= "Допускаются только цифры!"
-
-			#avantages
-
-				#avantagePattern.avantage.tableRow.hidden
-					.keyCell.bordered.tableRow
-						%button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored{ onclick: 'this.parentNode.parentNode.remove()' }
-							%i.material-icons delete
-						.mdl-textfield.is-focused.mdl-textfield--floating-label
-							= f.text_field 'avantages[][key]', class: 'mdl-textfield__input'
-							= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+				#main.tableRow
+					#nullCell.bordered
+						=image_tag '/assets/nullCell.png'
 					- @items.each do |item|
-						.valueCell.bordered.tableRow
+
+						%figure.bordered.mainInfoCell
+							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+								= f.text_field 'items[][name]', value: item[ :name ], class: 'mdl-textfield__input'
+								= label_tag :price, "Наименование", class: 'mdl-textfield__label'
+
+							= f.hidden_field 'items[][image]', value: item[ :image ]
+							= image_tag( item[ :image ] )
+							=# label_tag :image, "Загрузить новое изображение:"
+							=# f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
+
+							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+								= f.text_field 'items[][articulus]', value: item[ :articulus ], class: 'mdl-textfield__input', pattern: '[0-9]*'
+								= label_tag :articulus, "Артикул", class: 'mdl-textfield__label'
+								%span.mdl-textfield__error= "Допускаются только цифры!"
+							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+								= f.text_field 'items[][price]', value: item[ :price ], class: 'mdl-textfield__input', pattern: '[0-9]*'
+								= label_tag :price, "Цена", class: 'mdl-textfield__label'
+								%span.mdl-textfield__error= "Допускаются только цифры!"
+
+				#tableAvantages
+
+					#avantagePattern.avantage.tableRow.hidden
+						.keyCell.bordered.tableRow
+							%button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored{ onclick: 'this.parentNode.parentNode.remove()' }
+								%i.material-icons delete
 							.mdl-textfield.is-focused.mdl-textfield--floating-label
-								= text_field_tag 'table[avantages][][values][]', nil, class: 'mdl-textfield__input'
-								= label_tag :value, "Текст", class: 'mdl-textfield__label'
+								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input'
+								= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+						- @items.each do |item|
+							.valueCell.bordered.tableRow
+								.mdl-textfield.is-focused.mdl-textfield--floating-label
+									= text_field_tag 'table[avantages][][values][][text]', nil, class: 'mdl-textfield__input'
+									= label_tag :value, "Текст", class: 'mdl-textfield__label'
 
+					#avantagePatternWithStars.avantage.tableRow.hidden
+						.keyCell.bordered.tableRow
+							%button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored{ onclick: 'this.parentNode.parentNode.remove()' }
+								%i.material-icons delete
+							.mdl-textfield.is-focused.mdl-textfield--floating-label
+								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input'
+								= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+						- @items.each do |item|
+							.valueCell.bordered.tableRow
+								.setRaiting
+									= label_tag :value, "Оценка от 1 до 5"
+									= number_field_tag 'table[avantages][][values][][raiting]', 5, min: 1, max: 5, step: 1
 
-			%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored.widebtn{ onclick: 'addTableAvantage()' }= "добавить текстовую характеристику"
+			%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored.widebtn{ onclick: 'addTextComparation()' }= "добавить текстовую характеристику"
+
+			%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored.widebtn{ onclick: 'addPointComparation()' }= "добавить оценочную характеристику"
 
 			= button_tag "сформировать таблицу", value: 'generateTable',
 			 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored widebtn'

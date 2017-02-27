@@ -23,12 +23,18 @@
 								%p.itemPrice=	item[ :price ]
 								%small РУБ.
 
-			#avantages
-				- @avantages.each do |avantage|
+			#tableAvantages
+				-	@avantages.each do |avantage|
 					#avantage.avantage.tableRow
 						.keyCell.bordered.tableRow
 							%p= avantage[ :key ]
 
-						- avantage[ :values ].each do |value|
+						-	avantage[ :values ].each do |value|
 							.valueCell.bordered.tableRow
-								%p= value
+								-	if value.has_key?( 'text' )
+									%p= value[ :text ]
+								-	else
+									.comparingStars
+										- i = 0; while i < value[ :raiting ].to_i
+											= image_tag( '/assets/clipart/star.png' )
+											- i+=1

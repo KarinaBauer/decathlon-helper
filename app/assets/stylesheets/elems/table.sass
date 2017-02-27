@@ -6,9 +6,11 @@ $nullCell-width: 210px
 $buttonFab-width: 28px
 
 main#createComparsion
-	display: flex !important
+	//display: flex !important
 	padding: 5px !important
-	justify-content: center
+	//justify-content: center
+	.mdl-button--raised
+		align-self: center
 
 	#comparsionTableParams *
 		border-radius: 0
@@ -16,13 +18,13 @@ main#createComparsion
 
 	#comparsionTableParams
 		overflow-x: scroll
-		align-self: center
+		align-items: flex-start
 		h1
 			color: #fff
 			background-color: #2076bf
 			font-size: 3rem
 			letter-spacing: 6px
-			width: 1500px
+			width: 1400px
 			text-align: center
 			margin: 0
 			margin-bottom: 5px
@@ -45,11 +47,13 @@ main#createComparsion
 				width: $mainInfoCellImage-hw
 				height: $mainInfoCellImage-hw
 
-		#avantages
+		#tableAvantages
 			display: flex
 			flex-direction: column
-			//align-self: center
+			.mdl-button
+				align-self: center
 			.avantage
+				align-self: center
 				.keyCell
 					margin-top: $commonMargin
 					width: $nullCell-width
@@ -68,6 +72,9 @@ main#createComparsion
 					min-width: $mainInfoCell-width
 					display: flex
 					justify-content: center
+					height: 67px
+					.setRaiting
+						text-align: center
 					.mdl-textfield
 						width: 150px !important
 

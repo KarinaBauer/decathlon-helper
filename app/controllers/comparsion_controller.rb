@@ -44,7 +44,13 @@ class ComparsionController < ApplicationController
 		@title = params[ :table ][ :title ]
 		@items = params[ :table ][ :items ]
 		@avantages = params[ :table ][ :avantages ]
-		@avantages.delete_at(0)
+
+		i = 0
+		while i != 2
+			@avantages.delete_at(0)
+			i += 1
+		end
+
 		render 'view'
 	end
 end
