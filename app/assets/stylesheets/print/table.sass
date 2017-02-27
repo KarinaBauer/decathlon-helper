@@ -1,6 +1,15 @@
 @page
 	margin: 0
 
+@media print and (color)
+	*
+		-webkit-print-color-adjust: exact
+		print-color-adjust: exact
+
+	h1
+		-webkit-filter: invert(100%)
+		filter: invert(100%)
+
 $commonMargin: -2px
 $mainInfoCell-height: 0
 $mainInfoCell-width: 160px
@@ -35,7 +44,7 @@ $itemPrice-height: 65px
 			width: 1500px
 			margin: 0
 		h1
-			color: #FFF
+			color: #fff
 			font-size: 3rem
 			letter-spacing: 6px
 			width: 1400px
