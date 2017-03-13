@@ -38,7 +38,7 @@
 			= form_for @item_min, url: { action: :create, controller: :comparsion } do |f|
 
 				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-					= text_field_tag :title, nil, class: 'mdl-textfield__input', maxlength: 30
+					= text_field_tag :title, nil, class: 'mdl-textfield__input', maxlength: 30, required: true
 					= label_tag :title, "Заголовок таблицы", class: 'mdl-textfield__label'
 
 				#items

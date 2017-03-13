@@ -95,7 +95,7 @@ function add_item() {
 		</button>'
 
 	item.id = 'enter_url'
-	item.classList.add('mdl-color--light-blue-500', 'some_items')
+	item.classList.add('mdl-color--light-blue-500')
 	items.appendChild(item)
 }
 
