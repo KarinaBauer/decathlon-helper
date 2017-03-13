@@ -83,18 +83,19 @@ window.onload = modalWindow
 
 function add_item() {
 	var item = document.createElement("figure")
+
 	item.innerHTML = '\
-	\
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused">\
-    	<input class="mdl-textfield__input" type="text" name="items[]" id="_url" />\
-      <label class="mdl-textfield__label" for="url">Ссылка на товар в decathlon:</label>\
-    </div>\
-		<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent" onclick="this.parentNode.remove()">\
-		  <i class="material-icons left">delete</i>удалить\
+		  <input class="mdl-textfield__input" autofocus="autofocus" required="required" type="url" name="[url]" id="_url" />\
+			<label class="mdl-textfield__label" for="url">Ссылка на товар в decathlon:</label>\
+		</div>\
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="this.parentNode.remove()">\
+			удалить\
+			<i class="material-icons right">delete</i>\
 		</button>'
 
 	item.id = 'enter_url'
-	item.classList.add('mdl-color--light-blue-300', 'some_items')
+	item.classList.add('mdl-color--light-blue-500', 'some_items')
 	items.appendChild(item)
 }
 

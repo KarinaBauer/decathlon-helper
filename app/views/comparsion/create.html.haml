@@ -14,12 +14,12 @@
 		= form_for :table, url: { action: :print }, html: { id: :comparsionTableParamsform } do |f|
 
 			#comparsionTableParams
-				- unless params[ :title ].nil?
+				- unless params[ :title ].nil? or params[ :title ].empty?
 					= f.hidden_field :title, value: params[ :title ]
 					%h1= params[ :title ]
 				- else
-					= f.hidden_field :title, value: "Заголовок таблицы не установлен!"
-					%h1= "Заголовок таблицы не установлен!"
+					= f.hidden_field :title, value: "Заголовок не установлен!"
+					%h1= "Заголовок не установлен!"
 
 				#main.tableRow
 					#nullCell.bordered
@@ -28,8 +28,9 @@
 
 						%figure.bordered.mainInfoCell
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= f.text_field 'items[][name]', value: item[ :name ], class: 'mdl-textfield__input'
+								= f.text_field 'items[][name]', value: item[ :name ], class: 'mdl-textfield__input', maxlength: 26
 								= label_tag :price, "Наименование", class: 'mdl-textfield__label'
+								%span.mdl-textfield__error= "Допускается не более 26 символов"
 
 							= f.hidden_field 'items[][image]', value: item[ :image ]
 							= image_tag( item[ :image ] )
@@ -37,13 +38,14 @@
 							=# f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
 
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= f.text_field 'items[][articulus]', value: item[ :articulus ], class: 'mdl-textfield__input', pattern: '[0-9]*'
+								= f.text_field 'items[][articulus]', value: item[ :articulus ], class: 'mdl-textfield__input', type: :number, max: 99999999
 								= label_tag :articulus, "Артикул", class: 'mdl-textfield__label'
-								%span.mdl-textfield__error= "Допускаются только цифры!"
+								%span.mdl-textfield__error= "Слишком большое значение!"
+
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= f.text_field 'items[][price]', value: item[ :price ], class: 'mdl-textfield__input', pattern: '[0-9]*'
+								= f.text_field 'items[][price]', value: item[ :price ], class: 'mdl-textfield__input', type: :number, max: 999999
 								= label_tag :price, "Цена", class: 'mdl-textfield__label'
-								%span.mdl-textfield__error= "Допускаются только цифры!"
+								%span.mdl-textfield__error= "Слишком большое значение!"
 
 				#tableAvantages
 
@@ -54,6 +56,7 @@
 							.mdl-textfield.is-focused.mdl-textfield--floating-label
 								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input'
 								= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+
 						- @items.each do |item|
 							.valueCell.bordered.tableRow
 								.mdl-textfield.is-focused.mdl-textfield--floating-label
@@ -67,6 +70,7 @@
 							.mdl-textfield.is-focused.mdl-textfield--floating-label
 								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input'
 								= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+
 						- @items.each do |item|
 							.valueCell.bordered.tableRow
 								.setRaiting
