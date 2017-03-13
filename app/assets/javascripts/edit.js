@@ -86,7 +86,7 @@ function add_item() {
 
 	item.innerHTML = '\
 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused">\
-		  <input class="mdl-textfield__input" autofocus="autofocus" required="required" type="url" name="[url]" id="_url" />\
+		  <input class="mdl-textfield__input" autofocus="autofocus" required="required" type="url" name="items[]" id="_url" />\
 			<label class="mdl-textfield__label" for="url">Ссылка на товар в decathlon:</label>\
 		</div>\
 		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="this.parentNode.remove()">\
