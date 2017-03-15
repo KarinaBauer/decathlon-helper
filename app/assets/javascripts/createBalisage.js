@@ -123,12 +123,12 @@ function add_avant() {
 				удалить\
 			</button>\
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused">\
-				<input type="text" name="item[avantages][][title]" id="item_avantages__title" class="mdl-textfield__input title" />\
-				<label class="mdl-textfield__label" for="title">Заголовок (не более 20 символов):</label>\
+				<input type="text" name="item[avantages][][title]" id="item_avantages__title" class="mdl-textfield__input title" maxlength="20"/>\
+				<label class="mdl-textfield__label" for="title">Заголовок:</label>\
 			</div>\
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused">\
-				<input type="text" name="item[avantages][][description]" id="item_avantages__description" class="mdl-textfield__input description" />\
-				<label class="mdl-textfield__label" for="description">Описание (не более 25 символов):</label>\
+				<input type="text" name="item[avantages][][description]" id="item_avantages__description" class="mdl-textfield__input description" maxlength="25"/>\
+				<label class="mdl-textfield__label" for="description">Описание:</label>\
 			</div>\
 		</figcaption>';
 	avant.classList.add('mdl-color--light-blue-400')

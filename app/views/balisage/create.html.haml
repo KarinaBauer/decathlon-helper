@@ -29,7 +29,7 @@
 					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
 						= f.text_field :name, value: @data_from_page[ :name ], class: 'mdl-textfield__input', minlength: 5, maxlength: 26
 						= label_tag :name, "Наименование:", class: 'mdl-textfield__label'
-						%span.mdl-textfield__error= "Наименование должно занимать от 5 до 26 символов"
+						%span.mdl-textfield__error= "Наименование должно содержать от 5 до 26 символов"
 
 					.digits.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
 						= f.text_field :articulus, value: @data_from_page[ :articulus ], class: 'mdl-textfield__input', type: :number, min: 1, max: 99999999, required: true
