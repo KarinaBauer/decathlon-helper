@@ -131,6 +131,6 @@ function add_avant() {
 				<label class="mdl-textfield__label" for="description">Описание (не более 25 символов):</label>\
 			</div>\
 		</figcaption>';
-	avant.classList.add('mdl-color--light-blue-300')
+	avant.classList.add('mdl-color--light-blue-400')
 	avantages.appendChild(avant)
 }

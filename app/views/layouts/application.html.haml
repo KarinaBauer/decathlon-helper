@@ -1,37 +1,58 @@
 !!! 5
 
-- unless @activityName.include?('api--')
+- unless @activityClass.include?('api/')
 	%title Decathlon Helper
 	= csrf_meta_tags
 	= favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
 
-- if @activityName == 'createComparsion'
-	= javascript_include_tag 'createComparsion', 'data-turbolinks-track': 'reload'
 
-- if @activityName == 'printTable'
-	= stylesheet_link_tag 'print/table', media: 'all', 'data-turbolinks-track': 'reload'
+- if @activityClass == 'createComparsionTable'
+	= javascript_include_tag 'createComparsionTable', 'data-turbolinks-track': 'reload'
 
-- unless @activityName.include?('print_balisage') or @activityName.include?('api--')
+
+- if @activityClass == 'createBalisage'
+	= javascript_include_tag 'createBalisage', 'data-turbolinks-track': 'reload'
+
+
+- if @activityClass == 'print/comparsionTable'
+	= stylesheet_link_tag 'print/comparsionTable', media: 'all', 'data-turbolinks-track': 'reload'
+
+
+- unless @activityClass.include?('print/balisage') or @activityClass.include?('api/')
+
 	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-- else
-
-	- if @activityName == 'print_balisage'
-		= stylesheet_link_tag 'print/preview', media: 'all', 'data-turbolinks-track': 'reload'
-		-case params[:balisageFormat]
-			-when 'A3'
-				= stylesheet_link_tag 'print/A3', media: 'all', 'data-turbolinks-track': 'reload'
-			-when 'A4'
-				= stylesheet_link_tag 'print/A4', media: 'all', 'data-turbolinks-track': 'reload'
-			-when 'A5'
-				= stylesheet_link_tag 'print/A5', media: 'all', 'data-turbolinks-track': 'reload'
-			-when 'A6'
-				= stylesheet_link_tag 'print/A6', media: 'all', 'data-turbolinks-track': 'reload'
 
 
-- unless @activityName.include?('print')
+- else case @activityClass
+
+	-	when 'print/balisage'
+
+		= stylesheet_link_tag 'print/balisagePreview', media: 'all', 'data-turbolinks-track': 'reload'
+
+		-	case params[:balisageFormat]
+
+			-	when 'A3'
+				= stylesheet_link_tag 'print/balisageA3', media: 'all', 'data-turbolinks-track': 'reload'
+			-	when 'A4'
+				= stylesheet_link_tag 'print/balisageA4', media: 'all', 'data-turbolinks-track': 'reload'
+			-	when 'A5'
+				= stylesheet_link_tag 'print/balisageA5', media: 'all', 'data-turbolinks-track': 'reload'
+			-	when 'A6'
+				= stylesheet_link_tag 'print/balisageA6', media: 'all', 'data-turbolinks-track': 'reload'
+
+	-	when 'print/balisageWideformat'
+	
+		= stylesheet_link_tag 'print/balisageWideformatPreview', media: 'all', 'data-turbolinks-track': 'reload'
+		= stylesheet_link_tag 'print/balisageWideformat', media: 'all', 'data-turbolinks-track': 'reload'
+
+
+
+- unless @activityClass.include?('print')
 	%body
 		= yield
+
+
 - else
 	%body{ onload: 'print()' }
 		= yield

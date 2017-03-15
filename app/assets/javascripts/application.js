@@ -6,7 +6,5 @@
 *= require turbolinks-compatibility
 *= require jquery.mCustomScrollbar
 *= require mdlComponentHandler
-*
 *= require_tree ./mdl
-* require edit
 */

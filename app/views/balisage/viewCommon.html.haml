@@ -1,0 +1,47 @@
+- @activityClass = 'print/balisage'
+
+%header
+  = image_tag( 'logo_decathlon.png', class: 'logo' )
+  %h1= params[ :item ][ :name ]
+
+
+%article
+
+  %aside
+    %figure
+
+      %div#wrapper
+        = image_tag( 'varranty2.png', class: 'warranty' )
+        = image_tag( params[ :item ][ :image ], class: 'item' )
+
+      = image_tag( 'yllw.png', class: :velo )
+
+      %figcaption
+
+        #topline
+          %p.articulus= params[ :item ][ :articulus ]
+          - unless @discount.nil?
+            %p.discount= @discount.to_s + '%'
+
+        #price
+          - unless @old_price.nil? or @old_price == 0
+            %p.old_price= @old_price.to_i.to_s
+          -else
+            %p.old_price
+
+          #new_price
+            %p.price= @new_price.to_i.to_s
+            %small= "руб."
+
+
+  %section
+    -unless params[ :item ][ :avantages ].nil?
+      -params[ :item ][ :avantages ].each do |avantage|
+
+        %figure
+          - unless avantage[ :icon ].nil?
+            = image_tag( avantage[ :icon ] )
+
+          %figcaption
+            %strong= avantage[ :title ]
+            %span= avantage[ :description ]

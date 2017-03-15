@@ -1,5 +1,4 @@
-= javascript_include_tag 'edit', 'data-turbolinks-track': 'reload'
-- @activityName = 'create_balisage'
+- @activityClass = 'createBalisage'
 
 #wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
 	= render 'layouts/header'
@@ -17,7 +16,7 @@
 	
 		= form_for @item, url: { action: :print }, html: { id: :form } do |f|
 			%h2 Основные данные товара:
-			%figure#item_data.mdl-color--light-blue-300
+			%figure#item_data.mdl-color--light-blue-400
 
 				%aside#item_image.item_image
 					= f.hidden_field :image, value: @data_from_page[ :image ]
@@ -28,19 +27,19 @@
 				
 				%figcaption
 					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-						= f.text_field :name, value: @data_from_page[ :name ], class: 'mdl-textfield__input', maxlength: 26
+						= f.text_field :name, value: @data_from_page[ :name ], class: 'mdl-textfield__input', minlength: 5, maxlength: 26
 						= label_tag :name, "Наименование:", class: 'mdl-textfield__label'
-						%span.mdl-textfield__error= "Допускается не более 26 символов"
+						%span.mdl-textfield__error= "Наименование должно занимать от 5 до 26 символов"
 
 					.digits.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-						= f.text_field :articulus, value: @data_from_page[ :articulus ], class: 'mdl-textfield__input', type: :number, max: 99999999
+						= f.text_field :articulus, value: @data_from_page[ :articulus ], class: 'mdl-textfield__input', type: :number, min: 1, max: 99999999, required: true
 						= label_tag :articulus, "Артикул:", class: 'mdl-textfield__label'
-						%span.mdl-textfield__error= "Слишком большое значение!"
+						%span.mdl-textfield__error= "Укажите артикул"
 
 					.digits.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-						= f.text_field :old_price, value: @data_from_page[ :price ], class: 'mdl-textfield__input', type: :number, max: 999999
+						= f.text_field :old_price, value: @data_from_page[ :price ], class: 'mdl-textfield__input', type: :number, min: 1, max: 999999, required: true
 						= label_tag :old_price, "Цена в рублях:", class: 'mdl-textfield__label'
-						%span.mdl-textfield__error= "Слишком большое значение!"
+						%span.mdl-textfield__error= "Укажите цену"
 
 					%label#newPriceToggler.mdl-switch.mdl-js-switch
 						//{ onchange: 'toggleNewPrice()' }
@@ -57,7 +56,7 @@
 				%h2 Характеристики:
 				%small (рекомендуется не более трёх)
 				- @avantages_from_page.each do |avantage|
-					%figure.mdl-color--light-blue-300
+					%figure.mdl-color--light-blue-400
 
 						%aside
 							= label_tag :icon, "Иконка"
@@ -92,13 +91,15 @@
 
 			%menu
 				%h2 Размер бализажа:
-				= radio_button_tag :balisageFormat, "A3"
+				=	radio_button_tag :balisageFormat, "wideA3"
+				=				 label_tag :balisageFormat_wideA3, "Половина A3"
+				=	radio_button_tag :balisageFormat, "A3"
 				=				 label_tag :balisageFormat_A3, "A3"
-				= radio_button_tag :balisageFormat, "A4", true
+				=	radio_button_tag :balisageFormat, "A4", true
 				=				 label_tag :balisageFormat_A4, "A4"
-				= radio_button_tag :balisageFormat, "A5" 
+				=	radio_button_tag :balisageFormat, "A5" 
 				=				 label_tag :balisageFormat_A5, "A5"
-				= radio_button_tag :balisageFormat, "A6" 
+				=	radio_button_tag :balisageFormat, "A6" 
 				=				 label_tag :balisageFormat_A6, "A6"
 
 			%dialog.mdl-dialog

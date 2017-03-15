@@ -5,6 +5,7 @@ class ComparsionController < ApplicationController
 		@rooturl = 'http://www.decathlon.ru'
 		@items = []
 		@urls = params[ :items ]
+
 		unless @urls.nil?
 
 			@urls.each do |url|
@@ -14,14 +15,12 @@ class ComparsionController < ApplicationController
 
 				unless @url.empty?
 					@page = Nokogiri::HTML(open(@url))
-
 					price_block = @page.at_css('span#real_price_value')
+
 					unless price_block.nil?
 						@item_price = price_block.text.to_s[0..-7].scan(/\d+/).join.to_s
 					else
-						# Эту валидацию нужно предоставить вьюхам, а не контроллеру
-						# например, отобразить красный лейбл с ошибкой если @item_price.nil? и пустое текстовое поле
-						@item_price = "Цена на сайте отсутствует" #, или Вы ввели неверный адрес
+						@item_price = ""
 					end
 
 					@items.push({
@@ -30,14 +29,10 @@ class ComparsionController < ApplicationController
 						price: @item_price,
 						image: @rooturl+@page.at_css('div#viewerImage img')['src'].to_s
 					})
-
 				end
 			end
 
-		else @items.push( $item_data )
-		end
-
-		render 'create'
+		else redirect_to '/'; end
 	end
 
 	def print

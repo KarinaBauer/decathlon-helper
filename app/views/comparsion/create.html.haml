@@ -1,4 +1,4 @@
-- @activityName = 'createComparsion'
+- @activityClass = 'createComparsionTable'
 
 #wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
 
@@ -28,9 +28,9 @@
 
 						%figure.bordered.mainInfoCell
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= f.text_field 'items[][name]', value: item[ :name ], class: 'mdl-textfield__input', maxlength: 16
-								= label_tag :price, "Наименование", class: 'mdl-textfield__label'
-								%span.mdl-textfield__error= "Допускается не более 16 символов"
+								= f.text_field 'items[][name]', value: item[ :name ], class: 'mdl-textfield__input', minlength: 5, maxlength: 16
+								= label_tag :name, "Наименование", class: 'mdl-textfield__label'
+								%span.mdl-textfield__error= "Допускается от 5 до 16 символов"
 
 							= f.hidden_field 'items[][image]', value: item[ :image ]
 							= image_tag( item[ :image ] )
@@ -38,14 +38,14 @@
 							=# f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
 
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= f.text_field 'items[][articulus]', value: item[ :articulus ], class: 'mdl-textfield__input', type: :number, max: 99999999
+								= f.text_field 'items[][articulus]', value: item[ :articulus ], class: 'mdl-textfield__input', type: :number, min: 1, max: 99999999, required: true
 								= label_tag :articulus, "Артикул", class: 'mdl-textfield__label'
-								%span.mdl-textfield__error= "Слишком большое значение!"
+								%span.mdl-textfield__error= "Укажите артикул"
 
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= f.text_field 'items[][price]', value: item[ :price ], class: 'mdl-textfield__input', type: :number, max: 999999
+								= f.text_field 'items[][price]', value: item[ :price ], class: 'mdl-textfield__input', type: :number, min: 1, max: 999999, required: true
 								= label_tag :price, "Цена", class: 'mdl-textfield__label'
-								%span.mdl-textfield__error= "Слишком большое значение!"
+								%span.mdl-textfield__error= "Укажите цену"
 
 				#tableAvantages
 
@@ -54,22 +54,25 @@
 							%button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored{ onclick: 'this.parentNode.parentNode.remove()' }
 								%i.material-icons delete
 							.mdl-textfield.is-focused.mdl-textfield--floating-label
-								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input', maxlength: 24
+								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input', minlength: 4, maxlength: 24, required: true
 								= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+								%span.mdl-textfield__error= "Допускается от 4 до 24 символов"
 
 						- @items.each do |item|
 							.valueCell.bordered.tableRow
 								.mdl-textfield.is-focused.mdl-textfield--floating-label
-									= text_field_tag 'table[avantages][][values][][text]', nil, class: 'mdl-textfield__input', maxlength: 13
+									= text_field_tag 'table[avantages][][values][][text]', nil, class: 'mdl-textfield__input', minlength: 2, maxlength: 13, required: true
 									= label_tag :value, "Текст", class: 'mdl-textfield__label'
+									%span.mdl-textfield__error= "Допускается от 2 до 13 символов"
 
 					#avantagePatternWithStars.avantage.tableRow.hidden
 						.keyCell.bordered.tableRow
 							%button.mdl-button.mdl-js-button.mdl-button--fab.mdl-button--colored{ onclick: 'this.parentNode.parentNode.remove()' }
 								%i.material-icons delete
 							.mdl-textfield.is-focused.mdl-textfield--floating-label
-								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input', maxlength: 24
+								= f.text_field 'avantages[][key]', class: 'mdl-textfield__input', minlength: 4, maxlength: 24, required: true
 								= label_tag :title, "Характеристика", class: 'mdl-textfield__label'
+								%span.mdl-textfield__error= "Допускается от 4 до 24 символов"
 
 						- @items.each do |item|
 							.valueCell.bordered.tableRow
