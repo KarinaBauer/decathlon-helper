@@ -12,6 +12,7 @@ body
 	flex-direction: column
 	margin: 0
 	font-family: roboto
+	height: 148mm
 
 	figure
 		margin-left: 8px
@@ -20,64 +21,56 @@ body
 
 header
 	display: flex
-	height: 20%
+	height: 18%
 	margin-bottom: $header_margin-bottom-pv
 
 	img.logo
 		z-index: 1
 		height: 100%
-		width: 80%
+		width: 35%
+
+
+aside
+	flex-direction: column
+	justify-content: flex-end
+	width: 33%
+
+	img.warranty
+		height: 50px
+		z-index: 1
+
 	h1
-		position: absolute
 		text-align: right
-		font-size: $header-h1_fontsize-pv
+		font-size: 1rem
 		font-family: roboto_thin
 		right: $header-h1_right-pv
 		padding: $header-h1_padding-pv
 		margin: 0
 		margin-top: $header-h1_margin-top-pv
 
-
-aside
-	flex-direction: column
-	justify-content: flex-start
-	width: 40%
-
-	img.warranty
-		margin: $aside-warranty-margin-pv
-		height: $aside-warranty-heightandwidth-pv
-		z-index: 1
-
-	img.item
-		height: $aside-item-heightandwidth-pv
-		width: $aside-item-heightandwidth-pv
-		margin-left: $aside-item-margin-left-pv
-		z-index: 0
-
 	img.velo
-		width: $aside-velo-width-pv
-		height: $aside-velo-height-pv
+		width: 415px
+		height: 200px
 
 	figure
 		margin-top: 0
 		margin-bottom: 0
 		flex-direction: column
 
-		#wrapper
+		#itemName
 			display: flex
-			justify-content: center
 			padding-bottom: $wrapper-padding-bottom-pv
 
 		figcaption
 			padding: $figcaption_padding-pv
 			padding-bottom: 0
 			margin-top: 5px
-			width: $figcaption_width-pv
-			height: $figcaption_height-pv
-			margin-top: $figcaption_margin-top-pv
+			width: 415px
+			height: 192px
+			margin-top: -200px
 
 			#topline
-				height: $topline_height-pv
+				height: 50px
 				display: flex
 				justify-content: space-between
 				margin-top: $topline-margin-top-pv
@@ -104,8 +97,8 @@ aside
 				.old_price
 					align-self: flex-start
 					position: relative
-					font-size: $oldprice-fontsize-pv
-					height: $oldprice-height-pv
+					font-size: $oldprice-fontsize-a4
+					height: 24px
 					margin: 0
 					padding: 0
 
@@ -120,7 +113,7 @@ aside
 				#new_price
 					display: flex
 					justify-content: center
-					margin-top: $newprice-margin-top-pv
+					margin-top: -20px
 
 					.price
 						align-self: center
@@ -129,16 +122,23 @@ aside
 						padding: 0
 
 					small
-						font-size: $price-small-fontsize-pv
+						font-size: 2rem
 						margin-top: $price-small-margin-top-pv
 						margin-right: $price-small-margin-right-pv
 
 
+#itemImage
+	width: 33%
+	img.item
+		height: 350px
+		width: 350px
+		z-index: 0
+
+
 section
 	flex-flow: row wrap
-	width: 60%
-	align-content: space-around
-	margin-top: -10px
+	width: 33%
+	margin-top: -60px
 
 	figure
 		width: 100%
@@ -157,11 +157,11 @@ section
 			line-height: $section-figcaption-line-height-pv
 
 			strong
-				font-size: $figcaption-strong-fontsize-pv
+				font-size: 1.8rem
 				color: #0076c0
 				text-align: center
 				align-self: center
 
 			span
 				text-align: center
-				font-size: $figcaption-span-fontsize-pv
+				font-size: 3rem
