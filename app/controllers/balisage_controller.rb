@@ -14,7 +14,7 @@ class BalisageController < ApplicationController
 				avants_block = @page.at_css('.list_avantage')
 
 				unless price_block.nil?
-						@item_price = price_block.text.to_s[0..-7].scan(/\d+/).join.to_s
+						@item_price = price_block.text.to_s[0..-4].scan(/\d+/).join.to_s
 				else  @item_price = ""
 				end
 
