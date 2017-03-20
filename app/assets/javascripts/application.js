@@ -7,4 +7,5 @@
 *= require jquery.mCustomScrollbar
 *= require mdlComponentHandler
 *= require_tree ./mdl
+*= require_tree ./mylib
 */

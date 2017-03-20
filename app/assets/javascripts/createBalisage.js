@@ -48,6 +48,12 @@ document.addEventListener('DOMContentLoaded', on_ready, false);
 function modalWindow() { ( function() {
   'use strict'
 
+	balisageFormat_wideA3.addEventListener( 'click', function() { 
+		balisageFormat.innerHTML = "1/2 A3, "
+		paperFormat.innerHTML = "A3"
+		paperOrientation.innerHTML = "альбомную"
+	})
+
 	balisageFormat_A3.addEventListener( 'click', function() { 
 		balisageFormat.innerHTML = "A3, "
 		paperFormat.innerHTML = "A3"
@@ -79,7 +85,7 @@ function modalWindow() { ( function() {
 	}()
 )}
 
-window.onload = modalWindow
+document.addEventListener('DOMContentLoaded', modalWindow, false);
 
 function add_item() {
 	var item = document.createElement("figure")
