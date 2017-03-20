@@ -5,6 +5,7 @@ $header_margin-bottom-a3: -40px;
 $header_margin-bottom-a4: -35px;
 $header_margin-bottom-a5: -20px;
 $header_margin-bottom-a6: -17px;
+$header_margin-bottom-a7: -17px;
 
 /* ==========  HEADER H1  ========== */
 
@@ -13,24 +14,28 @@ $header-h1_fontsize-a3: 3.4rem;
 $header-h1_fontsize-a4: 2.1rem;
 $header-h1_fontsize-a5: 1.6rem;
 $header-h1_fontsize-a6: 1.12rem;
+$header-h1_fontsize-a7: 1.12rem;
 
 $header-h1_right-pv: 10px;
 $header-h1_right-a3: 14px;
 $header-h1_right-a4: 10px;
 $header-h1_right-a5: 7px;
 $header-h1_right-a6: 51%;
+$header-h1_right-a7: 51%;
 
 $header-h1_padding-pv: 10px;
 $header-h1_padding-a3: 14px;
 $header-h1_padding-a4: 10px;
 $header-h1_padding-a5: 7px;
 $header-h1_padding-a6: 4px;
+$header-h1_padding-a7: 4px;
 
 $header-h1_margin-top-pv: 3.5%;
 $header-h1_margin-top-a3: 3.5%;
 $header-h1_margin-top-a4: 3.6%;
 $header-h1_margin-top-a5: 2%;
 $header-h1_margin-top-a6: 1%;
+$header-h1_margin-top-a7: 1%;
 
 /* ==========  ASIDE WARRANTY  ========== */
 
@@ -39,12 +44,14 @@ $aside-warranty-margin-a3: 25px 154px 0 -21px;
 $aside-warranty-margin-a4: 25px 110px 0 -15px;
 $aside-warranty-margin-a5: 12px 77px 0 -10px;
 $aside-warranty-margin-a6: 12px 55px 0 -7px;
+$aside-warranty-margin-a7: 12px 55px 0 -7px;
 
 $aside-warranty-heightandwidth-pv: 100px;
 $aside-warranty-heightandwidth-a3: 124px;
 $aside-warranty-heightandwidth-a4: 89px;
 $aside-warranty-heightandwidth-a5: 62px;
 $aside-warranty-heightandwidth-a6: 44px;
+$aside-warranty-heightandwidth-a7: 44px;
 
 /* ==========  ASIDE ITEM  ========== */
 
@@ -53,26 +60,30 @@ $aside-item-heightandwidth-a3: 560px;
 $aside-item-heightandwidth-a4: 400px;
 $aside-item-heightandwidth-a5: 280px;
 $aside-item-heightandwidth-a6: 200px;
+$aside-item-heightandwidth-a7: 200px;
 
 $aside-item-margin-left-pv: -140px;
 $aside-item-margin-left-a3: -252px;
 $aside-item-margin-left-a4: -180px;
 $aside-item-margin-left-a5: -126px;
 $aside-item-margin-left-a6: -90px;
+$aside-item-margin-left-a7: -90px;
 
 /* ==========  ASIDE VELO  ========== */
 
 $aside-velo-width-pv: 496px;
 $aside-velo-width-a3: 632px;
 $aside-velo-width-a4: 446px;
-$aside-velo-width-a5: 311px;
+$aside-velo-width-a5: 318px;
 $aside-velo-width-a6: 210px;
+$aside-velo-width-a7: 210px;
 
 $aside-velo-height-pv: 288px;
 $aside-velo-height-a3: 334px;
 $aside-velo-height-a4: 238px;
 $aside-velo-height-a5: 166px;
 $aside-velo-height-a6: 119px;
+$aside-velo-height-a7: 119px;
 
 /* ==========  WRAPPER  ========== */
 
@@ -81,6 +92,7 @@ $wrapper-padding-bottom-a3: 14px;
 $wrapper-padding-bottom-a4: 10px;
 $wrapper-padding-bottom-a5: 7px;
 $wrapper-padding-bottom-a6: 5px;
+$wrapper-padding-bottom-a7: 5px;
 
 /* ==========  FIGCAPTION  ========== */
 
@@ -89,38 +101,44 @@ $figcaption_padding-a3: 8px;
 $figcaption_padding-a4: 8px;
 $figcaption_padding-a5: 7px;
 $figcaption_padding-a6: 4px;
+$figcaption_padding-a7: 4px;
 
 $figcaption_width-pv: 480px;
 $figcaption_width-a3: 616px;
 $figcaption_width-a4: 430px;
-$figcaption_width-a5: 316px;
-$figcaption_width-a6: 210px;
+$figcaption_width-a5: 310px;
+$figcaption_width-a6: 207px;
+$figcaption_width-a7: 207px;
 
 $figcaption_height-pv: 280px;
 $figcaption_height-a3: 334px;
 $figcaption_height-a4: 238px;
 $figcaption_height-a5: 166px;
 $figcaption_height-a6: 119px;
+$figcaption_height-a7: 119px;
 
 $figcaption_margin-top-pv: -288px;
 $figcaption_margin-top-a3: -334px;
 $figcaption_margin-top-a4: -238px;
 $figcaption_margin-top-a5: -166px;
 $figcaption_margin-top-a6: -119px;
+$figcaption_margin-top-a7: -119px;
 
 /* ==========  TOPLINE  ========== */
 
 $topline_height-pv: 56px;
 $topline_height-a3: 56px;
-$topline_height-a4: 40px;
-$topline_height-a5: 30px;
+$topline_height-a4: 48px;
+$topline_height-a5: 38px;
 $topline_height-a6: 20px;
+$topline_height-a7: 20px;
 
 $topline-margin-top-pv: 3px;
 $topline-margin-top-a3: 3px;
 $topline-margin-top-a4: 2px;
-$topline-margin-top-a5: 1px;
-$topline-margin-top-a6: 0.5px;
+$topline-margin-top-a5: 0.3px;
+$topline-margin-top-a6: 0.3px;
+$topline-margin-top-a7: 0.3px;
 
 /* ==========  ARTICULUS  ========== */
 
@@ -129,20 +147,34 @@ $articulus-fontsize-a3: 1.68rem;
 $articulus-fontsize-a4: 1.2rem;
 $articulus-fontsize-a5: 1.1rem;
 $articulus-fontsize-a6: 0.8rem;
+$articulus-fontsize-a7: 0.8rem;
+
+/* ==========  BLACKBG  ========== */
+
+$blackbg-width-pv: 83px;
+$blackbg-width-wfpv: 70px;
+$blackbg-width-wf: 70px;
+$blackbg-width-a3: 83px;
+$blackbg-width-a4: 83px;
+$blackbg-width-a5: 70px !important;
+$blackbg-width-a6: 44px !important;
+$blackbg-width-a7: 44px !important;
 
 /* ==========  DISCOUNT  ========== */
 
 $discount-fontsize-pv: 2rem;
 $discount-fontsize-a3: 2.3rem;
-$discount-fontsize-a4: 1.6rem;
-$discount-fontsize-a5: 1rem;
+$discount-fontsize-a4: 1rem;
+$discount-fontsize-a5: 1.7rem !important;
 $discount-fontsize-a6: 0.8rem;
+$discount-fontsize-a7: 0.8rem;
 
 $discount-padding-pv: 6px;
 $discount-padding-a3: 8px;
 $discount-padding-a4: 6px;
 $discount-padding-a5: 6px;
 $discount-padding-a6: 2px;
+$discount-padding-a7: 2px;
 
 /* ==========  PRICEDIV  ========== */
 
@@ -151,6 +183,7 @@ $pricediv-line-height-a3: 1;
 $pricediv-line-height-a4: 1;
 $pricediv-line-height-a5: 0.9;
 $pricediv-line-height-a6: 0.9;
+$pricediv-line-height-a7: 0.9;
 
 /* ==========  OLDPRICE  ========== */
 
@@ -159,12 +192,14 @@ $oldprice-fontsize-a3: 3.3rem;
 $oldprice-fontsize-a4: 2.4rem;
 $oldprice-fontsize-a5: 1.4rem;
 $oldprice-fontsize-a6: 1rem;
+$oldprice-fontsize-a7: 1rem;
 
 $oldprice-height-pv: 48px;
 $oldprice-height-a3: 50px;
 $oldprice-height-a4: 40px;
 $oldprice-height-a5: 22px;
 $oldprice-height-a6: 16px;
+$oldprice-height-a7: 16px;
 
 /* ==========  NEWPRICE  ========== */
 
@@ -172,13 +207,15 @@ $newprice-margin-top-pv: -10px;
 $newprice-margin-top-a3: -15px;
 $newprice-margin-top-a4: -10px;
 $newprice-margin-top-a5: -8px;
-$newprice-margin-top-a6: -7px;
+$newprice-margin-top-a6: -3px;
+$newprice-margin-top-a7: -3px;
 
-$price-fontsize-pv: 8rem;
+$price-fontsize-pv: 7.5rem;
 $price-fontsize-a3: 10rem;
 $price-fontsize-a4: 7rem;
-$price-fontsize-a5: 5.5rem;
-$price-fontsize-a6: 3.5rem;
+$price-fontsize-a5: 5rem;
+$price-fontsize-a6: 3rem;
+$price-fontsize-a7: 3rem;
 
 /* ==========  PRICE SMALL  ========== */
 
@@ -187,18 +224,21 @@ $price-small-fontsize-a3: 3.6rem;
 $price-small-fontsize-a4: 2.1rem;
 $price-small-fontsize-a5: 1.7rem;
 $price-small-fontsize-a6: 1.1rem;
+$price-small-fontsize-a7: 1.1rem;
 
 $price-small-margin-top-pv: 5px;
 $price-small-margin-top-a3: 5px;
 $price-small-margin-top-a4: 5px;
 $price-small-margin-top-a5: 2.5px;
 $price-small-margin-top-a6: 2px;
+$price-small-margin-top-a7: 2px;
 
 $price-small-margin-right-pv: -2px;
 $price-small-margin-right-a3: -2px;
 $price-small-margin-right-a4: -4px;
 $price-small-margin-right-a5: -6px;
 $price-small-margin-right-a6: -6px;
+$price-small-margin-right-a7: -6px;
 
 /* ==========  SECTION FIGURE  ========== */
 
@@ -207,12 +247,14 @@ $section-figure-margin-a3: 4px;
 $section-figure-margin-a4: 4px;
 $section-figure-margin-a5: 4px;
 $section-figure-margin-a6: 2px;
+$section-figure-margin-a7: 2px;
 
 $section-figure-img_width-pv: 70px;
 $section-figure-img_width-a3: 70px;
 $section-figure-img_width-a4: 70px;
 $section-figure-img_width-a5: 50px;
 $section-figure-img_width-a6: 35px;
+$section-figure-img_width-a7: 35px;
 
 /* ==========  SECTION FIGCAPTION  ========== */
 
@@ -221,6 +263,7 @@ $section-figcaption-line-height-a3: 1;
 $section-figcaption-line-height-a4: 1;
 $section-figcaption-line-height-a5: 0.9;
 $section-figcaption-line-height-a6: 0.9;
+$section-figcaption-line-height-a7: 0.9;
 
 /* ==========  FIGCAPTION STRONG  ========== */
 
@@ -229,6 +272,7 @@ $figcaption-strong-fontsize-a3: 2.6rem;
 $figcaption-strong-fontsize-a4: 1.9rem;
 $figcaption-strong-fontsize-a5: 1.2rem;
 $figcaption-strong-fontsize-a6: 1rem;
+$figcaption-strong-fontsize-a7: 1rem;
 
 /* ==========  FIGCAPTION SPAN  ========== */
 
@@ -237,3 +281,4 @@ $figcaption-span-fontsize-a3: 5.2rem;
 $figcaption-span-fontsize-a4: 3.8rem;
 $figcaption-span-fontsize-a5: 2.4rem;
 $figcaption-span-fontsize-a6: 2rem;
+$figcaption-span-fontsize-a7: 2rem;

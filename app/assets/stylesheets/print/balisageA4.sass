@@ -23,7 +23,6 @@
 	header
 		display: flex
 		margin-bottom: $header_margin-bottom-a4
-
 		img.logo
 			z-index: 1
 			height: 20%
@@ -43,32 +42,26 @@
 		flex-direction: column
 		justify-content: flex-start
 		width: 40%
-
 		img.warranty
 			margin: $aside-warranty-margin-a4
 			height: $aside-warranty-heightandwidth-a4
 			z-index: 1
-
 		img.item
 			height: $aside-item-heightandwidth-a4
 			width: $aside-item-heightandwidth-a4
 			margin-left: $aside-item-margin-left-a4
 			z-index: 0
-
 		img.velo
 			width: $aside-velo-width-a4
 			height: $aside-velo-height-a4
-
 		figure
 			margin-top: 0
 			margin-bottom: 0
 			flex-direction: column
-
 			#wrapper
 				display: flex
 				justify-content: center
 				padding-bottom: $wrapper-padding-bottom-a4
-
 			figcaption
 				padding: $figcaption_padding-a4
 				padding-bottom: 0
@@ -76,32 +69,30 @@
 				width: $figcaption_width-a4
 				height: $figcaption_height-a4
 				margin-top: $figcaption_margin-top-a4
-
 				#topline
 					height: $topline_height-a4
 					display: flex
 					justify-content: space-between
 					margin-top: $topline-margin-top-a4
-
 					p
 						margin-bottom: 0
 						margin: 0
-
 					.articulus
 						font-size: $articulus-fontsize-a4
-
-					.discount
-						background-color: #000
-						color: yellow
-						font-size: $discount-fontsize-a4
-						padding: $discount-padding-a4
-					
-
+				.blackbg
+					width: $blackbg-width-a4
+					height: 100%
+					vertical-align: bottom
+				.discount
+					margin-top: -10px
+					color: #ffff00
+					font-size: $discount-fontsize-a4
+					padding: $discount-padding-a4
 				#price
 					line-height: 1
 					display: flex
 					flex-direction: column
-
+					margin-top: -5px
 					.old_price
 						align-self: flex-start
 						position: relative
@@ -109,7 +100,6 @@
 						height: $oldprice-height-a4
 						margin: 0
 						padding: 0
-
 					.old_price:before 
 						border-bottom: 3px solid #000
 						position: absolute
@@ -117,18 +107,15 @@
 						width: 105%
 						height: 50%
 						transform: rotate(10deg)
-
 					#new_price
 						display: flex
 						justify-content: center
 						margin-top: $newprice-margin-top-a4
-
 						.price
 							align-self: center
 							font-size: $price-fontsize-a4
 							margin: 0
 							padding: 0
-
 						small
 							font-size: $price-small-fontsize-a4
 							margin-top: $price-small-margin-top-a4
@@ -140,29 +127,24 @@
 		width: 60%
 		align-content: space-around
 		margin-top: -10px
-
 		figure
 			width: 100%
 			flex-wrap: nowrap
 			align-items: center
 			justify-content: center
 			margin: $section-figure-margin-a4
-
 			img
 				width: $section-figure-img_width-a4
-
 			figcaption
 				display: flex
 				flex-direction: column
 				align-items: flex-start
 				line-height: $section-figcaption-line-height-a4
-
 				strong
 					font-size: $figcaption-strong-fontsize-a4
 					color: #0076c0
 					text-align: center
 					align-self: center
-
 				span
 					text-align: center
 					font-size: $figcaption-span-fontsize-a4

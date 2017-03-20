@@ -22,7 +22,6 @@ header
 	display: flex
 	height: 20%
 	margin-bottom: $header_margin-bottom-pv
-
 	img.logo
 		z-index: 1
 		height: 100%
@@ -42,32 +41,26 @@ aside
 	flex-direction: column
 	justify-content: flex-start
 	width: 40%
-
 	img.warranty
 		margin: $aside-warranty-margin-pv
 		height: $aside-warranty-heightandwidth-pv
 		z-index: 1
-
 	img.item
 		height: $aside-item-heightandwidth-pv
 		width: $aside-item-heightandwidth-pv
 		margin-left: $aside-item-margin-left-pv
 		z-index: 0
-
 	img.velo
 		width: $aside-velo-width-pv
 		height: $aside-velo-height-pv
-
 	figure
 		margin-top: 0
 		margin-bottom: 0
 		flex-direction: column
-
 		#wrapper
 			display: flex
 			justify-content: center
 			padding-bottom: $wrapper-padding-bottom-pv
-
 		figcaption
 			padding: $figcaption_padding-pv
 			padding-bottom: 0
@@ -75,32 +68,29 @@ aside
 			width: $figcaption_width-pv
 			height: $figcaption_height-pv
 			margin-top: $figcaption_margin-top-pv
-
 			#topline
 				height: $topline_height-pv
 				display: flex
 				justify-content: space-between
 				margin-top: $topline-margin-top-pv
-
 				p
 					margin-bottom: 0
 					margin: 0
-
 				.articulus
 					font-size: $articulus-fontsize-pv
-
+				.blackbg
+					width: $blackbg-width-pv
+					height: 100%
+					vertical-align: bottom
 				.discount
-					background-color: #000
-					color: yellow
+					margin-top: -$topline_height-pv
+					color: #ffff00
 					font-size: $discount-fontsize-pv
 					padding: $discount-padding-pv
-				
-
 			#price
 				line-height: 1
 				display: flex
 				flex-direction: column
-
 				.old_price
 					align-self: flex-start
 					position: relative
@@ -108,7 +98,6 @@ aside
 					height: $oldprice-height-pv
 					margin: 0
 					padding: 0
-
 				.old_price:before 
 					border-bottom: 3px solid #000
 					position: absolute
@@ -116,18 +105,15 @@ aside
 					width: 105%
 					height: 50%
 					transform: rotate(10deg)
-
 				#new_price
 					display: flex
 					justify-content: center
 					margin-top: $newprice-margin-top-pv
-
 					.price
 						align-self: center
 						font-size: $price-fontsize-pv
 						margin: 0
 						padding: 0
-
 					small
 						font-size: $price-small-fontsize-pv
 						margin-top: $price-small-margin-top-pv
@@ -139,29 +125,24 @@ section
 	width: 60%
 	align-content: space-around
 	margin-top: -10px
-
 	figure
 		width: 100%
 		flex-wrap: nowrap
 		align-items: center
 		justify-content: center
 		margin: $section-figure-margin-pv
-
 		img
 			width: $section-figure-img_width-pv
-
 		figcaption
 			display: flex
 			flex-direction: column
 			align-items: flex-start
 			line-height: $section-figcaption-line-height-pv
-
 			strong
 				font-size: $figcaption-strong-fontsize-pv
 				color: #0076c0
 				text-align: center
 				align-self: center
-
 			span
 				text-align: center
 				font-size: $figcaption-span-fontsize-pv
