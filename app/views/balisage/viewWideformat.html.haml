@@ -1,48 +1,50 @@
 - @activityClass = 'print/balisageWideformat'
 
 %header
-  = image_tag( 'logo_decathlon.png', class: 'logo' )
+	= image_tag( 'logo_decathlon.png', class: 'logo' )
 
 
 %article
 
-  %aside
-    %figure
+	%aside
+		%figure
 
-      %div#itemName
-        = image_tag( 'varranty2.png', class: 'warranty' )
-        %h1= params[ :item ][ :name ]
+			%div#itemName
+				= image_tag( 'varranty2.png', class: 'warranty' )
+				%h1= params[ :item ][ :name ]
 
-      = image_tag( 'yllw.png', class: :velo )
+			= image_tag( 'yllw.png', class: :velo )
 
-      %figcaption
+			%figcaption
 
-        #topline
-          %p.articulus= params[ :item ][ :articulus ]
-          - unless @discount.nil?
-            %p.discount= @discount.to_s + '%'
+				#topline
+					%p.articulus= params[ :item ][ :articulus ]
+					- unless @discount.nil?
+						#discountWrapper
+							= image_tag( 'black.png', class: :blackbg )
+							%p.discount= @discount.to_s + '%'
 
-        #price
-          - unless @old_price.nil? or @old_price == 0
-            %p.old_price= @old_price.to_i.to_s
-          -else
-            %p.old_price
+				#price
+					- unless @old_price.nil? or @old_price == 0
+						%p.old_price= @old_price.to_i.to_s
+					-else
+						%p.old_price
 
-          #new_price
-            %p.price= @new_price.to_i.to_s
-            %small= "руб."
+					#new_price
+						%p.price= @new_price.to_i.to_s
+						%small= "руб."
 
-  #itemImage
-    = image_tag( params[ :item ][ :image ], class: 'item' )
+	#itemImage
+		= image_tag( params[ :item ][ :image ], class: 'item' )
 
-  %section
-    -unless params[ :item ][ :avantages ].nil?
-      -params[ :item ][ :avantages ].each do |avantage|
+	%section
+		-unless params[ :item ][ :avantages ].nil?
+			-params[ :item ][ :avantages ].each do |avantage|
 
-        %figure
-          - unless avantage[ :icon ].nil?
-            = image_tag( avantage[ :icon ] )
+				%figure
+					- unless avantage[ :icon ].nil?
+						= image_tag( avantage[ :icon ] )
 
-          %figcaption
-            %strong= avantage[ :title ]
-            %span= avantage[ :description ]
+					%figcaption
+						%strong= avantage[ :title ]
+						%span= avantage[ :description ]

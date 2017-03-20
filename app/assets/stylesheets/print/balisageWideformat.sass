@@ -15,6 +15,7 @@
 		margin: 0
 		font-family: roboto
 		height: 148mm
+		width: 420mm
 
 		figure
 			margin-left: 8px
@@ -23,146 +24,132 @@
 
 	header
 		display: flex
-		margin-bottom: $header_margin-bottom-a3
-
+		height: 20%
+		margin-bottom: $header_margin-bottom-pv
 		img.logo
 			z-index: 1
-			height: 20%
-			width: 80%
-		h1
-			position: absolute
-			text-align: right
-			font-size: $header-h1_fontsize-a3
-			font-family: roboto_thin
-			right: $header-h1_right-a3
-			padding: $header-h1_padding-a3
-			margin: 0
-			margin-top: $header-h1_margin-top-a3
+			height: 100%
+			width: 37%
 
 
 	aside
 		flex-direction: column
-		justify-content: flex-start
-		width: 40%
-
-		img.warranty
-			margin: $aside-warranty-margin-a3
-			height: $aside-warranty-heightandwidth-a3
-			z-index: 1
-
-		img.item
-			height: $aside-item-heightandwidth-a3
-			width: $aside-item-heightandwidth-a3
-			margin-left: $aside-item-margin-left-a3
-			z-index: 0
-
+		justify-content: flex-end
+		width: 30%
+		#itemName
+			display: flex
+			margin-bottom: 90px
+			img.warranty
+				height: 50px
+				z-index: 1
+			h1
+				font-size: 1.6rem
+				font-family: roboto_thin
+				padding: $header-h1_padding-pv
+				margin: 0
 		img.velo
-			width: $aside-velo-width-a3
-			height: $aside-velo-height-a3
-
+			width: 450px
+			height: 220px
 		figure
 			margin-top: 0
 			margin-bottom: 0
 			flex-direction: column
-
-			#wrapper
-				display: flex
-				justify-content: center
-				padding-bottom: $wrapper-padding-bottom-a3
-
 			figcaption
-				padding: $figcaption_padding-a3
+				padding: $figcaption_padding-pv
 				padding-bottom: 0
 				margin-top: 5px
-				width: $figcaption_width-a3
-				height: $figcaption_height-a3
-				margin-top: $figcaption_margin-top-a3
-
+				width: 438px
+				height: 206px
+				margin-top: -222px
 				#topline
-					height: $topline_height-a3
+					height: 47px
 					display: flex
 					justify-content: space-between
-					margin-top: $topline-margin-top-a3
-
+					margin-top: 0px
 					p
 						margin-bottom: 0
 						margin: 0
-
 					.articulus
-						font-size: $articulus-fontsize-a3
-
+						font-size: $articulus-fontsize-pv
+					.blackbg
+						width: 70px
+						height: 100%
+						vertical-align: bottom
 					.discount
-						background-color: #000
-						color: yellow
-						font-size: $discount-fontsize-a3
-						padding: $discount-padding-a3
-					
-
+						margin-top: -47px
+						color: #ffff00
+						font-size: 1.6rem
+						padding: $discount-padding-pv
 				#price
 					line-height: 1
 					display: flex
 					flex-direction: column
-
 					.old_price
 						align-self: flex-start
 						position: relative
-						font-size: $oldprice-fontsize-a3
-						height: $oldprice-height-a3
+						font-size: $oldprice-fontsize-a4
+						height: 24px
 						margin: 0
 						padding: 0
-
 					.old_price:before 
-						border-bottom: 3px solid #000
+						border-bottom: 4px solid #000
 						position: absolute
 						content: ""
 						width: 105%
-						height: 50%
-						transform: rotate(10deg)
-
+						height: 74%
+						transform: rotate(13deg)
 					#new_price
 						display: flex
 						justify-content: center
-						margin-top: $newprice-margin-top-a3
-
+						margin-top: 0px
 						.price
 							align-self: center
-							font-size: $price-fontsize-a3
+							font-size: 7rem
 							margin: 0
 							padding: 0
-
 						small
-							font-size: $price-small-fontsize-a3
-							margin-top: $price-small-margin-top-a3
-							margin-right: $price-small-margin-right-a3
+							font-size: 1.8rem
+							margin-top: $price-small-margin-top-pv
+							margin-right: $price-small-margin-right-pv
+
+
+	#itemImage
+		width: 32%
+		display: flex
+		justify-content: center
+		margin-top: -12px
+		margin-bottom: 12px
+		img.item
+			height: 390px
+			width: 390px
+			margin-top: -25px
+			margin-bottom: 25px
+			z-index: 0
 
 
 	section
 		flex-flow: row wrap
-		width: 60%
-		align-content: space-around
-
+		width: 35%
+		margin-top: -60px
+		margin-left: 20px
 		figure
 			width: 100%
 			flex-wrap: nowrap
 			align-items: center
 			justify-content: center
-			margin: $section-figure-margin-a3
-
+			margin: $section-figure-margin-pv
 			img
-				width: $section-figure-img_width-a3
-
+				width: $section-figure-img_width-pv
 			figcaption
 				display: flex
 				flex-direction: column
 				align-items: flex-start
-				line-height: $section-figcaption-line-height-a3
-
+				line-height: 1
 				strong
-					font-size: $figcaption-strong-fontsize-a3
+					font-size: 1.8rem
 					color: #0076c0
 					text-align: center
 					align-self: center
-
 				span
 					text-align: center
-					font-size: $figcaption-span-fontsize-a3
+					font-size: 3rem
