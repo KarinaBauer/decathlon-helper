@@ -18,7 +18,7 @@ class ComparsionController < ApplicationController
 					price_block = @page.at_css('span#real_price_value')
 
 					unless price_block.nil?
-						@item_price = price_block.text.to_s[0..-7].scan(/\d+/).join.to_s
+						@item_price = price_block.text.to_s[0..-4].scan(/\d+/).join.to_s
 					else
 						@item_price = ""
 					end

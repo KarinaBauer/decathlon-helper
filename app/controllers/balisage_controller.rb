@@ -61,9 +61,9 @@ class BalisageController < ApplicationController
 
 		unless params[ :addedNewPrice ].nil?
 				@old_price = params[ :item ][ :old_price ].to_f
-				@new_price = params[ :item ][ :new_price ].to_f
+				@new_price = params[ :item ][ :price ].to_f
 				@discount = (((( @new_price - @old_price ) / @old_price ) * 100 ) * 1 ).to_i unless @old_price == 0.0
-		else	@new_price = params[ :item ][ :old_price ]
+		else	@new_price = params[ :item ][ :price ]
 		end
 
 		unless params[ :balisageFormat ] == 'wideA3'
