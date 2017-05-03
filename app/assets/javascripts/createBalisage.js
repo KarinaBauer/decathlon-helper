@@ -15,11 +15,14 @@ function on_ready(ev)
     }
 }
 
+document.addEventListener('DOMContentLoaded', on_ready, false);
+
+
 function toggleNewIcon(event) {
 	var newIconToggler = event.currentTarget
 	var newIconSelector = event.currentTarget.parentNode.querySelector('#newIcon')
 
-	function get_icons() { return $.ajax( { url: '/api/icons/select'} ).done( function(html) { return $(newIconSelector).append(html) } ) }
+	function getIcons() { return $.ajax( { url: '/api/icons/select'} ).done( function(html) { return $(newIconSelector).append(html) } ) }
 
 	if (!	newIconToggler.classList.contains('is-enabled')) {
 				newIconToggler.classList.add('is-enabled')
@@ -30,7 +33,7 @@ function toggleNewIcon(event) {
 	}
 
 	if (! newIconSelector.classList.contains('is-updated') ) {
-				get_icons()
+				getIcons()
 				newIconSelector.classList.add('is-updated')
 	}
 }
@@ -40,9 +43,39 @@ function selectIcon() {
 	var newIconSource = event.currentTarget.querySelector('img').getAttribute('src')
 	aside.querySelector('img').setAttribute('src', newIconSource)
 	aside.querySelector('input').setAttribute('value', newIconSource)
+	event.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('a').classList.remove('is-enabled')
+	event.currentTarget.parentNode.parentNode.classList.add('hidden')
 }
 
-document.addEventListener('DOMContentLoaded', on_ready, false);
+
+function toggleNewPicture(event) {
+	var newPictureToggler = event.currentTarget
+	var newPictureSelector = event.currentTarget.parentNode.querySelector('#newPicture')
+
+	function getPictures() { return $.ajax( { url: '/api/pictures/select'} ).done( function(html) { return $(newPictureSelector).append(html) } ) }
+
+	if (!	newPictureToggler.classList.contains('is-enabled')) {
+				newPictureToggler.classList.add('is-enabled')
+				newPictureSelector.classList.remove('hidden')
+	} else {
+				newPictureToggler.classList.remove('is-enabled')
+				newPictureSelector.classList.add('hidden')
+	}
+
+	if (! newPictureSelector.classList.contains('is-updated') ) {
+				getPictures()
+				newPictureSelector.classList.add('is-updated')
+	}
+}
+
+function selectPicture() {
+	var aside = event.currentTarget.parentNode.parentNode.parentNode
+	var newPictureSource = event.currentTarget.querySelector('img').getAttribute('src')
+	aside.querySelector('img').setAttribute('src', newPictureSource)
+	aside.querySelector('input').setAttribute('value', newPictureSource)
+	event.currentTarget.parentNode.parentNode.parentNode.parentNode.querySelector('a').classList.remove('is-enabled')
+	event.currentTarget.parentNode.parentNode.classList.add('hidden')
+}
 
 
 function modalWindow() { ( function() {

@@ -99,11 +99,19 @@ figure
 	li
 		padding: 0
 
+#newPicture
+	overflow-y: scroll
+	height: 175px
+	figure
+		margin: 5px
+		padding: 10px
+	li
+		padding: 0
+
 #item_data
 	figcaption
 		width: 65%
 	aside
-		background-color: #fff
 		label
 			font-family: roboto_thin
 			font-weight: 600
@@ -113,6 +121,7 @@ figure
 			align-self: center
 			width: 140px
 			padding: 5px
+			border-radius: 8px
 
 #avantages
 	figcaption
@@ -125,18 +134,33 @@ figure
 			align-self: center
 	img
 		width: 70px
-		border-radius: 10%
+		border-radius: 8px
 		padding: 5px
 
-#new_icon
+#newImage
 	margin-left: 50px
 
-#icons
-	figure
-		margin: 15px
-		width: 150px
+#viewImages
 	img
-		width: 70px
+		border-radius: 2px
+	figure.icon
+		margin: 15px
+		width: 160px
+		height: 70px
+		padding: 20px
+		figcaption
+			padding-right: 5px
+		img
+			width: 70px
+			height: 70px
+	figure.picture
+		margin: 15px
+		width: 200px
+		height: 260px
+		padding: 10px
+		flex-direction: column
+		img
+			width: 200px
 
 #contacts
 	figure

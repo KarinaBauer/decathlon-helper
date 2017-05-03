@@ -10,15 +10,15 @@
 			.mdl-layout-spacer
 			%nav.mdl-navigation
 				//.mdl-layout--large-screen-only
-				= link_to "Открыть decathlon.ru", 'http://decathlon.ru', target: :_blank, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
-				= link_to "Каталог иконок", { controller: :icons }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
+				= link_to "Галерея изображений", { controller: :pictures }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
+				= link_to "Галерея иконок", { controller: :icons }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 				= link_to "О программе", { action: :about }, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
-
+				= link_to "decathlon.ru", 'http://decathlon.ru', target: :_blank, class: 'mdl-button mdl-js-button mdl-js-ripple-effect'
 
 	%main.mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
 		.mdl-tabs__tab-bar
-			= link_to "Создать бализаж", '#new_balisage', class: 'mdl-tabs__tab is-active'
-			= link_to "Создать таблицу сравнения", '#new_compare', class: 'mdl-tabs__tab'
+			= link_to "Создание бализажа", '#new_balisage', class: 'mdl-tabs__tab is-active'
+			= link_to "Создание таблицы сравнения", '#new_compare', class: 'mdl-tabs__tab'
 
 
 		#new_balisage.mdl-tabs__panel.is-active

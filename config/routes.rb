@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 	resources :icons
 	get '/api/icons/select', to: 'icons#select'
 
+	resources :pictures
+	get '/api/pictures/select', to: 'pictures#select'
+
 	get '/about', to: 'start#about'
 
 	post '/balisage/create', to: 'balisage#create'

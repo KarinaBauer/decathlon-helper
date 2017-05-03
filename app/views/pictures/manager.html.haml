@@ -1,11 +1,11 @@
-- @activityClass = 'icons'
+- @activityClass = 'pictures'
 
 #wrapper.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
 	= render 'layouts/header'
 
 	%header.mdl-layout__header
 		.mdl-layout__header-row
-			%span.mdl-layout-title Галерея иконок
+			%span.mdl-layout-title Галерея изображений
 			.mdl-layout-spacer
 			%nav.mdl-navigation
 				//.mdl-layout--large-screen-only
@@ -14,8 +14,8 @@
 
 	%main
 
-		%h2 Загрузка новой:
-		= form_for @icon, url: { action: :create } do |f|
+		%h2 Загрузка нового:
+		= form_for @picture, url: { action: :create } do |f|
 			#newImage
 				= f.file_field :url
 				= f.submit "Отправить",
@@ -24,10 +24,10 @@
 
 		%h2 Загруженные ранее:
 		#viewImages
-			-@icons.each do |icon|
-				%figure.icon.mdl-color--light-blue-500{ id: icon.id }
+			-@pictures.each do |picture|
+				%figure.picture.mdl-color--light-blue-500{ id: picture.id }
 					%aside
-						%img{ src: icon.url }
+						%img{ src: picture.url }
 					%figcaption
-						= link_to "удалить", '/icons/'+icon.id.to_s, method: :delete, data: { confirm: "Вы уверены?" },
+						= link_to "удалить", '/pictures/'+picture.id.to_s, method: :delete, data: { confirm: "Вы уверены?" },
 						 class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'

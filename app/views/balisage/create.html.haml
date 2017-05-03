@@ -18,12 +18,18 @@
 			%h2 Основные данные товара:
 			%figure#item_data.mdl-color--light-blue-400
 
-				%aside#item_image.item_image
+				%aside#item_image
 					= f.hidden_field :image, value: @data_from_page[ :image ]
 					= label_tag :image, "Изображение"
 					= image_tag( @data_from_page[ :image ] )
-					=# label_tag :image, "Загрузить новое изображение:"
-					=# f.file_field :image, accept: 'image/png,image/gif,image/jpeg'
+
+					%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect{ onclick: 'toggleNewPicture(event)' }
+						%small Заменить
+
+					#newPicture.mdl-list.hidden
+						%li.mdl-list__item
+							%figure.mdl-color--light-blue-500.selectIcon{ onclick: 'selectIcon(event)' }
+								= image_tag( @data_from_page[ :image ] )
 				
 				%figcaption
 					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label

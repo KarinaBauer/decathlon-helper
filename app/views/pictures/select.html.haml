@@ -1,0 +1,7 @@
+- @activityClass = 'api/pictureSelect'
+
+- @pictures.each do |picture|
+
+	%li.mdl-list__item
+		%figure.mdl-color--light-blue-500.selectIcon{ id: picture.id, onclick: 'selectPicture(event)' }
+			%img.selectPicture{ src: picture.url }
