@@ -78,14 +78,14 @@
 								удалить
 
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= text_field_tag 'item[avantages][][title]', avantage[ :title ], class: 'mdl-textfield__input', maxlength: 20
+								= text_field_tag 'item[avantages][][title]', avantage[ :title ], class: 'mdl-textfield__input', maxlength: 23
 								= label_tag :title, "Заголовок:", class: 'mdl-textfield__label'
-								%span.mdl-textfield__error= "Допускается не более 20 символов"
+								%span.mdl-textfield__error= "Допускается не более 23 символов"
 
 							.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-								= text_field_tag 'item[avantages][][description]', avantage[ :description ], class: 'mdl-textfield__input', maxlength: 25
+								= text_field_tag 'item[avantages][][description]', avantage[ :description ], class: 'mdl-textfield__input', maxlength: 26
 								= label_tag :description, "Описание:", class: 'mdl-textfield__label'
-								%span.mdl-textfield__error= "Допускается не более 25 символов"
+								%span.mdl-textfield__error= "Допускается не более 26 символов"
 
 			%a.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored.widebtn{ onclick: 'add_avant()' }= "добавить характеристику"
 

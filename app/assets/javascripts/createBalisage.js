@@ -78,6 +78,12 @@ function modalWindow() { ( function() {
 		paperOrientation.innerHTML = "альбомную"
 	})
 
+	balisageFormat_A7.addEventListener( 'click', function() { 
+		balisageFormat.innerHTML = "A7, "
+		paperFormat.innerHTML = "A4"
+		paperOrientation.innerHTML = "книжную"
+	})
+
 	var dialog = document.querySelector('dialog')
 	if (! dialog.showModal) { dialogPolyfill.registerDialog(dialog) }
 	dialogButton.addEventListener( 'click', function() { dialog.showModal() } )
