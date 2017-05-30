@@ -8,3 +8,6 @@
 *= require_tree ./mdl
 *= require_tree ./mylib
 */
+
+document.addEventListener('turbolinks:load', function() { componentHandler.upgradeDom() })
+$.turbo.use('turbolinks:load', 'turbolinks:request-start')

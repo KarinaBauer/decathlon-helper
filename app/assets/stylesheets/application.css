@@ -16,8 +16,7 @@
 *= require mdl/_chip
 *= require mdl/_data-table
 *= require mdl/_dialog
-*  require mdl/_footer/_mini_footer
-*  require mdl/_footer/_mega_footer
+*  require mdl/footer
 *= require mdl/_icon-toggle
 *= require mdl/_layout
 *= require mdl/_list
