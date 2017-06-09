@@ -3,8 +3,8 @@
 - unless @activityClass.include?('api/')
 	%title Decathlon Helper
 	= csrf_meta_tags
+	%meta{name:'viewport', content:'width=device-width, initial-scale=1.0, minimum-scale=1.0'}
 	= favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
-
 
 - if @activityClass == 'createComparsionTable'
 	= javascript_include_tag 'createComparsionTable', 'data-turbolinks-track': 'reload'
