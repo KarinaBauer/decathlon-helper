@@ -5,25 +5,33 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.1'
+# MAIN
+gem 'rails'
+gem 'puma'
 gem 'unicode'
-gem 'sqlite3'
-gem 'puma', '~> 3.7'
-gem 'haml'
-gem 'sass-rails', '~> 5.0'
+gem 'jbuilder', '~> 2.5'
 gem 'uglifier', '>= 1.3.0'
+# PREPROCESSORS
+gem 'haml'
+gem 'sass-rails'
+gem 'coffee-rails'
+# DATABASE
+gem 'sqlite3', platforms: :ruby
+gem 'jdbc-sqlite3', platforms: :jruby
+# JS ENGINE
 gem 'therubyracer', platforms: :ruby
 gem 'therubyrhino', platforms: :jruby
-gem 'jquery-rails'
-gem 'coffee-rails', '~> 4.2'
+# JS LIBS
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+# RUBY LIBS
+gem 'nokogiri'
+# ASSETS
 gem 'material_icons'
-gem 'scrollbar-rails'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 3.0'
+# gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -33,6 +41,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   #gem 'capybara', '~> 2.13'
   #gem 'selenium-webdriver'
+  gem 'warbler', platforms: :jruby
 end
 
 group :development do

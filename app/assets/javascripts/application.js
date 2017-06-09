@@ -1,13 +1,10 @@
 /*
 *= require jquery
-*= require jquery_ujs
-*= require turbolinks
-*= require turbolinks-compatibility
-*= require jquery.mCustomScrollbar
+*= require jquery.turbolinks
+*= require rails-ujs
+*  require jquery_ujs
 *= require mdlComponentHandler
-*= require_tree ./mdl
-*= require_tree ./mylib
+*= require ./mdl/main
+*= require_tree ./snippets
+*= require turbolinks
 */
-
-document.addEventListener('turbolinks:load', function() { componentHandler.upgradeDom() })
-$.turbo.use('turbolinks:load', 'turbolinks:request-start')
