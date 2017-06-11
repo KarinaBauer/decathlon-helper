@@ -3,26 +3,23 @@
 - unless @activityClass.include?('api/')
 	%title Decathlon Helper
 	= csrf_meta_tags
+	%meta{name:'turbolinks-cache-control', content:'no-cache'}
 	%meta{name:'viewport', content:'width=device-width, initial-scale=1.0, minimum-scale=1.0'}
 	= favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
 
 - if @activityClass == 'createComparsionTable'
 	= javascript_include_tag 'createComparsionTable', 'data-turbolinks-track': 'reload'
 
-
 - if @activityClass == 'createBalisage'
 	= javascript_include_tag 'createBalisage', 'data-turbolinks-track': 'reload'
 
-
 - if @activityClass == 'print/comparsionTable'
 	= stylesheet_link_tag 'print/comparsionTable', media: 'all', 'data-turbolinks-track': 'reload'
-
 
 - unless @activityClass.include?('print/balisage') or @activityClass.include?('api/')
 
 	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-
 
 - else case @activityClass
 
@@ -49,12 +46,10 @@
 		= stylesheet_link_tag 'print/balisageWideformat', media: 'all', 'data-turbolinks-track': 'reload'
 
 
-
 - unless @activityClass.include?('print')
 	%body
 		= yield
 
-
 - else
-	%body{ onload: 'print()' }
+	%body{onload: 'print()'}
 		= yield
