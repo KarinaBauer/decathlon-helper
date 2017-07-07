@@ -54,7 +54,6 @@ class BalisageController < ApplicationController
 		else	redirect_to '/'; end
 	end
 
-
 	def print
 		#@item = Item.new(item_params)
 		#@item.save
@@ -72,7 +71,6 @@ class BalisageController < ApplicationController
 		end
 
 	end
-
 
 	private
 		def item_params
