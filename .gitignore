@@ -5,8 +5,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/other/*
-/vendor/bundle/*
 /public/uploads/*
 !/log/.keep
 !/tmp/.keep
