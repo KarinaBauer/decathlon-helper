@@ -14,7 +14,7 @@ class BalisageController < ApplicationController
 				avants_block = @page.at_css('.list_avantage')
 
 				unless price_block.nil?
-						@item_price = price_block.text.to_s[0..-4].scan(/\d+/).join.to_s
+						  @item_price = price_block.text.to_s[0..-4].scan(/\d+/).join.to_s
 				else  @item_price = ""
 				end
 
@@ -30,11 +30,11 @@ class BalisageController < ApplicationController
 					@avantages_from_page = []
 
 					avants_block.css('.row').each do |row|
-						picpart = row.at_css("div[class='tablecell pictopart']").at_css('img')
+						picpart = (row.at_css("div[class='tablecell pictopart']").at_css('img')['data-original']).to_s
 						expart = row.at_css("div[class='tablecell explanationpart']")
 
 						unless picpart.nil?
-								@icon = @@rooturl+picpart['src'].to_s
+							  	@icon = @@rooturl + picpart
 						else  @icon = $std_icon
 						end
 
